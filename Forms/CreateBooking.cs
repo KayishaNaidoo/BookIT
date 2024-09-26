@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookITFinal.Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,11 +21,16 @@ namespace BookITFinal.Forms
 
         private void CreateBooking_Load(object sender, EventArgs e)
         {
+         
+            DatabaseHelper dbHelper = new DatabaseHelper();
+
+            DataTable bookingsData = dbHelper.GetBookings("2562592");
+            dgvBookings.DataSource = bookingsData;
+
        
             string[] startTimes = GenerateStartTimes();
             cbxStartTimes.Items.AddRange(startTimes);
 
-        
             if (startTimes.Length > 0)
             {
                 cbxStartTimes.SelectedIndex = 0;
@@ -82,6 +88,16 @@ namespace BookITFinal.Forms
             }
 
             
+
+        }
+
+        private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCreateBooking_Click(object sender, EventArgs e)
+        {
 
         }
     }

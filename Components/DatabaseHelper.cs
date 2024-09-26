@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 
 namespace BookITFinal.Components
@@ -52,8 +54,35 @@ namespace BookITFinal.Components
             string query = $"INSERT INTO Users (UserID, FirstName, LastName, Email, ContactNo, Password, UserType) " +
                            $"VALUES ('{userID}', '{firstName}', '{lastName}', '{email}', '{contactNo}', '{password}', '{UserType}')";
 
-            ExecuteQuery(query); // Use the new ExecuteQuery method to run the SQL command
+            ExecuteQuery(query); 
         }
+
+        public DataTable GetBookings(String UserID)
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT EventType AS [Event Type],Date, Booking.VenueID AS [Venue], BuildingName AS [Building], StartTime AS [Start Time], EndTime AS [End time] " +
+                    "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID "+
+                    "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
+                    $"WHERE Booking.UserID='{UserID}';";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable); // Fill the DataTable with data from the query
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
 
         private void CloseConnection()
         {

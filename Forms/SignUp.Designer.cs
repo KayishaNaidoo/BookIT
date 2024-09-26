@@ -33,6 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSignUp = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.test = new System.Windows.Forms.Button();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.edtPassword = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.edtRoleNum = new TestingIS.Components.BookITTextBox();
             this.edtLastName = new TestingIS.Components.BookITTextBox();
             this.edtFirstName = new TestingIS.Components.BookITTextBox();
-            this.test = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -117,6 +117,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(492, 100);
             this.panel3.TabIndex = 2;
+            // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(407, 44);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 9;
+            this.test.Text = "Test Connection";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Click += new System.EventHandler(this.test_Click);
             // 
             // iconPictureBox1
             // 
@@ -372,16 +382,6 @@
             this.edtFirstName.Size = new System.Drawing.Size(335, 53);
             this.edtFirstName.TabIndex = 0;
             // 
-            // test
-            // 
-            this.test.Location = new System.Drawing.Point(407, 44);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(75, 23);
-            this.test.TabIndex = 9;
-            this.test.Text = "Test Connection";
-            this.test.UseVisualStyleBackColor = true;
-            this.test.Click += new System.EventHandler(this.test_Click);
-            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -413,6 +413,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";
