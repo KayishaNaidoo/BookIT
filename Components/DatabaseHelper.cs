@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookITFinal.Forms;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
@@ -28,6 +29,34 @@ namespace BookITFinal.Components
             }
         }
 
+        public string GetUserType(string userID)
+        {
+            string userType = string.Empty;
+
+            try
+            { 
+                string query = "SELECT UserType FROM Users WHERE UserID = @UserID";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    // Use parameters to prevent SQL injection
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    SQLiteDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        userType = reader["UserType"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return userType; 
+        }
+
+
         public void ExecuteQuery(string query)
         {
             try
@@ -48,6 +77,39 @@ namespace BookITFinal.Components
             }
         }
 
+        public bool Login(string userID, string password)
+        {
+            bool isAuthenticated = false;
+
+            try
+            {
+      
+                string query = $"SELECT COUNT(*) FROM Users WHERE UserID = @UserID AND Password = @Password";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    // Use parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    int userCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    // If userCount>0, the credentials valid
+                    if (userCount > 0)
+                    {
+                        isAuthenticated = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during login: {ex.Message}");
+            }
+
+            return isAuthenticated;
+        }
+
+
         public void CreateUser(string userID, string firstName, string lastName, string email, string contactNo, string password, string UserType)
         {
            
@@ -55,6 +117,7 @@ namespace BookITFinal.Components
                            $"VALUES ('{userID}', '{firstName}', '{lastName}', '{email}', '{contactNo}', '{password}', '{UserType}')";
 
             ExecuteQuery(query); 
+            CloseConnection();
         }
 
         public DataTable GetBookings(String UserID)

@@ -40,11 +40,11 @@ namespace BookITFinal.Forms
         // generate start times from 8:00 till 22:00
         private string[] GenerateStartTimes()
         {
-            string[] startTimes = new string[15];
+            string[] startTimes = new string[14];
             DateTime time = DateTime.Today.AddHours(8); 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 14; i++)
             {
-                startTimes[i] = time.ToString("hh:mm");
+                startTimes[i] = time.ToString("HH:mm");
                 time = time.AddHours(1);
             }
             return startTimes;
@@ -57,12 +57,12 @@ namespace BookITFinal.Forms
         private string[] GenerateEndTimes(DateTime startTime)
         {
             var endTimes = new System.Collections.Generic.List<string>();
-            DateTime maxEndTime = DateTime.Today.AddHours(22); // End at 10 PM
-            DateTime endTime = startTime.AddHours(1); // Start 1 hour after the selected start time
+            DateTime maxEndTime = DateTime.Today.AddHours(22);
+            DateTime endTime = startTime.AddHours(1); 
 
             while (endTime <= maxEndTime)
             {
-                endTimes.Add(endTime.ToString("hh:mm"));
+                endTimes.Add(endTime.ToString("HH:mm"));
                 endTime = endTime.AddHours(1);
             }
 
@@ -72,6 +72,8 @@ namespace BookITFinal.Forms
         private void cbxStartTimes_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxEndTime.Items.Clear();
+            cbxEndTime.Enabled = true;
+
 
 
             string selectedStartTime = cbxStartTimes.SelectedItem.ToString();
@@ -98,7 +100,7 @@ namespace BookITFinal.Forms
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

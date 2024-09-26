@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.pnlNav = new System.Windows.Forms.Panel();
+            this.btnManageUsers = new FontAwesome.Sharp.IconButton();
             this.btnAccount = new FontAwesome.Sharp.IconButton();
             this.btnVenues = new FontAwesome.Sharp.IconButton();
             this.btnBookings = new FontAwesome.Sharp.IconButton();
@@ -39,7 +40,6 @@
             this.lblCurrPage = new System.Windows.Forms.Label();
             this.btnSignOut = new FontAwesome.Sharp.IconPictureBox();
             this.pnlPage = new System.Windows.Forms.Panel();
-            this.btnManageUsers = new FontAwesome.Sharp.IconButton();
             this.pnlNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTitle.SuspendLayout();
@@ -60,6 +60,28 @@
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(264, 782);
             this.pnlNav.TabIndex = 0;
+            // 
+            // btnManageUsers
+            // 
+            this.btnManageUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageUsers.FlatAppearance.BorderSize = 0;
+            this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageUsers.ForeColor = System.Drawing.Color.White;
+            this.btnManageUsers.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btnManageUsers.IconColor = System.Drawing.Color.White;
+            this.btnManageUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnManageUsers.IconSize = 30;
+            this.btnManageUsers.Location = new System.Drawing.Point(0, 327);
+            this.btnManageUsers.Name = "btnManageUsers";
+            this.btnManageUsers.Size = new System.Drawing.Size(264, 55);
+            this.btnManageUsers.TabIndex = 5;
+            this.btnManageUsers.Text = "Manage";
+            this.btnManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageUsers.UseVisualStyleBackColor = true;
+            this.btnManageUsers.Visible = false;
+            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
             // btnAccount
             // 
@@ -204,26 +226,6 @@
             this.pnlPage.Name = "pnlPage";
             this.pnlPage.Size = new System.Drawing.Size(1236, 701);
             this.pnlPage.TabIndex = 1;
-            // 
-            // btnManageUsers
-            // 
-            this.btnManageUsers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManageUsers.FlatAppearance.BorderSize = 0;
-            this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageUsers.ForeColor = System.Drawing.Color.White;
-            this.btnManageUsers.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.btnManageUsers.IconColor = System.Drawing.Color.White;
-            this.btnManageUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnManageUsers.IconSize = 30;
-            this.btnManageUsers.Location = new System.Drawing.Point(0, 327);
-            this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(264, 55);
-            this.btnManageUsers.TabIndex = 5;
-            this.btnManageUsers.Text = "Manage";
-            this.btnManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnManageUsers.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 

@@ -76,6 +76,7 @@
             this.iconButton2.Text = "LOG IN";
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // pictureBox1
             // 

@@ -81,6 +81,18 @@
       <DependentUpon>BookITTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\DatabaseHelper.cs" />
+    <Compile Include="Forms\Bookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bookings.Designer.cs">
+      <DependentUpon>Bookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CreateBooking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,8 +146,17 @@
     <EmbeddedResource Include="Components\BookITTextBox.resx">
       <DependentUpon>BookITTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bookings.resx">
+      <DependentUpon>Bookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CreateBooking.resx">
       <DependentUpon>CreateBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeS.resx">
       <DependentUpon>WelcomeS.cs</DependentUpon>

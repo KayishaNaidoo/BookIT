@@ -1,9 +1,11 @@
 ﻿using BookITFinal.Colors;
+using BookITFinal.Components;
 using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -17,6 +19,7 @@ namespace BookITFinal.Forms
     {
         private IconButton currButton;
         private Form currPage;
+        private String UserType;
 
 
         // Make rounded edges
@@ -29,7 +32,7 @@ namespace BookITFinal.Forms
             int nWidthEllipse,  // height
             int nHeightEllipse  // width
         );
-        public MainPage()
+        public MainPage(string userID)
         {
             InitializeComponent();
             //Making rounded Edges
@@ -39,6 +42,14 @@ namespace BookITFinal.Forms
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+
+            DatabaseHelper dbHelper= new DatabaseHelper();
+            UserType=dbHelper.GetUserType(userID);
+            MessageBox.Show($"User type is : {UserType}");
+            if( UserType == "Admin" ) {
+                btnManageUsers.Visible = true;
+            }
+            
         }
 
         private void ActivatedButton(object senderBtn)
@@ -70,14 +81,14 @@ namespace BookITFinal.Forms
         private void btnBookings_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnBookings);
-            //openPage(new Calendar());
+            openPage(new Calendar());
 
         }
 
         private void btnVenues_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnVenues);
-            openPage(new CreateBooking());
+            openPage(new Bookings());
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -132,6 +143,12 @@ namespace BookITFinal.Forms
         {
             btnSignOut.ForeColor = Color.White;
 
+        }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            ActivatedButton(btnManageUsers);
+            openPage(new CreateBooking());
         }
     }
 }

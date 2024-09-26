@@ -20,9 +20,17 @@ namespace BookITFinal
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Form mainF = new MainPage();
+            Form mainF = new MainPage("2615475");
             mainF.Show();
             this.Hide();    
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            Form logIn = new Login();
+            logIn.Show();
+            this.Hide();
+
         }
     }
 }
