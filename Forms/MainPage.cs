@@ -45,7 +45,7 @@ namespace BookITFinal.Forms
 
             DatabaseHelper dbHelper= new DatabaseHelper();
             UserType=dbHelper.GetUserType(userID);
-            MessageBox.Show($"User type is : {UserType}");
+           // MessageBox.Show($"User type is : {UserType}");
             if( UserType == "Admin" ) {
                 btnManageUsers.Visible = true;
             }

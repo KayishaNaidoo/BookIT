@@ -81,6 +81,18 @@
       <DependentUpon>BookITTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\DatabaseHelper.cs" />
+    <Compile Include="Components\UserControlBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UserControlBlank.Designer.cs">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UserControlDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UserControlDay.Designer.cs">
+      <DependentUpon>UserControlDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Bookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\BookITTextBox.resx">
       <DependentUpon>BookITTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserControlBlank.resx">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserControlDay.resx">
+      <DependentUpon>UserControlDay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Bookings.resx">
       <DependentUpon>Bookings.cs</DependentUpon>
