@@ -85,6 +85,7 @@
             // 
             // btnAccount
             // 
+            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAccount.FlatAppearance.BorderSize = 0;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,7 +96,7 @@
             this.btnAccount.IconSize = 30;
             this.btnAccount.Location = new System.Drawing.Point(0, 727);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(356, 55);
+            this.btnAccount.Size = new System.Drawing.Size(264, 55);
             this.btnAccount.TabIndex = 4;
             this.btnAccount.Text = "Account";
             this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

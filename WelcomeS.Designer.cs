@@ -91,13 +91,14 @@
             // 
             // WelcomeScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(731, 618);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WelcomeScreen";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
