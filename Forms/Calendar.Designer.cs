@@ -44,10 +44,11 @@
             // 
             // flpDays
             // 
-            this.flpDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(50)))), ((int)(((byte)(98)))));
+            this.flpDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            this.flpDays.ForeColor = System.Drawing.Color.White;
             this.flpDays.Location = new System.Drawing.Point(32, 120);
             this.flpDays.Name = "flpDays";
-            this.flpDays.Size = new System.Drawing.Size(851, 554);
+            this.flpDays.Size = new System.Drawing.Size(848, 546);
             this.flpDays.TabIndex = 1;
             // 
             // btnPrev
