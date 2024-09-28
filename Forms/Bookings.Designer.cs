@@ -39,8 +39,8 @@
             this.btnCreateBooking.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateBooking.IconColor = System.Drawing.Color.Black;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateBooking.Location = new System.Drawing.Point(854, 52);
-            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateBooking.Location = new System.Drawing.Point(413, 234);
+            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(310, 118);
             this.btnCreateBooking.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.ClientSize = new System.Drawing.Size(1218, 654);
             this.Controls.Add(this.btnCreateBooking);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Bookings";
             this.Text = "Bookings";
             this.ResumeLayout(false);
