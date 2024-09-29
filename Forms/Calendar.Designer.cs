@@ -46,7 +46,7 @@
             // 
             this.flpDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.flpDays.ForeColor = System.Drawing.Color.White;
-            this.flpDays.Location = new System.Drawing.Point(32, 120);
+            this.flpDays.Location = new System.Drawing.Point(200, 127);
             this.flpDays.Name = "flpDays";
             this.flpDays.Size = new System.Drawing.Size(848, 546);
             this.flpDays.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.btnPrev.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
             this.btnPrev.IconColor = System.Drawing.Color.White;
             this.btnPrev.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrev.Location = new System.Drawing.Point(887, 632);
+            this.btnPrev.Location = new System.Drawing.Point(134, 127);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(60, 42);
             this.btnPrev.TabIndex = 2;
@@ -79,7 +79,7 @@
             this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
             this.btnNext.IconColor = System.Drawing.Color.White;
             this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNext.Location = new System.Drawing.Point(937, 632);
+            this.btnNext.Location = new System.Drawing.Point(1054, 127);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(60, 42);
             this.btnNext.TabIndex = 3;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 83);
+            this.label1.Location = new System.Drawing.Point(350, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 23);
             this.label1.TabIndex = 4;
@@ -100,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 83);
+            this.label2.Location = new System.Drawing.Point(473, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 23);
             this.label2.TabIndex = 5;
@@ -109,7 +109,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(425, 83);
+            this.label3.Location = new System.Drawing.Point(593, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 6;
@@ -118,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(551, 83);
+            this.label4.Location = new System.Drawing.Point(719, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 23);
             this.label4.TabIndex = 7;
@@ -127,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(678, 83);
+            this.label5.Location = new System.Drawing.Point(846, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 23);
             this.label5.TabIndex = 8;
@@ -136,7 +136,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 83);
+            this.label6.Location = new System.Drawing.Point(235, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 23);
             this.label6.TabIndex = 9;
@@ -145,7 +145,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(797, 83);
+            this.label7.Location = new System.Drawing.Point(965, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 23);
             this.label7.TabIndex = 10;
@@ -153,9 +153,14 @@
             // 
             // lblMonthYear
             // 
+            this.lblMonthYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMonthYear.AutoSize = true;
             this.lblMonthYear.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthYear.Location = new System.Drawing.Point(380, 18);
+            this.lblMonthYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
+            this.lblMonthYear.Location = new System.Drawing.Point(504, 26);
+            this.lblMonthYear.Margin = new System.Windows.Forms.Padding(10);
             this.lblMonthYear.Name = "lblMonthYear";
             this.lblMonthYear.Size = new System.Drawing.Size(215, 34);
             this.lblMonthYear.TabIndex = 11;
@@ -165,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1236, 701);
             this.Controls.Add(this.lblMonthYear);
             this.Controls.Add(this.label7);

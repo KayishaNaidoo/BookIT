@@ -38,6 +38,7 @@
             this.btnLogin = new FontAwesome.Sharp.IconButton();
             this.edtRoleNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconEyePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
@@ -46,10 +47,9 @@
             // 
             // imgLogo
             // 
-            this.imgLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
             this.imgLogo.Location = new System.Drawing.Point(0, 0);
-            this.imgLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgLogo.Margin = new System.Windows.Forms.Padding(4);
             this.imgLogo.Name = "imgLogo";
             this.imgLogo.Size = new System.Drawing.Size(490, 225);
             this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,12 +115,14 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.IconChar = FontAwesome.Sharp.IconChar.SignIn;
             this.btnLogin.IconColor = System.Drawing.Color.White;
-            this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnLogin.Location = new System.Drawing.Point(173, 477);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(137, 56);
@@ -129,13 +131,15 @@
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.MouseEnter += new System.EventHandler(this.btnLogin_MouseEnter);
+            this.btnLogin.MouseLeave += new System.EventHandler(this.btnLogin_MouseLeave);
             // 
             // edtRoleNumber
             // 
             this.edtRoleNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edtRoleNumber.Location = new System.Drawing.Point(100, 311);
             this.edtRoleNumber.Name = "edtRoleNumber";
-            this.edtRoleNumber.Size = new System.Drawing.Size(338, 32);
+            this.edtRoleNumber.Size = new System.Drawing.Size(335, 32);
             this.edtRoleNumber.TabIndex = 0;
             // 
             // label1
@@ -149,6 +153,24 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Student / Employee Number:\r\n";
             // 
+            // btnBack
+            // 
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
+            this.btnBack.IconColor = System.Drawing.Color.White;
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnBack.Location = new System.Drawing.Point(0, 572);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(52, 44);
+            this.btnBack.TabIndex = 31;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -156,6 +178,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(490, 616);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.edtRoleNumber);
             this.Controls.Add(this.btnLogin);
@@ -168,7 +191,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -192,5 +215,6 @@
         private FontAwesome.Sharp.IconButton btnLogin;
         private System.Windows.Forms.TextBox edtRoleNumber;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btnBack;
     }
 }

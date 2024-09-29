@@ -3,6 +3,10 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace BookITFinal.Components
 {
@@ -20,7 +24,6 @@ namespace BookITFinal.Components
             {
                 con.Open();
                 Console.WriteLine("DB connection successful");
-                ExecuteQuery("SELECT * FROM Users");
 
             }
             catch (Exception ex)
@@ -69,11 +72,14 @@ namespace BookITFinal.Components
                     {
                         Console.WriteLine(dataReader.GetString(1));
                     }
+                   
                 }
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Query execution failed: {ex.Message}");
+            
             }
         }
 
@@ -120,6 +126,8 @@ namespace BookITFinal.Components
             CloseConnection();
         }
 
+       
+
         public DataTable GetBookings(String UserID)
         {
             DataTable bookingsTable = new DataTable();
@@ -134,9 +142,41 @@ namespace BookITFinal.Components
                 {
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
                     {
-                        adapter.Fill(bookingsTable); // Fill the DataTable with data from the query
+                        adapter.Fill(bookingsTable); 
                     }
                 }
+
+                CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
+   
+
+        public DataTable GetChart(string UserId)
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT VenueID, COUNT(DISTINCT BookingID) FROM Booking " +
+                                $"WHERE UserID = '{UserId}' " +
+                                "GROUP BY VenueID " +
+                                "ORDER BY COUNT(DISTINCT BookingID) DESC; ";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+                CloseConnection();
             }
             catch (Exception ex)
             {
@@ -147,7 +187,44 @@ namespace BookITFinal.Components
         }
 
 
-        private void CloseConnection()
+        public string[] GetVenues(int minCapacity, int maxCapacity)
+        {
+            List<string> results = new List<string>();
+
+            try
+            {
+                string query = "SELECT Venue.VenueID, Building.BuildingName" +
+                    " FROM Venue JOIN Building ON Venue.BuildingID = Building.BuildingID " +
+                    "WHERE Venue.Capacity BETWEEN {10} AND 50 ;";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Combine VenueID and BuildingName into a single string
+                            string venueInfo = $"{reader["VenueID"]} - {reader["BuildingName"]}";
+                            results.Add(venueInfo);
+                        }
+                    }
+                }
+
+                CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching venues: {ex.Message}");
+            }
+
+            // Convert the List to a normal array
+            return results.ToArray();
+        }
+
+
+
+
+        public void CloseConnection()
         {
             if (con != null && con.State == System.Data.ConnectionState.Open)
             {

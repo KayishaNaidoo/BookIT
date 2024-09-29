@@ -48,7 +48,8 @@
             // 
             // pnlNav
             // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            this.pnlNav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlNav.Controls.Add(this.btnManageUsers);
             this.pnlNav.Controls.Add(this.btnAccount);
             this.pnlNav.Controls.Add(this.btnVenues);
@@ -216,6 +217,7 @@
             this.btnSignOut.Size = new System.Drawing.Size(32, 32);
             this.btnSignOut.TabIndex = 3;
             this.btnSignOut.TabStop = false;
+            this.btnSignOut.MouseEnter += new System.EventHandler(this.btnSignOut_MouseEnter);
             this.btnSignOut.MouseLeave += new System.EventHandler(this.btnSignOut_MouseLeave);
             this.btnSignOut.MouseHover += new System.EventHandler(this.btnSignOut_MouseHover);
             // 

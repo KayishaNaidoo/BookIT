@@ -81,6 +81,7 @@
       <DependentUpon>BookITTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\DatabaseHelper.cs" />
+    <Compile Include="Components\LoggedInUser.cs" />
     <Compile Include="Components\UserControlBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentDashboard.resx">
+      <DependentUpon>StudentDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeS.resx">
       <DependentUpon>WelcomeS.cs</DependentUpon>

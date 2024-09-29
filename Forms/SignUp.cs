@@ -1,4 +1,5 @@
-﻿using BookITFinal.Components;
+﻿using BookITFinal.Colors;
+using BookITFinal.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -272,6 +273,35 @@ namespace BookITFinal.Forms
         private void test_Click(object sender, EventArgs e)
         {
                       
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form WS = new WelcomeScreen();
+            this.Close();
+            WS.Show();
+        }
+
+        private void btnBack_MouseEnter(object sender, EventArgs e)
+        {
+            btnBack.IconColor = AppColors.AppPurple;
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.IconColor = Color.White;
+        }
+
+        private void btnSignUp_MouseEnter(object sender, EventArgs e)
+        {
+            btnSignUp.ForeColor = AppColors.AppPurple;
+            btnSignUp.IconColor = AppColors.AppPurple;
+        }
+
+        private void btnSignUp_MouseLeave(object sender, EventArgs e)
+        {
+            btnSignUp.ForeColor = Color.White;
+            btnSignUp.IconColor = Color.White;
         }
     }
 }

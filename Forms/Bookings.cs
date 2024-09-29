@@ -12,14 +12,16 @@ namespace BookITFinal.Forms
 {
     public partial class Bookings : Form
     {
-        public Bookings()
+        String UserIDF;
+        public Bookings(String UserID)
         {
             InitializeComponent();
+            UserIDF= UserID;
         }
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            Form CreateB = new CreateBooking();
+            Form CreateB = new CreateBooking(DateTime.Today, UserIDF);
             CreateB.Show();
             
         }
