@@ -157,5 +157,13 @@ namespace BookITFinal.Forms
         {
             btnSignOut.ForeColor = AppColors.AppPurple;
         }
+
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Form WS = new WelcomeScreen();
+            WS.Show();
+            this.Close();
+
+        }
     }
 }

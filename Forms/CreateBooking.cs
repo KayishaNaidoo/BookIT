@@ -154,8 +154,6 @@ namespace BookITFinal.Forms
             }
 
 
-
-
             DatabaseHelper dbHelper = new DatabaseHelper();
             string[] venues = dbHelper.GetVenues( min, max);
             cbxAvailableVenues.Items.Clear();
@@ -168,6 +166,8 @@ namespace BookITFinal.Forms
                     cbxAvailableVenues.Items.Add(displayText);
                 }
             }
+
+            cbxAvailableVenues.Enabled=true;
         }
     }
 }

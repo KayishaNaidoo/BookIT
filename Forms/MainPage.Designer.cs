@@ -217,6 +217,7 @@
             this.btnSignOut.Size = new System.Drawing.Size(32, 32);
             this.btnSignOut.TabIndex = 3;
             this.btnSignOut.TabStop = false;
+            this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
             this.btnSignOut.MouseEnter += new System.EventHandler(this.btnSignOut_MouseEnter);
             this.btnSignOut.MouseLeave += new System.EventHandler(this.btnSignOut_MouseLeave);
             this.btnSignOut.MouseHover += new System.EventHandler(this.btnSignOut_MouseHover);

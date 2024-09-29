@@ -146,7 +146,7 @@ namespace BookITFinal.Components
 
             try
             {
-                string query = "SELECT EventType AS [Event Type],Date, Booking.VenueID AS [Venue], BuildingName AS [Building], StartTime AS [Start Time], EndTime AS [End time] " +
+                string query = "SELECT EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
                     "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID "+
                     "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
                     $"WHERE Booking.UserID='{UserID}';";

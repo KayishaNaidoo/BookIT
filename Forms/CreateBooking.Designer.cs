@@ -335,6 +335,7 @@
             // 
             this.cbxAvailableVenues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.cbxAvailableVenues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxAvailableVenues.Enabled = false;
             this.cbxAvailableVenues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAvailableVenues.ForeColor = System.Drawing.Color.White;
             this.cbxAvailableVenues.FormattingEnabled = true;
@@ -378,7 +379,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(654, 791);
+            this.ClientSize = new System.Drawing.Size(634, 791);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cbxAvailableVenues);
