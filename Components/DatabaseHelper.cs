@@ -7,6 +7,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using static System.Data.Entity.Infrastructure.Design.Executor;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BookITFinal.Components
 {
@@ -42,13 +44,15 @@ namespace BookITFinal.Components
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
                     // Use parameters to prevent SQL injection
-                    command.Parameters.AddWithValue("@UserID", userID);
-                    SQLiteDataReader reader = command.ExecuteReader();
-
-                    if (reader.Read())
+                    command.Parameters.AddWithValue("@UserID", userID);                   
+                    using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        userType = reader["UserType"].ToString();
+                        if (reader.Read())
+                        {
+                            userType = reader["UserType"].ToString();
+                        }
                     }
+
                 }
             }
             catch (Exception ex)
@@ -66,14 +70,15 @@ namespace BookITFinal.Components
             {
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
-                    SQLiteDataReader dataReader = command.ExecuteReader();
-
-                    while (dataReader.Read())
+                    using (SQLiteDataReader dataReader = command.ExecuteReader())
                     {
-                        Console.WriteLine(dataReader.GetString(1));
+                        while (dataReader.Read())
+                        {
+                            Console.WriteLine(dataReader.GetString(1));
+                        }
                     }
-                   
                 }
+
 
             }
             catch (Exception ex)
@@ -115,15 +120,22 @@ namespace BookITFinal.Components
             return isAuthenticated;
         }
 
-
+        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
         public void CreateUser(string userID, string firstName, string lastName, string email, string contactNo, string password, string UserType)
         {
            
             string query = $"INSERT INTO Users (UserID, FirstName, LastName, Email, ContactNo, Password, UserType) " +
                            $"VALUES ('{userID}', '{firstName}', '{lastName}', '{email}', '{contactNo}', '{password}', '{UserType}')";
 
-            ExecuteQuery(query); 
-            CloseConnection();
+             try { 
+                ExecuteQuery(query);
+                MessageBox.Show("Sign Up Sucessful");
+            }
+            catch
+            {
+                MessageBox.Show("Sign Up Unsucessful due to unknown erros.");
+            }
+      
         }
 
        
@@ -146,7 +158,7 @@ namespace BookITFinal.Components
                     }
                 }
 
-                CloseConnection();
+          
             }
             catch (Exception ex)
             {
@@ -167,7 +179,8 @@ namespace BookITFinal.Components
                 string query = "SELECT VenueID, COUNT(DISTINCT BookingID) FROM Booking " +
                                 $"WHERE UserID = '{UserId}' " +
                                 "GROUP BY VenueID " +
-                                "ORDER BY COUNT(DISTINCT BookingID) DESC; ";
+                                "ORDER BY COUNT(DISTINCT BookingID) DESC " +
+                                "LIMIT 5; ";
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
@@ -176,7 +189,6 @@ namespace BookITFinal.Components
                     }
                 }
 
-                CloseConnection();
             }
             catch (Exception ex)
             {
@@ -185,6 +197,51 @@ namespace BookITFinal.Components
 
             return bookingsTable;
         }
+
+        public string[] GetUserDetails(string UserID)
+        {
+            string[] userDetails = new string[4];
+
+            try
+            {
+                string query = "SELECT FirstName, LastName, Email, ContactNo " +
+                               $"FROM Users WHERE UserID = '{UserID}';";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userDetails[0] = reader["FirstName"].ToString();
+                            userDetails[1] = reader["LastName"].ToString();
+                            userDetails[2] = reader["Email"].ToString();
+                            userDetails[3] = reader["ContactNo"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user details: {ex.Message}");
+            }
+
+            return userDetails;
+        }
+
+
+        public void EditFName(string UserId, string newFName)
+        {
+            string query = $"UPDATE Users SET FirstName = '{newFName}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);   
+        }
+
+        public void EditLName(string UserId, string newLName)
+        {
+            string query = $"UPDATE Users SET LastName = '{newLName}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
 
 
         public string[] GetVenues(int minCapacity, int maxCapacity)
@@ -195,7 +252,7 @@ namespace BookITFinal.Components
             {
                 string query = "SELECT Venue.VenueID, Building.BuildingName" +
                     " FROM Venue JOIN Building ON Venue.BuildingID = Building.BuildingID " +
-                    "WHERE Venue.Capacity BETWEEN {10} AND 50 ;";
+                    $"WHERE Venue.Capacity BETWEEN {minCapacity} AND {maxCapacity} ;";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
@@ -203,14 +260,13 @@ namespace BookITFinal.Components
                     {
                         while (reader.Read())
                         {
+
                             // Combine VenueID and BuildingName into a single string
                             string venueInfo = $"{reader["VenueID"]} - {reader["BuildingName"]}";
                             results.Add(venueInfo);
                         }
                     }
                 }
-
-                CloseConnection();
             }
             catch (Exception ex)
             {

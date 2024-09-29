@@ -107,9 +107,7 @@ namespace BookITFinal.Forms
         {
             //Account Button code
             ActivatedButton(btnAccount);
-            Form signup = new SignUp();
-            signup.Show();
-            this.Hide();
+            openPage(new Account(UserIDF));
 
         }
 

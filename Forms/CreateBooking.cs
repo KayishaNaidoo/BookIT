@@ -26,9 +26,10 @@ namespace BookITFinal.Forms
         private void CreateBooking_Load(object sender, EventArgs e)
         {
 
+            dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
             //@Liam and Colby: This is just a table to play around with queries and it shows it
 
-            dtpBookingDate.Value = BookingDateF;
+            dtpBookingDate.Value = BookingDateF.AddDays(2);
 
             string[] startTimes = GenerateStartTimes();
             cbxStartTimes.Items.AddRange(startTimes);

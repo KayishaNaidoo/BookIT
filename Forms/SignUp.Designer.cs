@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUp));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSignUp = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,11 +51,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlFields = new System.Windows.Forms.Panel();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.edtFirstName = new TestingIS.Components.BookITTextBox();
             this.edtLastName = new TestingIS.Components.BookITTextBox();
             this.edtRoleNum = new TestingIS.Components.BookITTextBox();
-            this.bookITTextBox4 = new TestingIS.Components.BookITTextBox();
             this.edtEmail = new TestingIS.Components.BookITTextBox();
             this.edtPhoneNo = new TestingIS.Components.BookITTextBox();
             this.panel1.SuspendLayout();
@@ -82,6 +81,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(499, 137);
             this.panel1.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
+            this.btnBack.IconColor = System.Drawing.Color.White;
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnBack.Location = new System.Drawing.Point(26, 51);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(41, 48);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -322,7 +338,6 @@
             this.pnlFields.Controls.Add(this.iconEyeRePas);
             this.pnlFields.Controls.Add(this.edtRoleNum);
             this.pnlFields.Controls.Add(this.iconEyePass);
-            this.pnlFields.Controls.Add(this.bookITTextBox4);
             this.pnlFields.Controls.Add(this.iconPictureBox3);
             this.pnlFields.Controls.Add(this.edtEmail);
             this.pnlFields.Controls.Add(this.label1);
@@ -341,23 +356,6 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(499, 622);
             this.pnlFields.TabIndex = 26;
-            // 
-            // btnBack
-            // 
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            this.btnBack.IconColor = System.Drawing.Color.White;
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btnBack.Location = new System.Drawing.Point(26, 51);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(41, 48);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
-            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
             // 
             // edtFirstName
             // 
@@ -391,17 +389,6 @@
             this.edtRoleNum.password = false;
             this.edtRoleNum.Size = new System.Drawing.Size(335, 53);
             this.edtRoleNum.TabIndex = 3;
-            // 
-            // bookITTextBox4
-            // 
-            this.bookITTextBox4.BackColor = System.Drawing.Color.White;
-            this.bookITTextBox4.customText = "Phone Number:";
-            this.bookITTextBox4.Location = new System.Drawing.Point(102, 386);
-            this.bookITTextBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bookITTextBox4.Name = "bookITTextBox4";
-            this.bookITTextBox4.password = false;
-            this.bookITTextBox4.Size = new System.Drawing.Size(335, 53);
-            this.bookITTextBox4.TabIndex = 6;
             // 
             // edtEmail
             // 
@@ -468,7 +455,6 @@
         private TestingIS.Components.BookITTextBox edtFirstName;
         private TestingIS.Components.BookITTextBox edtLastName;
         private TestingIS.Components.BookITTextBox edtRoleNum;
-        private TestingIS.Components.BookITTextBox bookITTextBox4;
         private TestingIS.Components.BookITTextBox edtEmail;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
