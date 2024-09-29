@@ -20,9 +20,10 @@ namespace BookITFinal
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Form mainF = new MainPage("2615475");
-            mainF.Show();
-            this.Hide();    
+            //SignUp button
+            Form signup= new SignUp();
+            signup.Show();
+            this.Hide();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -30,6 +31,18 @@ namespace BookITFinal
             Form logIn = new Login();
             logIn.Show();
             this.Hide();
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Form DB = new MainPage("2562592");
+            DB.Show();
+            this.Hide();
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
 
         }
     }

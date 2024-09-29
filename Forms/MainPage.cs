@@ -20,6 +20,7 @@ namespace BookITFinal.Forms
         private IconButton currButton;
         private Form currPage;
         private String UserType;
+        private String UserIDF;
 
 
         // Make rounded edges
@@ -44,6 +45,7 @@ namespace BookITFinal.Forms
             this.DoubleBuffered = true;
 
             DatabaseHelper dbHelper= new DatabaseHelper();
+            UserIDF = userID;
             UserType=dbHelper.GetUserType(userID);
            // MessageBox.Show($"User type is : {UserType}");
             if( UserType == "Admin" ) {
@@ -58,7 +60,7 @@ namespace BookITFinal.Forms
             if (senderBtn != null)
             {
                 currButton = (IconButton)senderBtn;
-                currButton.BackColor = AppColors.AppPurple;
+                currButton.BackColor = AppColors.navColor;
                 lblCurrPage.Text = currButton.Text;
 
             }
@@ -68,14 +70,17 @@ namespace BookITFinal.Forms
         {
             if (currButton != null)
             {
-                currButton.BackColor = AppColors.navColor;
+                currButton.BackColor = AppColors.UIDark;
             }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+
             ActivatedButton(btnDashboard);
-            openPage(new AdminDashboard());
+            if (UserType == "Student") { 
+                openPage(new StudentDashboard(UserIDF)); }
+            
         }
 
         private void btnBookings_Click(object sender, EventArgs e)
@@ -88,7 +93,7 @@ namespace BookITFinal.Forms
         private void btnVenues_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnVenues);
-            openPage(new Bookings());
+            openPage(new Bookings(UserIDF));
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -102,9 +107,7 @@ namespace BookITFinal.Forms
         {
             //Account Button code
             ActivatedButton(btnAccount);
-            Form signup = new SignUp();
-            signup.Show();
-            this.Hide();
+            openPage(new Account(UserIDF));
 
         }
 
@@ -135,7 +138,6 @@ namespace BookITFinal.Forms
 
         private void btnSignOut_MouseHover(object sender, EventArgs e)
         {
-            btnSignOut.ForeColor = AppColors.AppPurple;
 
         }
 
@@ -148,7 +150,20 @@ namespace BookITFinal.Forms
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnManageUsers);
-            openPage(new CreateBooking());
+            
+        }
+
+        private void btnSignOut_MouseEnter(object sender, EventArgs e)
+        {
+            btnSignOut.ForeColor = AppColors.AppPurple;
+        }
+
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Form WS = new WelcomeScreen();
+            WS.Show();
+            this.Close();
+
         }
     }
 }
