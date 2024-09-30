@@ -51,7 +51,13 @@ namespace BookITFinal.Forms
             if( UserType == "Admin" ) {
                 btnManageUsers.Visible = true;
             }
-            
+
+            // Nakai added this
+            if (UserType == "Student")
+            {
+                btnVenueDirectory.Visible = true;
+            }
+
         }
 
         private void ActivatedButton(object senderBtn)
@@ -164,6 +170,13 @@ namespace BookITFinal.Forms
             WS.Show();
             this.Close();
 
+        }
+
+        // Nakai added this 
+        private void btnVenueDirectory_Click(object sender, EventArgs e)
+        {
+            ActivatedButton(btnVenueDirectory);
+            openPage(new VenueDirectory());
         }
     }
 }
