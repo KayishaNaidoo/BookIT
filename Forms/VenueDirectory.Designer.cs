@@ -32,6 +32,7 @@
             this.VenueSearchBox1 = new System.Windows.Forms.TextBox();
             this.dgvVenue1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenue1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,11 +40,16 @@
             // 
             this.VenueFilterMenu1.FormattingEnabled = true;
             this.VenueFilterMenu1.Items.AddRange(new object[] {
-            "Venue Capacity : 2-10",
-            "Venue Capacity : 11-50",
-            "Venue Capacity : 51-100",
-            "Venue Capacity : 100-300",
-            "Venue Capacity : 300+",
+            "Capacity : 2-10",
+            "Capacity : 11-50",
+            "Capacity : 51-100",
+            "Capacity : 100-300",
+            "Capacity : 300+",
+            "",
+            "Category : THEATRE",
+            "Category : TUTORIAL",
+            "Category : MEETING",
+            "Category : EXAM",
             "",
             "Equipment : Projector",
             "Equipment : Microphone",
@@ -56,24 +62,20 @@
             "Equipment : Television",
             "Equipment : Plugs",
             "Equipment : Airconditioners",
-            "",
-            "Category : THEATRE",
-            "Category : TUTORIAL",
-            "Category : MEETING",
-            "Category : EXAM"});
-            this.VenueFilterMenu1.Location = new System.Drawing.Point(524, 112);
+            ""});
+            this.VenueFilterMenu1.Location = new System.Drawing.Point(555, 134);
             this.VenueFilterMenu1.Name = "VenueFilterMenu1";
             this.VenueFilterMenu1.Size = new System.Drawing.Size(207, 21);
             this.VenueFilterMenu1.TabIndex = 7;
             this.VenueFilterMenu1.Text = "Filter ";
+            this.VenueFilterMenu1.SelectedIndexChanged += new System.EventHandler(this.VenueFilterMenu1_SelectedIndexChanged);
             // 
             // VenueSearchBox1
             // 
-            this.VenueSearchBox1.Location = new System.Drawing.Point(69, 113);
+            this.VenueSearchBox1.Location = new System.Drawing.Point(211, 135);
             this.VenueSearchBox1.Name = "VenueSearchBox1";
-            this.VenueSearchBox1.Size = new System.Drawing.Size(278, 20);
+            this.VenueSearchBox1.Size = new System.Drawing.Size(256, 20);
             this.VenueSearchBox1.TabIndex = 6;
-            this.VenueSearchBox1.Text = "Search";
             this.VenueSearchBox1.TextChanged += new System.EventHandler(this.VenueSearchBox1_TextChanged);
             // 
             // dgvVenue1
@@ -90,7 +92,7 @@
             this.dgvVenue1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenue1.Location = new System.Drawing.Point(69, 168);
             this.dgvVenue1.Name = "dgvVenue1";
-            this.dgvVenue1.Size = new System.Drawing.Size(662, 252);
+            this.dgvVenue1.Size = new System.Drawing.Size(835, 324);
             this.dgvVenue1.TabIndex = 5;
             // 
             // label1
@@ -98,20 +100,33 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(303, 30);
+            this.label1.Location = new System.Drawing.Point(383, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 48);
             this.label1.TabIndex = 4;
             this.label1.Text = "Venue Directory";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(140, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 26);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Search";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // VenueDirectory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.VenueFilterMenu1);
+            this.ClientSize = new System.Drawing.Size(973, 522);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.VenueSearchBox1);
+            this.Controls.Add(this.VenueFilterMenu1);
             this.Controls.Add(this.dgvVenue1);
             this.Controls.Add(this.label1);
             this.Name = "VenueDirectory";
@@ -128,5 +143,6 @@
         private System.Windows.Forms.TextBox VenueSearchBox1;
         private System.Windows.Forms.DataGridView dgvVenue1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
