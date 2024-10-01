@@ -32,7 +32,6 @@ namespace BookITFinal.Forms
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
             
-
             DataTable bookingsData = dbHelper.GetBookings(UserIDF);
             dgvBookings.DataSource = bookingsData;
             PopulateChart(UserIDF);

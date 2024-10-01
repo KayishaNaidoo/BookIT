@@ -168,7 +168,59 @@ namespace BookITFinal.Components
             return bookingsTable;
         }
 
+
+        public DataTable FilterVenues(string category, int minCapacity, int maxCapacity, string equipment)
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT v.VenueID AS [Venue], v.Capacity, v.Category, b.BuildingName AS [Building Name], " +
+                               "GROUP_CONCAT(e.EquipmentName) AS [Equipment List] " +
+                               "FROM Venue v " +
+                               "JOIN Building b ON v.BuildingID = b.BuildingID " +
+                               "JOIN VenueEquipment ve ON v.VenueID = ve.VenueID " +
+                               "JOIN Equipment e ON ve.EquipmentID = e.EquipmentID ";
+
+                if (category != "All Venues")
+                {
+                    query += "WHERE v.Category = @category ";
+                }
+
+                query += "AND v.Capacity BETWEEN @minCapacity AND @maxCapacity " +
+                         "GROUP BY v.VenueID " +
+                         "HAVING [Equipment List] LIKE '%' || @equipment || '%';";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
    
+                    if (category != "All Venues")
+                    {
+                        command.Parameters.AddWithValue("@category", category);
+                    }
+
+       
+                    command.Parameters.AddWithValue("@minCapacity", minCapacity);
+                    command.Parameters.AddWithValue("@maxCapacity", maxCapacity);
+                    command.Parameters.AddWithValue("@equipment", equipment);
+
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching venues: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
+
+
+
 
         public DataTable GetChart(string UserId)
         {

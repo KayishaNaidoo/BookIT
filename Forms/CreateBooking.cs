@@ -117,7 +117,7 @@ namespace BookITFinal.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            //@Liam-- Remove this button and change it to make it update on change
             //@Colby & Liam: THis is just to filter the venues to the combobox
             //This only works sometimes for some reason. Keeps saying "Database is closed" when it doesnt work
             //Please do the equipment filtering stuff

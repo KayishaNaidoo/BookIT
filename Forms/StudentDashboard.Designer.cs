@@ -69,7 +69,7 @@
             this.cPastBookings.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.cPastBookings.Legends.Add(legend1);
-            this.cPastBookings.Location = new System.Drawing.Point(705, 347);
+            this.cPastBookings.Location = new System.Drawing.Point(684, 336);
             this.cPastBookings.Name = "cPastBookings";
             this.cPastBookings.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.cPastBookings.PaletteCustomColors = new System.Drawing.Color[] {
@@ -126,7 +126,7 @@
             this.dgvBookings.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBookings.RowTemplate.Height = 24;
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvBookings.Size = new System.Drawing.Size(1119, 293);
+            this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
             this.dgvBookings.TabIndex = 3;
             // 
             // StudentDashboard
