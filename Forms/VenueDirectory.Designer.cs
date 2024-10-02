@@ -34,11 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCapacity = new System.Windows.Forms.ComboBox();
             this.cbxEquipment = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
+            this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnRefresh = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenue)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,20 +54,18 @@
             "TUTORIAL",
             "MEETING",
             "EXAM"});
-            this.cbxCategory.Location = new System.Drawing.Point(678, 123);
-            this.cbxCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxCategory.Location = new System.Drawing.Point(487, 101);
             this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(150, 29);
+            this.cbxCategory.Size = new System.Drawing.Size(114, 27);
             this.cbxCategory.TabIndex = 7;
             this.cbxCategory.SelectedIndexChanged += new System.EventHandler(this.VenueFilterMenu1_SelectedIndexChanged);
             // 
             // VenueSearchBox1
             // 
             this.VenueSearchBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VenueSearchBox1.Location = new System.Drawing.Point(100, 126);
-            this.VenueSearchBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.VenueSearchBox1.Location = new System.Drawing.Point(75, 102);
             this.VenueSearchBox1.Name = "VenueSearchBox1";
-            this.VenueSearchBox1.Size = new System.Drawing.Size(439, 28);
+            this.VenueSearchBox1.Size = new System.Drawing.Size(282, 24);
             this.VenueSearchBox1.TabIndex = 6;
             this.VenueSearchBox1.TextChanged += new System.EventHandler(this.VenueSearchBox1_TextChanged);
             // 
@@ -82,11 +81,10 @@
             this.dgvVenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVenue.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvVenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVenue.Location = new System.Drawing.Point(100, 166);
-            this.dgvVenue.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvVenue.Location = new System.Drawing.Point(75, 135);
             this.dgvVenue.Name = "dgvVenue";
             this.dgvVenue.RowHeadersWidth = 51;
-            this.dgvVenue.Size = new System.Drawing.Size(1052, 458);
+            this.dgvVenue.Size = new System.Drawing.Size(789, 372);
             this.dgvVenue.TabIndex = 5;
             // 
             // label2
@@ -94,10 +92,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(96, 97);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(72, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 23);
+            this.label2.Size = new System.Drawing.Size(67, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Search:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -114,9 +111,10 @@
             "100-300",
             "300+",
             "Any Capacity"});
-            this.cbxCapacity.Location = new System.Drawing.Point(843, 123);
+            this.cbxCapacity.Location = new System.Drawing.Point(618, 101);
+            this.cbxCapacity.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCapacity.Name = "cbxCapacity";
-            this.cbxCapacity.Size = new System.Drawing.Size(150, 29);
+            this.cbxCapacity.Size = new System.Drawing.Size(114, 27);
             this.cbxCapacity.TabIndex = 9;
             this.cbxCapacity.SelectedIndexChanged += new System.EventHandler(this.cbxCapacity_SelectedIndexChanged);
             // 
@@ -138,29 +136,31 @@
             "Television",
             "Plugs",
             "Airconditioners"});
-            this.cbxEquipment.Location = new System.Drawing.Point(1002, 123);
+            this.cbxEquipment.Location = new System.Drawing.Point(749, 101);
+            this.cbxEquipment.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEquipment.Name = "cbxEquipment";
-            this.cbxEquipment.Size = new System.Drawing.Size(150, 29);
+            this.cbxEquipment.Size = new System.Drawing.Size(114, 27);
             this.cbxEquipment.TabIndex = 10;
             // 
-            // btnSearch
+            // btnFilter
             // 
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnSearch.IconColor = System.Drawing.Color.White;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(1156, 110);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(57, 49);
-            this.btnSearch.TabIndex = 11;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            this.btnSearch.MouseEnter += new System.EventHandler(this.btnSearch_MouseEnter);
-            this.btnSearch.MouseLeave += new System.EventHandler(this.btnSearch_MouseLeave);
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btnFilter.IconColor = System.Drawing.Color.White;
+            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFilter.IconSize = 30;
+            this.btnFilter.Location = new System.Drawing.Point(867, 97);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(32, 33);
+            this.btnFilter.TabIndex = 11;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            this.btnFilter.MouseEnter += new System.EventHandler(this.btnSearch_MouseEnter);
+            this.btnFilter.MouseLeave += new System.EventHandler(this.btnSearch_MouseLeave);
             // 
             // btnRefresh
             // 
@@ -172,9 +172,10 @@
             this.btnRefresh.IconColor = System.Drawing.Color.White;
             this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRefresh.IconSize = 30;
-            this.btnRefresh.Location = new System.Drawing.Point(1167, 21);
+            this.btnRefresh.Location = new System.Drawing.Point(867, 20);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(57, 49);
+            this.btnRefresh.Size = new System.Drawing.Size(43, 40);
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -185,10 +186,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(674, 97);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(483, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 23);
+            this.label1.Size = new System.Drawing.Size(85, 19);
             this.label1.TabIndex = 13;
             this.label1.Text = "Category:";
             // 
@@ -197,10 +197,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(839, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(614, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 23);
+            this.label3.Size = new System.Drawing.Size(85, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Capacity:";
             // 
@@ -209,24 +208,42 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(1000, 97);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(745, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 23);
+            this.label4.Size = new System.Drawing.Size(97, 19);
             this.label4.TabIndex = 15;
             this.label4.Text = "Equipment:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.White;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 30;
+            this.btnSearch.Location = new System.Drawing.Point(362, 98);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(36, 30);
+            this.btnSearch.TabIndex = 16;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
             // VenueDirectory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(1236, 701);
+            this.ClientSize = new System.Drawing.Size(927, 570);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.cbxEquipment);
             this.Controls.Add(this.cbxCapacity);
             this.Controls.Add(this.label2);
@@ -234,7 +251,6 @@
             this.Controls.Add(this.cbxCategory);
             this.Controls.Add(this.dgvVenue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VenueDirectory";
             this.Text = "VenueDirectory";
             this.MouseEnter += new System.EventHandler(this.VenueDirectory_MouseEnter);
@@ -252,10 +268,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxCapacity;
         private System.Windows.Forms.ComboBox cbxEquipment;
-        private FontAwesome.Sharp.IconButton btnSearch;
+        private FontAwesome.Sharp.IconButton btnFilter;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private FontAwesome.Sharp.IconButton btnSearch;
     }
 }

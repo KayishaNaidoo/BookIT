@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Linq;
 
 namespace BookITFinal.Components
 {
@@ -214,6 +215,34 @@ namespace BookITFinal.Components
             {
                 Console.WriteLine($"Error fetching venues: {ex.Message}");
             }
+
+            return bookingsTable;
+        }
+
+        public DataTable SearchVenues(string searchText)
+        {
+            DataTable bookingsTable = new DataTable();
+
+            //string searchText = " ";
+            string[] searchTerms = searchText.Split(' '); // Split the string into parts
+
+            string query = "SELECT v.VenueID AS [Venue], v.Capacity, v.Category, b.BuildingName AS [Building Name], " +
+                           "GROUP_CONCAT(e.EquipmentName) AS [Equipment List] " +
+                           "FROM Venue v " +
+                           "JOIN Building b ON v.BuildingID = b.BuildingID " +
+                           "JOIN VenueEquipment ve ON v.VenueID = ve.VenueID " +
+                           "JOIN Equipment e ON ve.EquipmentID = e.EquipmentID " +
+                           "WHERE ";
+
+            // Build the WHERE clause based on search terms
+            string whereClause = string.Join(" OR ", searchTerms.Select(term =>
+                $"v.VenueID LIKE '%{term}%' OR v.Category LIKE '%{term}%' OR b.BuildingName LIKE '%{term}%' OR e.EquipmentName LIKE '%{term}%'"));
+
+            query += whereClause + " GROUP BY v.VenueID";
+
+            SQLiteCommand command = new SQLiteCommand(query, con);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            adapter.Fill(bookingsTable);
 
             return bookingsTable;
         }

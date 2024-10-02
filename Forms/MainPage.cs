@@ -99,7 +99,8 @@ namespace BookITFinal.Forms
         private void btnVenues_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnVenues);
-            openPage(new Bookings(UserIDF));
+            // openPage(new Bookings(UserIDF));  Nakai Changed this
+            openPage(new VenueDirectory());
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]

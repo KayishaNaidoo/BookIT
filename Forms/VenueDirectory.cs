@@ -140,12 +140,12 @@ namespace BookITFinal.Forms
 
         private void btnSearch_MouseEnter(object sender, EventArgs e)
         {
-            btnSearch.IconColor = AppColors.AppPurple;
+            btnFilter.IconColor = AppColors.AppPurple;
         }
 
         private void btnSearch_MouseLeave(object sender, EventArgs e)
         {
-            btnSearch.IconColor = Color.White;
+            btnFilter.IconColor = Color.White;
         }
 
         private void VenueDirectory_MouseEnter(object sender, EventArgs e)
@@ -158,7 +158,27 @@ namespace BookITFinal.Forms
             btnRefresh.IconColor = Color.White;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            String Text = VenueSearchBox1.Text;
+            DataTable filterData = dbHelper.SearchVenues(Text);
+            dgvVenue.DataSource = filterData;
+
+        }
+
+        private void cbxCapacity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            DataTable filterData = dbHelper.FilterVenues("All Venues", int.MinValue, int.MaxValue, "Any Equipment");
+            dgvVenue.DataSource = filterData;
+
+        }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
         {
             int max = 0;
             int min = 0;
@@ -195,20 +215,8 @@ namespace BookITFinal.Forms
                     break;
             }
 
-            DataTable filterData = dbHelper.FilterVenues(cbxCategory.SelectedItem.ToString(),min,max,cbxEquipment.SelectedItem.ToString());
+            DataTable filterData = dbHelper.FilterVenues(cbxCategory.SelectedItem.ToString(), min, max, cbxEquipment.SelectedItem.ToString());
             dgvVenue.DataSource = filterData;
-        }
-
-        private void cbxCapacity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            DataTable filterData = dbHelper.FilterVenues("All Venues", int.MinValue, int.MaxValue, "Any Equipment");
-            dgvVenue.DataSource = filterData;
-
         }
     }
 }
