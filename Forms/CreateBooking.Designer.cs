@@ -55,6 +55,7 @@
             this.cbxAvailableVenues = new System.Windows.Forms.ComboBox();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.gbEquipment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -374,12 +375,25 @@
             this.label7.Text = "CREATE A BOOKING:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(555, 31);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(45, 39);
+            this.iconButton1.TabIndex = 21;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
             // CreateBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(634, 791);
+            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cbxAvailableVenues);
@@ -439,5 +453,6 @@
         private System.Windows.Forms.ComboBox cbxAvailableVenues;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Label label7;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
