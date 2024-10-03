@@ -359,7 +359,7 @@ namespace BookITFinal.Components
             return results.ToArray();
         }
 
-        public bool checkIfBooked(string venueId, DateTime bookingDate, string startTime)
+        /*public bool checkIfBooked(string venueId, DateTime bookingDate, string startTime)
         {
             try
             {
@@ -409,6 +409,32 @@ namespace BookITFinal.Components
 
             // Return false if no bookings found or an error occurs
             return true;
+        }*/
+
+        public bool createBooking(string userId, string eventType, string venueId, string date, string startTime, string endTime)
+        {
+            try
+            {
+                string query = "INSERT INTO Booking (UserID, EventType, VenueID, Date, StartTime, EndTime) " +
+                    "VALUES (@UserID, @EventType, @VenueID, @Date, @StartTime, @EndTime);";
+
+                using (SQLiteCommand command = new SQLiteCommand(query,con))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    command.Parameters.AddWithValue("@EventType", eventType);
+                    command.Parameters.AddWithValue("@VenueID", venueId);
+                    command.Parameters.AddWithValue("@Date", date);
+                    command.Parameters.AddWithValue("@StartTime", startTime);
+                    command.Parameters.AddWithValue("@EndTime", endTime);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Unable to create booking: {ex.Message}");
+            }
+
+            return false;
         }
 
 
