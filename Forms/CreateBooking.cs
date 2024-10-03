@@ -41,14 +41,38 @@ namespace BookITFinal.Forms
         // generate start times from 8:00 till 22:00
         private string[] GenerateStartTimes()
         {
-            string[] startTimes = new string[14];
-            DateTime time = DateTime.Today.AddHours(8); 
-            for (int i = 0; i < 14; i++)
+            string[] startTimes = new string[12];
+            DateTime time = DateTime.Today.AddHours(8);
+            for (int i = 0; i < 5; i++)
+            {
+
+                startTimes[i] = time.ToString("HH:mm");
+                
+                if (i % 2 == 1)
+                {
+                    time = time.AddMinutes(75);
+                }
+                else
+                {
+                    time = time.AddHours(1);
+                }
+            }
+
+            time = time.AddMinutes(45);
+
+            for (int i = 5; i < 12; i++)
             {
                 startTimes[i] = time.ToString("HH:mm");
-                time = time.AddHours(1);
+
+                if (i % 2 == 0)
+                {
+                    time = time.AddMinutes(75);
+                } else
+                {
+                    time = time.AddHours(1);
+                }
             }
-            return startTimes;
+            return startTimes.ToArray();
         }
 
         // Method to generate end times in 45-minute ( + 15 minute breaks) increments from the selected start time
@@ -87,9 +111,6 @@ namespace BookITFinal.Forms
             {
                 cbxEndTime.SelectedIndex = 0;
             }
-
-            
-
         }
 
         private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
