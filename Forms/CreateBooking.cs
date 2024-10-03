@@ -19,7 +19,7 @@ namespace BookITFinal.Forms
         public CreateBooking(DateTime BookingDate, string UserID)
         {
             this.BookingDateF = BookingDate;
-            UserIdF = UserID;
+            this.UserIdF = UserID;
             InitializeComponent();
         }
 
@@ -122,16 +122,27 @@ namespace BookITFinal.Forms
         {
             
           //@Liam and Colby: This is just to show the sample data from the form
-         
+            if (validate())
+            {
+                string dateOfBooking = dtpBookingDate.Value.ToString("yyyy-MM-dd");
+                string eventType = cbxEventType.SelectedItem.ToString();
+                string startTime = cbxStartTimes.SelectedItem.ToString();
+                string endTime = cbxEndTime.SelectedItem.ToString();
+                string venue = cbxAvailableVenues.SelectedItem.ToString().Split('-')[0].Trim();
 
-            MessageBox.Show($"User ID: {UserIdF}\n" +
-                $"Venue: {cbxAvailableVenues.SelectedIndex} \n" +
-                $"Date: {dtpBookingDate.Value} \n" +
-                $"Start Time: {cbxStartTimes.SelectedItem} \n" +
-                $"End Time: {cbxEndTime.SelectedItem} \n");
+                DatabaseHelper db = new DatabaseHelper();
+
+                if (db.createBooking(UserIdF, eventType, venue, dateOfBooking, startTime, endTime))
+                {
+                    MessageBox.Show("Booking successfully created");
+                } else
+                {
+                    MessageBox.Show("Failed to create booking. Please try again");
+                }
+            }
         }
 
-        private string[] filterVenues(string[] venues)
+        /*private string[] filterVenues(string[] venues)
         {
             DatabaseHelper db = new DatabaseHelper();
             List<string> filteredVenues = new List<string>();
@@ -148,7 +159,7 @@ namespace BookITFinal.Forms
             }
 
             return filteredVenues.ToArray();
-        }
+        }*/
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -191,15 +202,15 @@ namespace BookITFinal.Forms
 
             DatabaseHelper dbHelper = new DatabaseHelper();
             string[] venues = dbHelper.GetVenues( min, max);
-            string[] filteredVenues = filterVenues(venues);
+            //string[] filteredVenues = filterVenues(venues);
 
             cbxAvailableVenues.Items.Clear();
 
-            if (filteredVenues != null)
+            if (venues != null)
             {
-                for (int i = 0; i < filteredVenues.GetLength(0); i++)
+                for (int i = 0; i < venues.GetLength(0); i++)
                 { 
-                    string displayText = $"{filteredVenues[i]}"; // "VenueID - BuildingName"
+                    string displayText = $"{venues[i]}"; // "VenueID - BuildingName"
                     cbxAvailableVenues.Items.Add(displayText);
                 }
             }
@@ -210,6 +221,41 @@ namespace BookITFinal.Forms
         private void cProjector_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private bool validate()
+        {
+            if (cbxEventType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid event type");
+                return false;
+            }
+
+            if (cbxCapacity.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid capacity selection");
+                return false;
+            }
+
+            if (cbxStartTimes.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid start time");
+                return false;
+            }
+
+            if (cbxEndTime.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid end time");
+                return false;
+            }
+
+            if (cbxAvailableVenues.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid venue selection");
+                return false;
+            }
+
+            return true;
         }
     }
 }

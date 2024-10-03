@@ -13,6 +13,7 @@ namespace BookITFinal.Forms
         private String userId;
         public Calendar(String userId)
         {
+            this.userId = userId;
             InitializeComponent();
         }
 
