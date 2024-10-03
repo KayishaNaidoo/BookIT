@@ -25,18 +25,18 @@ namespace BookITFinal.Forms
         bool pass1 = true;
         bool pass2 = true;
 
-        String FName;
-        String LName;
-        String EmailAddress;
-        String Password;
-        String RePassword;
-        String RoleNumber;
-        String ContactNo;
-
         bool isValid = true;
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            String FName;
+            String LName;
+            String EmailAddress;
+            String Password;
+            String RePassword;
+            String RoleNumber;
+            String ContactNo;
+
             // Get all the user input
             FName = edtFirstName.Tbxtext;
             LName = edtLastName.Tbxtext;
@@ -51,22 +51,22 @@ namespace BookITFinal.Forms
             isValid = true;
 
             // Validate each field, stopping at the first error
-            ValidateFName();
+            ValidateFName(FName);
             if (!isValid) return;
 
-            ValidateLName();
+            ValidateLName(LName);
             if (!isValid) return;
 
-            ValidateRoleNumber();
+            ValidateRoleNumber(RoleNumber);
             if (!isValid) return;
 
-            ValidateEmail();
+            ValidateEmail(EmailAddress);
             if (!isValid) return;
 
-            ValidateContactNo();
+            ValidateContactNo(ContactNo);
             if (!isValid) return;
 
-            ValidatePassword();
+            ValidatePassword(Password, RePassword);
             if (!isValid) return;
 
             if (isValid) { MessageBox.Show("Registration successful!");
@@ -74,7 +74,7 @@ namespace BookITFinal.Forms
             dbHelp.CreateUser(RoleNumber, FName, LName, EmailAddress, ContactNo, Password, cbxRole.Text); }
         }
 
-        private void ValidateFName()
+        private void ValidateFName(String FName)
         {
             if (string.IsNullOrEmpty(FName))
             {
@@ -84,7 +84,7 @@ namespace BookITFinal.Forms
             }
         }
 
-        private void ValidateLName()
+        private void ValidateLName(String LName)
         {
             if (string.IsNullOrEmpty(LName))
             {
@@ -94,7 +94,7 @@ namespace BookITFinal.Forms
             }
         }
 
-        private void ValidateEmail()
+        private void ValidateEmail(String EmailAddress)
         {
            
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -139,7 +139,7 @@ namespace BookITFinal.Forms
         }
 
 
-        private void ValidateRoleNumber()
+        private void ValidateRoleNumber(String RoleNumber)
         {
             bool isEmpty = string.IsNullOrEmpty(RoleNumber);
 
@@ -162,7 +162,7 @@ namespace BookITFinal.Forms
             }
         }
 
-        private void ValidateContactNo()
+        private void ValidateContactNo(String ContactNo)
         {
             bool isEmpty = string.IsNullOrEmpty(ContactNo);
 
@@ -185,7 +185,7 @@ namespace BookITFinal.Forms
             }
         }
 
-        private void ValidatePassword()
+        private void ValidatePassword(String Password, String RePassword)
         {
             // Password validation: minimum 5 chars, 1 special char, 1 uppercase, 1 number
             bool hasUpperCase = Password.Any(char.IsUpper);

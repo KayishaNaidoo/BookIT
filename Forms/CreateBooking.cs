@@ -18,7 +18,7 @@ namespace BookITFinal.Forms
        
         public CreateBooking(DateTime BookingDate, string UserID)
         {
-            BookingDateF = BookingDate;
+            this.BookingDateF = BookingDate;
             UserIdF = UserID;
             InitializeComponent();
         }
@@ -27,9 +27,8 @@ namespace BookITFinal.Forms
         {
 
             dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
+            dtpBookingDate.Value = BookingDateF;
             //@Liam and Colby: This is just a table to play around with queries and it shows it
-
-            dtpBookingDate.Value = BookingDateF.AddDays(2);
 
             string[] startTimes = GenerateStartTimes();
             cbxStartTimes.Items.AddRange(startTimes);
@@ -43,27 +42,51 @@ namespace BookITFinal.Forms
         // generate start times from 8:00 till 22:00
         private string[] GenerateStartTimes()
         {
-            string[] startTimes = new string[14];
-            DateTime time = DateTime.Today.AddHours(8); 
-            for (int i = 0; i < 14; i++)
+            string[] startTimes = new string[12];
+            DateTime time = DateTime.Today.AddHours(8);
+            for (int i = 0; i < 5; i++)
+            {
+
+                startTimes[i] = time.ToString("HH:mm");
+                
+                if (i % 2 == 1)
+                {
+                    time = time.AddMinutes(75);
+                }
+                else
+                {
+                    time = time.AddHours(1);
+                }
+            }
+
+            time = time.AddMinutes(45);
+
+            for (int i = 5; i < 12; i++)
             {
                 startTimes[i] = time.ToString("HH:mm");
-                time = time.AddHours(1);
+
+                if (i % 2 == 0)
+                {
+                    time = time.AddMinutes(75);
+                } else
+                {
+                    time = time.AddHours(1);
+                }
             }
-            return startTimes;
+            return startTimes.ToArray();
         }
 
-        // Method to generate end times in 1-hour increments from the selected start time
+        // Method to generate end times in 45-minute ( + 15 minute breaks) increments from the selected start time
         private string[] GenerateEndTimes(DateTime startTime)
         {
             var endTimes = new System.Collections.Generic.List<string>();
-            DateTime maxEndTime = DateTime.Today.AddHours(22);
-            DateTime endTime = startTime.AddHours(1); 
+            DateTime maxEndTime = startTime.AddHours(3);//DateTime.Today.AddHours(2);
+            DateTime endTime = startTime.AddMinutes(45); 
 
             while (endTime <= maxEndTime)
             {
                 endTimes.Add(endTime.ToString("HH:mm"));
-                endTime = endTime.AddHours(1);
+                endTime = endTime.AddMinutes(60);
             }
 
             return endTimes.ToArray();
@@ -89,9 +112,6 @@ namespace BookITFinal.Forms
             {
                 cbxEndTime.SelectedIndex = 0;
             }
-
-            
-
         }
 
         private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
