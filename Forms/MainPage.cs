@@ -161,6 +161,7 @@ namespace BookITFinal.Forms
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnManageUsers);
+            openPage(new ManageUsers());
             
         }
 

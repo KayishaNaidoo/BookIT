@@ -434,6 +434,14 @@ namespace BookITFinal.Components
             MessageBox.Show($"Booking {BookingID} has been deleted.");
         }
 
+        public void DeletUser(string userID)
+        {
+            string query = "DELETE FROM Users " +
+                $"WHERE UserID = {userID};";
+            ExecuteQuery(query);
+            MessageBox.Show($"User {userID} has been deleted.");
+        }
+
         public string[] GetUserList()
         {
             List<string> userList = new List<string>(); 
