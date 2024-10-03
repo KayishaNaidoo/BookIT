@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookITFinal.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace BookITFinal.Components
 {
     public partial class UserControlDay : UserControl
     {
-        public UserControlDay()
+        private DateTime date;
+        public UserControlDay(DateTime date)
         {
             InitializeComponent();
+            this.date = date;
+            this.lblDays.Text = date.Day.ToString() + "";
         }
 
         private void UserControlDay_Load(object sender, EventArgs e)
@@ -22,9 +26,10 @@ namespace BookITFinal.Components
 
         }
 
-        public void days(int numday)
+        private void UserControlDay_Click(object sender, EventArgs e)
         {
-            lblDays.Text = numday + "";
+            Form bookingPage = new CreateBooking(this.date, "Test");
+            bookingPage.Show();
         }
     }
 }
