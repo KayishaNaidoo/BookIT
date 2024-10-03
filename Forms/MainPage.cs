@@ -92,7 +92,7 @@ namespace BookITFinal.Forms
         private void btnBookings_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnBookings);
-            openPage(new Calendar());
+            openPage(new Calendar(UserIDF));
 
         }
 

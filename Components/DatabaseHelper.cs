@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Linq;
+using System.Diagnostics;
 
 namespace BookITFinal.Components
 {
@@ -358,7 +359,57 @@ namespace BookITFinal.Components
             return results.ToArray();
         }
 
+        public bool checkIfBooked(string venueId, DateTime bookingDate, string startTime)
+        {
+            try
+            {
+                string query = "SELECT * " +
+                               "FROM Booking " +
+                               "WHERE VenueID = @venueId " +
+                               "AND Date = @bookingDate " +
+                               "AND StartTime <= @startTime " +
+                               "AND EndTime >= @startTime";
 
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    // Use parameters to avoid SQL injection and ensure correct format
+                    command.Parameters.AddWithValue("@venueId", venueId);
+                    command.Parameters.AddWithValue("@bookingDate", bookingDate.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@startTime", startTime);
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        // Return true if any rows are found (i.e., the venue is booked)
+                        bool hasRows = reader.HasRows;
+
+                        while (reader.Read())
+                        {
+                            // Loop through each column in the row
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                // Print the column name and value
+                                Console.Write($"{reader.GetName(i)}: {reader.GetValue(i)}\t");
+                            }
+
+                            Console.WriteLine("row complete");
+                        }
+                        Debug.WriteLine($"VenueID: {venueId}");
+                        Debug.WriteLine($"Booking Date: {bookingDate.ToString("yyyy-MM-dd")}");
+                        Debug.WriteLine($"Start Time: {startTime}");
+
+                        Console.WriteLine($"Does it have rows? {hasRows}");
+                        return hasRows;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching venues: {ex.Message}");
+            }
+
+            // Return false if no bookings found or an error occurs
+            return true;
+        }
 
 
         public void CloseConnection()

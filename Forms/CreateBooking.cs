@@ -80,7 +80,7 @@ namespace BookITFinal.Forms
         private string[] GenerateEndTimes(DateTime startTime)
         {
             var endTimes = new System.Collections.Generic.List<string>();
-            DateTime maxEndTime = startTime.AddHours(3);//DateTime.Today.AddHours(2);
+            DateTime maxEndTime = startTime.AddHours(2);
             DateTime endTime = startTime.AddMinutes(45); 
 
             while (endTime <= maxEndTime)
@@ -102,7 +102,6 @@ namespace BookITFinal.Forms
 
             string selectedStartTime = cbxStartTimes.SelectedItem.ToString();
             DateTime startTime = DateTime.Parse(selectedStartTime);
-
 
             string[] endTimes = GenerateEndTimes(startTime);
             cbxEndTime.Items.AddRange(endTimes);
@@ -130,9 +129,25 @@ namespace BookITFinal.Forms
                 $"Date: {dtpBookingDate.Value} \n" +
                 $"Start Time: {cbxStartTimes.SelectedItem} \n" +
                 $"End Time: {cbxEndTime.SelectedItem} \n");
+        }
 
+        private string[] filterVenues(string[] venues)
+        {
+            DatabaseHelper db = new DatabaseHelper();
+            List<string> filteredVenues = new List<string>();
+            foreach (string venue in venues)
+            {
+                string venueID = venue.Split('-')[0].Trim();
 
+                Console.WriteLine(venueID);
 
+                if (!db.checkIfBooked(venueID, dtpBookingDate.Value, cbxStartTimes.SelectedItem.ToString()))
+                {
+                    filteredVenues.Add(venue);
+                }
+            }
+
+            return filteredVenues.ToArray();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -176,18 +191,25 @@ namespace BookITFinal.Forms
 
             DatabaseHelper dbHelper = new DatabaseHelper();
             string[] venues = dbHelper.GetVenues( min, max);
+            string[] filteredVenues = filterVenues(venues);
+
             cbxAvailableVenues.Items.Clear();
 
-            if (venues != null)
+            if (filteredVenues != null)
             {
-                for (int i = 0; i < venues.GetLength(0); i++)
+                for (int i = 0; i < filteredVenues.GetLength(0); i++)
                 { 
-                    string displayText = $"{venues[i]}"; // "VenueID - BuildingName"
+                    string displayText = $"{filteredVenues[i]}"; // "VenueID - BuildingName"
                     cbxAvailableVenues.Items.Add(displayText);
                 }
             }
 
             cbxAvailableVenues.Enabled=true;
+        }
+
+        private void cProjector_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
