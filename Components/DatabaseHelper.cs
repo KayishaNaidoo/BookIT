@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Linq;
+using System.IO.Packaging;
 
 namespace BookITFinal.Components
 {
@@ -356,6 +357,18 @@ namespace BookITFinal.Components
 
             // Convert the List to a normal array
             return results.ToArray();
+        }
+
+        public void DeleteBooking(string BookingID)
+        {
+            string query = "DELETE FROM Booking " +
+                $"WHERE BookingID = {BookingID};";
+            ExecuteQuery(query);
+        }
+
+        public void UpdateUserProfile(string UserId)
+        {
+          
         }
 
 

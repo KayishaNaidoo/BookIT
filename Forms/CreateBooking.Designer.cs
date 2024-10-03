@@ -55,6 +55,7 @@
             this.cbxAvailableVenues = new System.Windows.Forms.ComboBox();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.gbEquipment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -374,12 +375,28 @@
             this.label7.Text = "CREATE A BOOKING:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnClose.IconColor = System.Drawing.Color.White;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 30;
+            this.btnClose.Location = new System.Drawing.Point(582, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(40, 43);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // CreateBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(634, 791);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cbxAvailableVenues);
@@ -439,5 +456,6 @@
         private System.Windows.Forms.ComboBox cbxAvailableVenues;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Label label7;
+        private FontAwesome.Sharp.IconButton btnClose;
     }
 }
