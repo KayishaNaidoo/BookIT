@@ -87,10 +87,10 @@ namespace BookITFinal.Forms
                 flpDays.Controls.Add(calenderDay);
             }
 
+
             for (int i = 1; i <= days; i++)
             {
-                UserControlDay ucDay = new UserControlDay();
-                ucDay.days(i); 
+                UserControlDay ucDay = new UserControlDay(new DateTime(currentDate.Year, currentDate.Month, i)); 
                 flpDays.Controls.Add(ucDay);
             }
         }
