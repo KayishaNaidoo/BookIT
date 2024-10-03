@@ -38,7 +38,7 @@
             this.lblDays.ForeColor = System.Drawing.Color.White;
             this.lblDays.Location = new System.Drawing.Point(3, 12);
             this.lblDays.Name = "lblDays";
-            this.lblDays.Size = new System.Drawing.Size(32, 23);
+            this.lblDays.Size = new System.Drawing.Size(27, 19);
             this.lblDays.TabIndex = 0;
             this.lblDays.Text = "00";
             // 
@@ -50,6 +50,7 @@
             this.Name = "UserControlDay";
             this.Size = new System.Drawing.Size(115, 85);
             this.Load += new System.EventHandler(this.UserControlDay_Load);
+            this.Click += new System.EventHandler(this.UserControlDay_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
