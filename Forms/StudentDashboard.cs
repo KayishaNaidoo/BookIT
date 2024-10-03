@@ -102,5 +102,15 @@ namespace BookITFinal.Forms
                 pop.Focus();
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+                
+        }
+
+        private void btnCancelBooking_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

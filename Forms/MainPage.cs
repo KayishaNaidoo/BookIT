@@ -47,7 +47,7 @@ namespace BookITFinal.Forms
             DatabaseHelper dbHelper= new DatabaseHelper();
             UserIDF = userID;
             UserType=dbHelper.GetUserType(userID);
-           // MessageBox.Show($"User type is : {UserType}");
+         
             if( UserType == "Admin" ) {
                 btnManageUsers.Visible = true;
             }
@@ -84,9 +84,15 @@ namespace BookITFinal.Forms
         {
 
             ActivatedButton(btnDashboard);
-            if (UserType == "Student") { 
-                openPage(new StudentDashboard(UserIDF)); }
-            
+            if (UserType == "Student")
+            {
+                openPage(new StudentDashboard(UserIDF));
+            }
+            else if (UserType == "Admin")
+            {
+                openPage(new AdminDashboard(UserIDF));
+            }
+
         }
 
         private void btnBookings_Click(object sender, EventArgs e)
@@ -98,9 +104,7 @@ namespace BookITFinal.Forms
 
         private void btnVenues_Click(object sender, EventArgs e)
         {
-            ActivatedButton(btnVenues);
-            // openPage(new Bookings(UserIDF));  Nakai Changed this
-            openPage(new VenueDirectory());
+       
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -178,6 +182,22 @@ namespace BookITFinal.Forms
         {
             ActivatedButton(btnVenueDirectory);
             openPage(new VenueDirectory());
+        }
+
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+            if(UserType=="Student"){
+                openPage(new StudentDashboard(UserIDF));
+            }
+            else if (UserType == "Admin")
+            {
+                openPage(new AdminDashboard(UserIDF));
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

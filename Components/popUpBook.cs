@@ -23,6 +23,7 @@ namespace BookITFinal.Components
 
         private void popUpBook_Load(object sender, EventArgs e)
         {
+            lblBookingID.Text=$"Booking ID: {BID}";
             this.Focus();
         }
 

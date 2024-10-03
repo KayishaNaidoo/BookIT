@@ -11,6 +11,7 @@ using static System.Data.Entity.Infrastructure.Design.Executor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Linq;
 using System.IO.Packaging;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BookITFinal.Components
 {
@@ -101,7 +102,7 @@ namespace BookITFinal.Components
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
-                    // Use parameters to avoid SQL injection
+                    // using parameters to avoid SQL injection
                     command.Parameters.AddWithValue("@UserID", userID);
                     command.Parameters.AddWithValue("@Password", password);
 
@@ -122,7 +123,7 @@ namespace BookITFinal.Components
             return isAuthenticated;
         }
 
-        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
+       
         public void CreateUser(string userID, string firstName, string lastName, string email, string contactNo, string password, string UserType)
         {
            
@@ -131,7 +132,6 @@ namespace BookITFinal.Components
 
              try { 
                 ExecuteQuery(query);
-                MessageBox.Show("Sign Up Sucessful");
             }
             catch
             {
@@ -140,8 +140,7 @@ namespace BookITFinal.Components
       
         }
 
-       
-
+        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
         public DataTable GetBookings(String UserID)
         {
             DataTable bookingsTable = new DataTable();
@@ -161,6 +160,34 @@ namespace BookITFinal.Components
                 }
 
           
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
+
+        public DataTable GetAllBookings()
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
+                    "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID " +
+                    "JOIN Building ON Venue.BuildingID= Building.BuildingID;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -280,6 +307,34 @@ namespace BookITFinal.Components
             return bookingsTable;
         }
 
+
+        public DataTable GetAllChart()
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT VenueID, COUNT(DISTINCT BookingID) FROM Booking " +
+                                "GROUP BY VenueID " +
+                                "ORDER BY COUNT(DISTINCT BookingID) DESC " +
+                                "LIMIT 5; ";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
         public string[] GetUserDetails(string UserID)
         {
             string[] userDetails = new string[4];
@@ -321,6 +376,18 @@ namespace BookITFinal.Components
         public void EditLName(string UserId, string newLName)
         {
             string query = $"UPDATE Users SET LastName = '{newLName}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
+        public void EditEmail(string UserId, string newEmail)
+        {
+            string query = $"UPDATE Users SET Email = '{newEmail}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
+        public void EditContactNo(string UserId, string newContactNo)
+        {
+            string query = $"UPDATE Users SET ContactNo = '{newContactNo}' WHERE UserID = '{UserId}'";
             ExecuteQuery(query);
         }
 
@@ -367,10 +434,33 @@ namespace BookITFinal.Components
             MessageBox.Show($"Booking {BookingID} has been deleted.");
         }
 
-        public void UpdateUserProfile(string UserId)
+        public string[] GetUserList()
         {
-          
+            List<string> userList = new List<string>(); 
+
+            try
+            {
+                string query = "SELECT UserID FROM Users;";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read()) 
+                        {
+                            userList.Add(reader["UserID"].ToString());  
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user details: {ex.Message}");
+            }
+
+            return userList.ToArray();  
         }
+      
 
 
 

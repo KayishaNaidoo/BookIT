@@ -9,22 +9,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BookITFinal.Forms
 {
     public partial class Account : Form
     {
         String UserIDF;
+        string UserType;
         DatabaseHelper dbHelper= new DatabaseHelper();
         public Account(string UserID)
         {
             InitializeComponent();
             UserIDF = UserID;
+            UserType = dbHelper.GetUserType(UserIDF);
         }
 
         private void Account_Load(object sender, EventArgs e)
         {
-            LoadDetails();  
+            if (UserType == "Admin")
+            {
+                lblContactAdmin.Visible = false;
+                btnEditEmail.Visible = true;
+                btnEditContactNo.Visible = true;
+            }
+            LoadDetails();
 
         }
 
@@ -64,6 +73,43 @@ namespace BookITFinal.Forms
             }
 
             dbHelper.EditLName(UserIDF, newName);
+            LoadDetails();
+        }
+
+        private void tblpAccount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnEditEmail_Click(object sender, EventArgs e)
+        {
+            string oldEmail = lblLName.Text;
+            string newEmail = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+
+
+            if (newEmail == "")
+            {
+                newEmail = oldEmail;
+            }
+
+            dbHelper.EditEmail(UserIDF, newEmail);
+            LoadDetails();
+
+        }
+
+        private void btnEditContactNo_Click(object sender, EventArgs e)
+        {
+
+            string oldContact = lblLName.Text;
+            string newContact = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+
+
+            if (newContact == "")
+            {
+                newContact = oldContact;
+            }
+
+            dbHelper.EditContactNo(UserIDF, newContact);
             LoadDetails();
         }
     }

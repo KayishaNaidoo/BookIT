@@ -29,7 +29,7 @@ namespace BookITFinal.Components
         private void UserControlDay_Click(object sender, EventArgs e)
         {
             Form bookingPage = new CreateBooking(this.date, "Test");
-            bookingPage.Show();
+            bookingPage.ShowDialog();
         }
     }
 }

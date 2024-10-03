@@ -215,7 +215,17 @@ namespace BookITFinal.Forms
                     break;
             }
 
-            DataTable filterData = dbHelper.FilterVenues(cbxCategory.SelectedItem.ToString(), min, max, cbxEquipment.SelectedItem.ToString());
+            string Equipment;
+            if(cbxEquipment.SelectedItem.ToString()== "No Specific Equipment")
+            {
+                Equipment = "";
+            }
+            else
+            {
+                Equipment= cbxEquipment.SelectedItem.ToString();
+            }
+
+            DataTable filterData = dbHelper.FilterVenues(cbxCategory.SelectedItem.ToString(), min, max, Equipment); 
             dgvVenue.DataSource = filterData;
         }
     }

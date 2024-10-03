@@ -31,6 +31,7 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.btnCancelB = new FontAwesome.Sharp.IconButton();
             this.btnUpdateB = new FontAwesome.Sharp.IconButton();
+            this.lblBookingID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -81,12 +82,24 @@
             this.btnUpdateB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateB.UseVisualStyleBackColor = true;
             // 
+            // lblBookingID
+            // 
+            this.lblBookingID.AutoSize = true;
+            this.lblBookingID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingID.ForeColor = System.Drawing.Color.White;
+            this.lblBookingID.Location = new System.Drawing.Point(77, 19);
+            this.lblBookingID.Name = "lblBookingID";
+            this.lblBookingID.Size = new System.Drawing.Size(110, 23);
+            this.lblBookingID.TabIndex = 25;
+            this.lblBookingID.Text = "BookingID";
+            // 
             // popUpBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(276, 231);
+            this.Controls.Add(this.lblBookingID);
             this.Controls.Add(this.btnUpdateB);
             this.Controls.Add(this.btnCancelB);
             this.Controls.Add(this.btnClose);
@@ -96,6 +109,7 @@
             this.Text = "popUpBook";
             this.Load += new System.EventHandler(this.popUpBook_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +117,6 @@
         private FontAwesome.Sharp.IconButton btnClose;
         private FontAwesome.Sharp.IconButton btnCancelB;
         private FontAwesome.Sharp.IconButton btnUpdateB;
+        private System.Windows.Forms.Label lblBookingID;
     }
 }
