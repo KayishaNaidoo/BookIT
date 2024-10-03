@@ -128,6 +128,7 @@
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
             this.dgvBookings.TabIndex = 3;
+            this.dgvBookings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellClick);
             // 
             // StudentDashboard
             // 

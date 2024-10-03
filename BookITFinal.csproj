@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Components\DatabaseHelper.cs" />
     <Compile Include="Components\LoggedInUser.cs" />
+    <Compile Include="Components\popUpBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\popUpBook.Designer.cs">
+      <DependentUpon>popUpBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\UserControlBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\BookITTextBox.resx">
       <DependentUpon>BookITTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\popUpBook.resx">
+      <DependentUpon>popUpBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\UserControlBlank.resx">
       <DependentUpon>UserControlBlank.cs</DependentUpon>

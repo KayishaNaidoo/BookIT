@@ -85,5 +85,22 @@ namespace BookITFinal.Forms
         {
 
         }
+
+        private void dgvBookings_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0)
+            {
+                // Get the clicked row
+                DataGridViewRow selectedRow = dgvBookings.Rows[e.RowIndex];
+
+                // Extract the data from the specific cell, for example, from the first cell
+                var bookingId = selectedRow.Cells[0].Value;
+
+                Form pop = new popUpBook(bookingId.ToString());
+                pop.ShowDialog();
+                pop.Focus();
+            }
+        }
     }
 }

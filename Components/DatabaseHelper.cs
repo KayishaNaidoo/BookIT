@@ -148,7 +148,7 @@ namespace BookITFinal.Components
 
             try
             {
-                string query = "SELECT EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
+                string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
                     "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID "+
                     "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
                     $"WHERE Booking.UserID='{UserID}';";
@@ -364,6 +364,7 @@ namespace BookITFinal.Components
             string query = "DELETE FROM Booking " +
                 $"WHERE BookingID = {BookingID};";
             ExecuteQuery(query);
+            MessageBox.Show($"Booking {BookingID} has been deleted.");
         }
 
         public void UpdateUserProfile(string UserId)
