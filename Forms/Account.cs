@@ -59,6 +59,7 @@ namespace BookITFinal.Forms
             lblLName.Text = UserDeets[1];
             lblEmail.Text = UserDeets[2];
             lblContactNo.Text = UserDeets[3];
+            lblRole.Text = UserType;
         }
 
         private void btnEditLName_Click(object sender, EventArgs e)

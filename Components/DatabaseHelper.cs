@@ -61,6 +61,64 @@ namespace BookITFinal.Components
             return false;
         }
 
+        //SELECT COUNT(UserID) AS [COUNTED] FROM Users;
+
+        public string CountUsers()
+        {
+            string Count = string.Empty;
+
+            try
+            {
+                string query = "SELECT COUNT(UserID) AS [COUNTED] FROM Users;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                   using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Count = reader["COUNTED"].ToString();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return Count;
+        }
+
+
+        public string CountBookings()
+        {
+            string Count = string.Empty;
+
+            try
+            {
+                string query = "SELECT COUNT(BookingID) AS [COUNTED] FROM Booking;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Count = reader["COUNTED"].ToString();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return Count;
+        }
+
+
         public string GetUserType(string userID)
         {
             string userType = string.Empty;

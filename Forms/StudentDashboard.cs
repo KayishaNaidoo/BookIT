@@ -89,6 +89,21 @@ namespace BookITFinal.Forms
         private void dgvBookings_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
+           
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+                
+        }
+
+        private void btnCancelBooking_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvBookings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 // Get the clicked row
@@ -101,16 +116,6 @@ namespace BookITFinal.Forms
                 pop.ShowDialog();
                 pop.Focus();
             }
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-                
-        }
-
-        private void btnCancelBooking_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

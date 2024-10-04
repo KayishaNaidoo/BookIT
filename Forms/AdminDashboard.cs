@@ -132,6 +132,12 @@ namespace BookITFinal.Forms
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             string[] userList =dbHelper.GetUserList();
+            string CountUsers= dbHelper.CountUsers();
+            lblTotalUsers.Text =CountUsers.ToString();
+
+            string CountBookings = dbHelper.CountBookings();
+            lblTotalBookings.Text = CountBookings.ToString();
+
             cbxUserID.Items.Clear();
             cbxUserID.Items.Add("All Bookings");
             cbxUserID.Items.AddRange(userList);
@@ -147,6 +153,23 @@ namespace BookITFinal.Forms
             Form newUser = new AdminSignUp();
             newUser.ShowDialog();
 
+        }
+
+        private void dgvBookings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                // Get the clicked row
+                DataGridViewRow selectedRow = dgvBookings.Rows[e.RowIndex];
+
+                // Extract the data from the specific cell, for example, from the first cell
+                var bookingId = selectedRow.Cells[0].Value;
+
+                Form pop = new popUpBook(bookingId.ToString());
+                pop.ShowDialog();
+                pop.Focus();
+            }
         }
     }
 }

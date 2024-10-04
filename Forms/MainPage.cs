@@ -98,7 +98,7 @@ namespace BookITFinal.Forms
         private void btnBookings_Click(object sender, EventArgs e)
         {
             ActivatedButton(btnBookings);
-            openPage(new Calendar());
+            openPage(new Calendar(UserIDF));
 
         }
 
@@ -187,7 +187,7 @@ namespace BookITFinal.Forms
 
         private void MainPage_Load(object sender, EventArgs e)
         {
-            if(UserType=="Student"){
+            if(UserType=="Student"||UserType=="Lecturer"){
                 openPage(new StudentDashboard(UserIDF));
             }
             else if (UserType == "Admin")

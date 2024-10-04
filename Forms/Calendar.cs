@@ -10,9 +10,11 @@ namespace BookITFinal.Forms
     {
 
         private DateTime currentDate;
-        public Calendar()
+        string UserIDF;
+        public Calendar(string UserID)
         {
             InitializeComponent();
+            UserIDF = UserID.TrimEnd();
         }
 
         private void Calendar_MouseEnter(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace BookITFinal.Forms
 
             for (int i = 1; i <= days; i++)
             {
-                UserControlDay ucDay = new UserControlDay(new DateTime(currentDate.Year, currentDate.Month, i)); 
+                UserControlDay ucDay = new UserControlDay(new DateTime(currentDate.Year, currentDate.Month, i),UserIDF); 
                 flpDays.Controls.Add(ucDay);
             }
         }

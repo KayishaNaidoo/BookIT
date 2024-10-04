@@ -40,6 +40,7 @@
             this.lblFName = new System.Windows.Forms.Label();
             this.tblpAccount = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditContactNo = new FontAwesome.Sharp.IconButton();
+            this.lblRole = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.tblpAccount.SuspendLayout();
             this.SuspendLayout();
@@ -55,9 +56,9 @@
             this.btnEditLName.IconColor = System.Drawing.Color.White;
             this.btnEditLName.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditLName.IconSize = 25;
-            this.btnEditLName.Location = new System.Drawing.Point(518, 74);
+            this.btnEditLName.Location = new System.Drawing.Point(518, 61);
             this.btnEditLName.Name = "btnEditLName";
-            this.btnEditLName.Size = new System.Drawing.Size(84, 55);
+            this.btnEditLName.Size = new System.Drawing.Size(84, 42);
             this.btnEditLName.TabIndex = 7;
             this.btnEditLName.UseVisualStyleBackColor = true;
             this.btnEditLName.Click += new System.EventHandler(this.btnEditLName_Click);
@@ -75,7 +76,7 @@
             this.btnEditFName.IconSize = 25;
             this.btnEditFName.Location = new System.Drawing.Point(518, 13);
             this.btnEditFName.Name = "btnEditFName";
-            this.btnEditFName.Size = new System.Drawing.Size(84, 55);
+            this.btnEditFName.Size = new System.Drawing.Size(84, 42);
             this.btnEditFName.TabIndex = 6;
             this.btnEditFName.UseVisualStyleBackColor = true;
             this.btnEditFName.Click += new System.EventHandler(this.btnEditFName_Click);
@@ -114,9 +115,9 @@
             this.btnEditEmail.IconColor = System.Drawing.Color.White;
             this.btnEditEmail.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditEmail.IconSize = 25;
-            this.btnEditEmail.Location = new System.Drawing.Point(518, 135);
+            this.btnEditEmail.Location = new System.Drawing.Point(518, 109);
             this.btnEditEmail.Name = "btnEditEmail";
-            this.btnEditEmail.Size = new System.Drawing.Size(84, 55);
+            this.btnEditEmail.Size = new System.Drawing.Size(84, 42);
             this.btnEditEmail.TabIndex = 8;
             this.btnEditEmail.UseVisualStyleBackColor = true;
             this.btnEditEmail.Visible = false;
@@ -126,9 +127,9 @@
             // 
             this.lblContactNo.AutoSize = true;
             this.lblContactNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblContactNo.Location = new System.Drawing.Point(13, 193);
+            this.lblContactNo.Location = new System.Drawing.Point(13, 154);
             this.lblContactNo.Name = "lblContactNo";
-            this.lblContactNo.Size = new System.Drawing.Size(499, 61);
+            this.lblContactNo.Size = new System.Drawing.Size(499, 48);
             this.lblContactNo.TabIndex = 5;
             this.lblContactNo.Text = "084 724 0098";
             this.lblContactNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,9 +138,9 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEmail.Location = new System.Drawing.Point(13, 132);
+            this.lblEmail.Location = new System.Drawing.Point(13, 106);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(499, 61);
+            this.lblEmail.Size = new System.Drawing.Size(499, 48);
             this.lblEmail.TabIndex = 4;
             this.lblEmail.Text = "2562592@students.wits.ac.za";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,9 +151,9 @@
             this.lblLName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
-            this.lblLName.Location = new System.Drawing.Point(13, 71);
+            this.lblLName.Location = new System.Drawing.Point(13, 58);
             this.lblLName.Name = "lblLName";
-            this.lblLName.Size = new System.Drawing.Size(499, 61);
+            this.lblLName.Size = new System.Drawing.Size(499, 48);
             this.lblLName.TabIndex = 2;
             this.lblLName.Text = "Espialadocious";
             this.lblLName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +166,7 @@
             this.lblFName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
             this.lblFName.Location = new System.Drawing.Point(13, 10);
             this.lblFName.Name = "lblFName";
-            this.lblFName.Size = new System.Drawing.Size(499, 61);
+            this.lblFName.Size = new System.Drawing.Size(499, 48);
             this.lblFName.TabIndex = 1;
             this.lblFName.Text = "Supercalifragilistic";
             this.lblFName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -180,6 +181,7 @@
             this.tblpAccount.ColumnCount = 2;
             this.tblpAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tblpAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblpAccount.Controls.Add(this.lblRole, 0, 4);
             this.tblpAccount.Controls.Add(this.btnEditContactNo, 1, 3);
             this.tblpAccount.Controls.Add(this.btnEditEmail, 1, 2);
             this.tblpAccount.Controls.Add(this.btnEditLName, 1, 1);
@@ -192,11 +194,12 @@
             this.tblpAccount.Margin = new System.Windows.Forms.Padding(10);
             this.tblpAccount.Name = "tblpAccount";
             this.tblpAccount.Padding = new System.Windows.Forms.Padding(10);
-            this.tblpAccount.RowCount = 4;
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblpAccount.RowCount = 5;
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblpAccount.Size = new System.Drawing.Size(615, 264);
             this.tblpAccount.TabIndex = 6;
             this.tblpAccount.Paint += new System.Windows.Forms.PaintEventHandler(this.tblpAccount_Paint);
@@ -212,13 +215,24 @@
             this.btnEditContactNo.IconColor = System.Drawing.Color.White;
             this.btnEditContactNo.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditContactNo.IconSize = 25;
-            this.btnEditContactNo.Location = new System.Drawing.Point(518, 196);
+            this.btnEditContactNo.Location = new System.Drawing.Point(518, 157);
             this.btnEditContactNo.Name = "btnEditContactNo";
-            this.btnEditContactNo.Size = new System.Drawing.Size(84, 55);
+            this.btnEditContactNo.Size = new System.Drawing.Size(84, 42);
             this.btnEditContactNo.TabIndex = 9;
             this.btnEditContactNo.UseVisualStyleBackColor = true;
             this.btnEditContactNo.Visible = false;
             this.btnEditContactNo.Click += new System.EventHandler(this.btnEditContactNo_Click);
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRole.Location = new System.Drawing.Point(13, 202);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(499, 52);
+            this.lblRole.TabIndex = 10;
+            this.lblRole.Text = "Student";
+            this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Account
             // 
@@ -256,5 +270,6 @@
         private System.Windows.Forms.Label lblFName;
         private System.Windows.Forms.TableLayoutPanel tblpAccount;
         private FontAwesome.Sharp.IconButton btnEditContactNo;
+        private System.Windows.Forms.Label lblRole;
     }
 }

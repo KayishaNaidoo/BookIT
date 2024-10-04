@@ -13,12 +13,15 @@ namespace BookITFinal.Components
 {
     public partial class UserControlDay : UserControl
     {
+
         private DateTime date;
-        public UserControlDay(DateTime date)
+        private string UserID;
+        public UserControlDay(DateTime date, string userID)
         {
             InitializeComponent();
             this.date = date;
             this.lblDays.Text = date.Day.ToString() + "";
+            UserID = userID;
         }
 
         private void UserControlDay_Load(object sender, EventArgs e)
@@ -28,8 +31,10 @@ namespace BookITFinal.Components
 
         private void UserControlDay_Click(object sender, EventArgs e)
         {
-            Form bookingPage = new CreateBooking(this.date, "Test");
-            bookingPage.ShowDialog();
+            if(this.date>DateTime.Today.AddDays(2)){
+            Form bookingPage = new CreateBooking(this.date, UserID);
+                bookingPage.ShowDialog();
+            }
         }
     }
 }
