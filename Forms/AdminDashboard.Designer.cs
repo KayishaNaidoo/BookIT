@@ -81,6 +81,7 @@
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
             this.dgvBookings.TabIndex = 6;
+            this.dgvBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellContentClick);
             this.dgvBookings.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellDoubleClick);
             // 
             // btnCreateBooking
@@ -99,6 +100,7 @@
             this.btnCreateBooking.TabIndex = 4;
             this.btnCreateBooking.Text = "CREATE BOOKING";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
+            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click);
             // 
             // cbxUserID
             // 

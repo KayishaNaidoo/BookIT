@@ -157,6 +157,12 @@
     <Compile Include="Forms\StudentDashboard.Designer.cs">
       <DependentUpon>StudentDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateBooking.Designer.cs">
+      <DependentUpon>UpdateBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\VenueDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentDashboard.resx">
       <DependentUpon>StudentDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateBooking.resx">
+      <DependentUpon>UpdateBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VenueDirectory.resx">
       <DependentUpon>VenueDirectory.cs</DependentUpon>

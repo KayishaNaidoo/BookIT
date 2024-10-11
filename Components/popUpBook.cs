@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookITFinal.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +47,12 @@ namespace BookITFinal.Components
         {
             dbHelper.DeleteBooking(BID);
             this.Close();
+        }
+
+        private void btnUpdateB_Click(object sender, EventArgs e)
+        {
+            Form bUpdate = new UpdateBooking(BID);
+            bUpdate.ShowDialog();
         }
     }
 }

@@ -119,7 +119,7 @@ namespace BookITFinal.Forms
         
             Title chartTitle = new Title
             {
-                Text = $"Top 5 Venues Booked by {userId}",
+                Text = $"{userId}'s Top 5 Venues ",
                 Font = new Font("Century Gothic", 16, FontStyle.Bold),
                 ForeColor = Color.White
             };
@@ -170,6 +170,17 @@ namespace BookITFinal.Forms
                 pop.ShowDialog();
                 pop.Focus();
             }
+        }
+
+        private void btnCreateBooking_Click(object sender, EventArgs e)
+        {
+            Form CreateB = new CreateBooking(DateTime.Today.AddDays(2), UserIDF);
+            CreateB.Show();
+        }
+
+        private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

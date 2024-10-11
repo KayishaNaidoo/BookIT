@@ -32,7 +32,6 @@
             this.btnSignUp = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,23 +82,12 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Location = new System.Drawing.Point(347, 519);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(75, 23);
-            this.btnDashboard.TabIndex = 3;
-            this.btnDashboard.Text = "button1";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
             // WelcomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(731, 618);
-            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.btnSignUp);
@@ -116,7 +104,6 @@
         private FontAwesome.Sharp.IconButton btnSignUp;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnDashboard;
     }
 }
 

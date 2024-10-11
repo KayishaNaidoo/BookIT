@@ -350,7 +350,7 @@ namespace BookITFinal.Components
 
             query += whereClause + " GROUP BY v.VenueID";
 
-            SQLiteCommand command = new SQLiteCommand(query, con);
+            SQLiteCommand command = new SQLiteCommand(query, con); 
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             adapter.Fill(bookingsTable);
 

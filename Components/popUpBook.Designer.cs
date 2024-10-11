@@ -81,6 +81,7 @@
             this.btnUpdateB.Text = "UPDATE BOOKING";
             this.btnUpdateB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateB.UseVisualStyleBackColor = true;
+            this.btnUpdateB.Click += new System.EventHandler(this.btnUpdateB_Click);
             // 
             // lblBookingID
             // 
