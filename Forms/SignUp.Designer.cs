@@ -81,6 +81,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(499, 137);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnBack
             // 
@@ -108,6 +109,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnSignUp
             // 
@@ -139,6 +141,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(499, 100);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // iconPictureBox1
             // 
@@ -151,6 +154,7 @@
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox1.TabIndex = 8;
             this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // iconPictureBox2
             // 
@@ -163,6 +167,7 @@
             this.iconPictureBox2.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox2.TabIndex = 9;
             this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.iconPictureBox2_Click);
             // 
             // edtPassword
             // 
@@ -172,6 +177,7 @@
             this.edtPassword.PasswordChar = '#';
             this.edtPassword.Size = new System.Drawing.Size(297, 30);
             this.edtPassword.TabIndex = 6;
+            this.edtPassword.TextChanged += new System.EventHandler(this.edtPassword_TextChanged);
             // 
             // edtRePassword
             // 
@@ -181,6 +187,7 @@
             this.edtRePassword.PasswordChar = '#';
             this.edtRePassword.Size = new System.Drawing.Size(297, 30);
             this.edtRePassword.TabIndex = 7;
+            this.edtRePassword.TextChanged += new System.EventHandler(this.edtRePassword_TextChanged);
             // 
             // cbxRole
             // 
@@ -208,6 +215,7 @@
             this.iconRole.Size = new System.Drawing.Size(32, 32);
             this.iconRole.TabIndex = 13;
             this.iconRole.TabStop = false;
+            this.iconRole.Click += new System.EventHandler(this.iconRole_Click);
             // 
             // iconRoleNum
             // 
@@ -220,6 +228,7 @@
             this.iconRoleNum.Size = new System.Drawing.Size(32, 32);
             this.iconRoleNum.TabIndex = 14;
             this.iconRoleNum.TabStop = false;
+            this.iconRoleNum.Click += new System.EventHandler(this.iconRoleNum_Click);
             // 
             // iconPictureBox5
             // 
@@ -232,6 +241,7 @@
             this.iconPictureBox5.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox5.TabIndex = 15;
             this.iconPictureBox5.TabStop = false;
+            this.iconPictureBox5.Click += new System.EventHandler(this.iconPictureBox5_Click);
             // 
             // iconPictureBox6
             // 
@@ -244,6 +254,7 @@
             this.iconPictureBox6.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox6.TabIndex = 16;
             this.iconPictureBox6.TabStop = false;
+            this.iconPictureBox6.Click += new System.EventHandler(this.iconPictureBox6_Click);
             // 
             // iconPictureBox7
             // 
@@ -256,6 +267,7 @@
             this.iconPictureBox7.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox7.TabIndex = 19;
             this.iconPictureBox7.TabStop = false;
+            this.iconPictureBox7.Click += new System.EventHandler(this.iconPictureBox7_Click);
             // 
             // label1
             // 
@@ -267,6 +279,7 @@
             this.label1.Size = new System.Drawing.Size(67, 19);
             this.label1.TabIndex = 20;
             this.label1.Text = "I am a:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // iconPictureBox3
             // 
@@ -279,6 +292,7 @@
             this.iconPictureBox3.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox3.TabIndex = 21;
             this.iconPictureBox3.TabStop = false;
+            this.iconPictureBox3.Click += new System.EventHandler(this.iconPictureBox3_Click);
             // 
             // iconEyeRePas
             // 
@@ -316,6 +330,7 @@
             this.label2.Size = new System.Drawing.Size(92, 19);
             this.label2.TabIndex = 24;
             this.label2.Text = "Password:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -327,6 +342,7 @@
             this.label3.Size = new System.Drawing.Size(164, 19);
             this.label3.TabIndex = 25;
             this.label3.Text = "Re-Enter Password:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pnlFields
             // 
@@ -356,6 +372,7 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(499, 622);
             this.pnlFields.TabIndex = 26;
+            this.pnlFields.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFields_Paint);
             // 
             // edtFirstName
             // 
@@ -367,6 +384,7 @@
             this.edtFirstName.password = false;
             this.edtFirstName.Size = new System.Drawing.Size(335, 53);
             this.edtFirstName.TabIndex = 0;
+            this.edtFirstName.Load += new System.EventHandler(this.edtFirstName_Load);
             // 
             // edtLastName
             // 
@@ -378,6 +396,7 @@
             this.edtLastName.password = false;
             this.edtLastName.Size = new System.Drawing.Size(335, 53);
             this.edtLastName.TabIndex = 1;
+            this.edtLastName.Load += new System.EventHandler(this.edtLastName_Load);
             // 
             // edtRoleNum
             // 
@@ -389,6 +408,7 @@
             this.edtRoleNum.password = false;
             this.edtRoleNum.Size = new System.Drawing.Size(335, 53);
             this.edtRoleNum.TabIndex = 3;
+            this.edtRoleNum.Load += new System.EventHandler(this.edtRoleNum_Load);
             // 
             // edtEmail
             // 
@@ -400,6 +420,7 @@
             this.edtEmail.password = false;
             this.edtEmail.Size = new System.Drawing.Size(335, 53);
             this.edtEmail.TabIndex = 5;
+            this.edtEmail.Load += new System.EventHandler(this.edtEmail_Load);
             // 
             // edtPhoneNo
             // 
@@ -411,6 +432,7 @@
             this.edtPhoneNo.password = false;
             this.edtPhoneNo.Size = new System.Drawing.Size(335, 53);
             this.edtPhoneNo.TabIndex = 4;
+            this.edtPhoneNo.Load += new System.EventHandler(this.edtPhoneNo_Load);
             // 
             // SignUp
             // 

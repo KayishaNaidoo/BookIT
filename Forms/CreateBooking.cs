@@ -80,7 +80,7 @@ namespace BookITFinal.Forms
         private string[] GenerateEndTimes(DateTime startTime)
         {
             var endTimes = new System.Collections.Generic.List<string>();
-            DateTime maxEndTime = startTime.AddHours(2);
+            DateTime maxEndTime = startTime.AddHours(3);//DateTime.Today.AddHours(2);
             DateTime endTime = startTime.AddMinutes(45); 
 
             while (endTime <= maxEndTime)
@@ -103,6 +103,7 @@ namespace BookITFinal.Forms
             string selectedStartTime = cbxStartTimes.SelectedItem.ToString();
             DateTime startTime = DateTime.Parse(selectedStartTime);
 
+
             string[] endTimes = GenerateEndTimes(startTime);
             cbxEndTime.Items.AddRange(endTimes);
 
@@ -120,8 +121,9 @@ namespace BookITFinal.Forms
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            
-          //@Liam and Colby: This is just to show the sample data from the form
+
+            //@Liam and Colby: This is just to show the sample data from the form
+
             if (validate())
             {
                 string dateOfBooking = dtpBookingDate.Value.ToString("yyyy-MM-dd");
@@ -129,39 +131,62 @@ namespace BookITFinal.Forms
                 string startTime = cbxStartTimes.SelectedItem.ToString();
                 string endTime = cbxEndTime.SelectedItem.ToString();
                 string venue = cbxAvailableVenues.SelectedItem.ToString().Split('-')[0].Trim();
-
                 DatabaseHelper db = new DatabaseHelper();
 
+                /*MessageBox.Show($"User ID: {UserIdF}\n" +
+                    $"Venue: {cbxAvailableVenues.SelectedIndex} \n" +
+                    $"Date: {dtpBookingDate.Value} \n" +
+                    $"Start Time: {cbxStartTimes.SelectedItem} \n" +
+                    $"End Time: {cbxEndTime.SelectedItem} \n");*/
                 if (db.createBooking(UserIdF, eventType, venue, dateOfBooking, startTime, endTime))
                 {
                     MessageBox.Show("Booking successfully created");
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Failed to create booking. Please try again");
                 }
             }
+        
+
+     
+
+
         }
 
-        /*private string[] filterVenues(string[] venues)
+        private bool validate()
         {
-            DatabaseHelper db = new DatabaseHelper();
-            List<string> filteredVenues = new List<string>();
-            foreach (string venue in venues)
+            if (cbxEventType.SelectedIndex == -1)
             {
-                string venueID = venue.Split('-')[0].Trim();
-
-                Console.WriteLine(venueID);
-
-                if (!db.checkIfBooked(venueID, dtpBookingDate.Value, cbxStartTimes.SelectedItem.ToString()))
-                {
-                    filteredVenues.Add(venue);
-                }
+                MessageBox.Show("Invalid event type");
+                return false;
             }
+            if (cbxCapacity.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid capacity selection");
+                return false;
+            }
+            if (cbxStartTimes.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid start time");
+                return false;
+            }
+            if (cbxEndTime.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid end time");
+                return false;
+            }
+            if (cbxAvailableVenues.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid venue selection");
+                return false;
+            }
+            return true;
+        }
+    
 
-            return filteredVenues.ToArray();
-        }*/
 
-        private void btnSearch_Click(object sender, EventArgs e)
+private void btnSearch_Click(object sender, EventArgs e)
         {
             //@Liam-- Remove this button and change it to make it update on change
             //@Colby & Liam: THis is just to filter the venues to the combobox
@@ -202,8 +227,6 @@ namespace BookITFinal.Forms
 
             DatabaseHelper dbHelper = new DatabaseHelper();
             string[] venues = dbHelper.GetVenues( min, max);
-            //string[] filteredVenues = filterVenues(venues);
-
             cbxAvailableVenues.Items.Clear();
 
             if (venues != null)
@@ -218,44 +241,9 @@ namespace BookITFinal.Forms
             cbxAvailableVenues.Enabled=true;
         }
 
-        private void cProjector_CheckedChanged(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private bool validate()
-        {
-            if (cbxEventType.SelectedIndex == -1)
-            {
-                MessageBox.Show("Invalid event type");
-                return false;
-            }
-
-            if (cbxCapacity.SelectedIndex == -1)
-            {
-                MessageBox.Show("Invalid capacity selection");
-                return false;
-            }
-
-            if (cbxStartTimes.SelectedIndex == -1)
-            {
-                MessageBox.Show("Invalid start time");
-                return false;
-            }
-
-            if (cbxEndTime.SelectedIndex == -1)
-            {
-                MessageBox.Show("Invalid end time");
-                return false;
-            }
-
-            if (cbxAvailableVenues.SelectedIndex == -1)
-            {
-                MessageBox.Show("Invalid venue selection");
-                return false;
-            }
-
-            return true;
+            this.Close();
         }
     }
 }

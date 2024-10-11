@@ -49,10 +49,10 @@
             this.btnCreateBooking.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateBooking.IconColor = System.Drawing.Color.Black;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateBooking.Location = new System.Drawing.Point(42, 414);
+            this.btnCreateBooking.Location = new System.Drawing.Point(42, 368);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(534, 90);
+            this.btnCreateBooking.Size = new System.Drawing.Size(543, 103);
             this.btnCreateBooking.TabIndex = 1;
             this.btnCreateBooking.Text = "CREATE BOOKING";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
@@ -69,7 +69,7 @@
             this.cPastBookings.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.cPastBookings.Legends.Add(legend1);
-            this.cPastBookings.Location = new System.Drawing.Point(684, 336);
+            this.cPastBookings.Location = new System.Drawing.Point(627, 340);
             this.cPastBookings.Name = "cPastBookings";
             this.cPastBookings.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.cPastBookings.PaletteCustomColors = new System.Drawing.Color[] {
@@ -88,7 +88,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.cPastBookings.Series.Add(series1);
-            this.cPastBookings.Size = new System.Drawing.Size(466, 286);
+            this.cPastBookings.Size = new System.Drawing.Size(510, 286);
             this.cPastBookings.TabIndex = 2;
             title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             title1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,6 +128,8 @@
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
             this.dgvBookings.TabIndex = 3;
+            this.dgvBookings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellClick);
+            this.dgvBookings.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellDoubleClick);
             // 
             // StudentDashboard
             // 

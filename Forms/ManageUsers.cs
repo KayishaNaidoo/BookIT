@@ -1,4 +1,5 @@
 ﻿using BookITFinal.Components;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,64 +9,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BookITFinal.Forms
 {
-    public partial class Account : Form
-    {
-        String UserIDF;
-        string UserType;
+    public partial class ManageUsers : Form
+    { 
         DatabaseHelper dbHelper= new DatabaseHelper();
-        public Account(string UserID)
+        string UserType;
+        public ManageUsers()
         {
             InitializeComponent();
-            UserIDF = UserID;
-            UserType = dbHelper.GetUserType(UserIDF);
+            
         }
 
-        private void Account_Load(object sender, EventArgs e)
+
+        private void ManageUsers_Load(object sender, EventArgs e)
         {
-            if (UserType == "Admin")
-            {
-                lblContactAdmin.Visible = false;
-                btnEditEmail.Visible = true;
-                btnEditContactNo.Visible = true;
-            }
-            LoadDetails();
+
+            string[] userList = dbHelper.GetUserList();
+            cbxuserId.Items.Clear();
+            cbxuserId.Items.AddRange(userList);
+            cbxuserId.SelectedIndex = 0;
 
         }
 
         private void btnEditFName_Click(object sender, EventArgs e)
         {
-            string oldName= lblFName.Text;
+            string oldName = lblFName.Text;
             string newName = Interaction.InputBox("Input New First Name", "Edit First Name");
-
+            string userID = cbxuserId.SelectedItem.ToString();
 
             if (newName == "")
             {
-                newName=oldName;
+                newName = oldName;
             }
 
-            dbHelper.EditFName(UserIDF, newName);
-            LoadDetails();
+            dbHelper.EditFName(userID, newName);
+            LoadDetails(userID);
         }
 
-        private void LoadDetails()
+        private void LoadDetails(string userID)
         {
-            string[] UserDeets = dbHelper.GetUserDetails(UserIDF);
+            string[] UserDeets = dbHelper.GetUserDetails(userID);
             lblFName.Text = UserDeets[0];
             lblLName.Text = UserDeets[1];
             lblEmail.Text = UserDeets[2];
             lblContactNo.Text = UserDeets[3];
-            lblRole.Text = UserType;
         }
 
         private void btnEditLName_Click(object sender, EventArgs e)
         {
             string oldName = lblLName.Text;
             string newName = Interaction.InputBox("Input New Last Name", "Edit Last Name");
+            string userID = cbxuserId.SelectedItem.ToString();
 
 
             if (newName == "")
@@ -73,8 +69,8 @@ namespace BookITFinal.Forms
                 newName = oldName;
             }
 
-            dbHelper.EditLName(UserIDF, newName);
-            LoadDetails();
+            dbHelper.EditLName(userID, newName);
+            LoadDetails(userID);
         }
 
         private void tblpAccount_Paint(object sender, PaintEventArgs e)
@@ -86,6 +82,7 @@ namespace BookITFinal.Forms
         {
             string oldEmail = lblLName.Text;
             string newEmail = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+            string userID = cbxuserId.SelectedItem.ToString();
 
 
             if (newEmail == "")
@@ -93,8 +90,8 @@ namespace BookITFinal.Forms
                 newEmail = oldEmail;
             }
 
-            dbHelper.EditEmail(UserIDF, newEmail);
-            LoadDetails();
+            dbHelper.EditEmail(userID, newEmail);
+            LoadDetails(userID);
 
         }
 
@@ -103,6 +100,7 @@ namespace BookITFinal.Forms
 
             string oldContact = lblLName.Text;
             string newContact = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+            string userID = cbxuserId.SelectedItem.ToString();
 
 
             if (newContact == "")
@@ -110,8 +108,30 @@ namespace BookITFinal.Forms
                 newContact = oldContact;
             }
 
-            dbHelper.EditContactNo(UserIDF, newContact);
-            LoadDetails();
+            dbHelper.EditContactNo(userID, newContact);
+            LoadDetails(userID);
+        }
+
+     
+
+        private void cbxuserId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDetails(cbxuserId.SelectedItem.ToString());
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {  
+            
+            dbHelper.DeletUser(cbxuserId.SelectedItem.ToString());
+
+            //reload user array
+            string[] userList = dbHelper.GetUserList();
+            cbxuserId.Items.Clear();
+            cbxuserId.Items.AddRange(userList);
+
+            //go to first item
+            cbxuserId.SelectedIndex = 0;
+            LoadDetails(cbxuserId.Items[0].ToString());
         }
     }
 }

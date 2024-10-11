@@ -10,7 +10,8 @@ using System.Collections.Generic;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Linq;
-using System.Diagnostics;
+using System.IO.Packaging;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BookITFinal.Components
 {
@@ -35,6 +36,88 @@ namespace BookITFinal.Components
                 Console.WriteLine($"DB connection failed: {ex.Message}");
             }
         }
+
+        public bool createBooking(string userId, string eventType, string venueId, string date, string startTime, string endTime)
+        {
+            try
+            {
+                string query = "INSERT INTO Booking (UserID, EventType, VenueID, Date, StartTime, EndTime) " +
+                    "VALUES (@UserID, @EventType, @VenueID, @Date, @StartTime, @EndTime);";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    command.Parameters.AddWithValue("@EventType", eventType);
+                    command.Parameters.AddWithValue("@VenueID", venueId);
+                    command.Parameters.AddWithValue("@Date", date);
+                    command.Parameters.AddWithValue("@StartTime", startTime);
+                    command.Parameters.AddWithValue("@EndTime", endTime);
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unable to create booking: {ex.Message}");
+            }
+            return false;
+        }
+
+        //SELECT COUNT(UserID) AS [COUNTED] FROM Users;
+
+        public string CountUsers()
+        {
+            string Count = string.Empty;
+
+            try
+            {
+                string query = "SELECT COUNT(UserID) AS [COUNTED] FROM Users;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                   using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Count = reader["COUNTED"].ToString();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return Count;
+        }
+
+
+        public string CountBookings()
+        {
+            string Count = string.Empty;
+
+            try
+            {
+                string query = "SELECT COUNT(BookingID) AS [COUNTED] FROM Booking;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Count = reader["COUNTED"].ToString();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return Count;
+        }
+
 
         public string GetUserType(string userID)
         {
@@ -101,7 +184,7 @@ namespace BookITFinal.Components
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
-                    // Use parameters to avoid SQL injection
+                    // using parameters to avoid SQL injection
                     command.Parameters.AddWithValue("@UserID", userID);
                     command.Parameters.AddWithValue("@Password", password);
 
@@ -122,7 +205,7 @@ namespace BookITFinal.Components
             return isAuthenticated;
         }
 
-        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
+       
         public void CreateUser(string userID, string firstName, string lastName, string email, string contactNo, string password, string UserType)
         {
            
@@ -131,7 +214,6 @@ namespace BookITFinal.Components
 
              try { 
                 ExecuteQuery(query);
-                MessageBox.Show("Sign Up Sucessful");
             }
             catch
             {
@@ -140,15 +222,14 @@ namespace BookITFinal.Components
       
         }
 
-       
-
+        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
         public DataTable GetBookings(String UserID)
         {
             DataTable bookingsTable = new DataTable();
 
             try
             {
-                string query = "SELECT EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
+                string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
                     "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID "+
                     "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
                     $"WHERE Booking.UserID='{UserID}';";
@@ -161,6 +242,34 @@ namespace BookITFinal.Components
                 }
 
           
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
+
+        public DataTable GetAllBookings()
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
+                    "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID " +
+                    "JOIN Building ON Venue.BuildingID= Building.BuildingID;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -280,6 +389,34 @@ namespace BookITFinal.Components
             return bookingsTable;
         }
 
+
+        public DataTable GetAllChart()
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT VenueID, COUNT(DISTINCT BookingID) FROM Booking " +
+                                "GROUP BY VenueID " +
+                                "ORDER BY COUNT(DISTINCT BookingID) DESC " +
+                                "LIMIT 5; ";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
         public string[] GetUserDetails(string UserID)
         {
             string[] userDetails = new string[4];
@@ -324,6 +461,18 @@ namespace BookITFinal.Components
             ExecuteQuery(query);
         }
 
+        public void EditEmail(string UserId, string newEmail)
+        {
+            string query = $"UPDATE Users SET Email = '{newEmail}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
+        public void EditContactNo(string UserId, string newContactNo)
+        {
+            string query = $"UPDATE Users SET ContactNo = '{newContactNo}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
 
 
         public string[] GetVenues(int minCapacity, int maxCapacity)
@@ -359,83 +508,51 @@ namespace BookITFinal.Components
             return results.ToArray();
         }
 
-        /*public bool checkIfBooked(string venueId, DateTime bookingDate, string startTime)
+        public void DeleteBooking(string BookingID)
         {
+            string query = "DELETE FROM Booking " +
+                $"WHERE BookingID = {BookingID};";
+            ExecuteQuery(query);
+            MessageBox.Show($"Booking {BookingID} has been deleted.");
+        }
+
+        public void DeletUser(string userID)
+        {
+            string query = "DELETE FROM Users " +
+                $"WHERE UserID = {userID};";
+            ExecuteQuery(query);
+            MessageBox.Show($"User {userID} has been deleted.");
+        }
+
+        public string[] GetUserList()
+        {
+            List<string> userList = new List<string>(); 
+
             try
             {
-                string query = "SELECT * " +
-                               "FROM Booking " +
-                               "WHERE VenueID = @venueId " +
-                               "AND Date = @bookingDate " +
-                               "AND StartTime <= @startTime " +
-                               "AND EndTime >= @startTime";
+                string query = "SELECT UserID FROM Users;";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
-                    // Use parameters to avoid SQL injection and ensure correct format
-                    command.Parameters.AddWithValue("@venueId", venueId);
-                    command.Parameters.AddWithValue("@bookingDate", bookingDate.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@startTime", startTime);
-
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        // Return true if any rows are found (i.e., the venue is booked)
-                        bool hasRows = reader.HasRows;
-
-                        while (reader.Read())
+                        while (reader.Read()) 
                         {
-                            // Loop through each column in the row
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                // Print the column name and value
-                                Console.Write($"{reader.GetName(i)}: {reader.GetValue(i)}\t");
-                            }
-
-                            Console.WriteLine("row complete");
+                            userList.Add(reader["UserID"].ToString());  
                         }
-                        Debug.WriteLine($"VenueID: {venueId}");
-                        Debug.WriteLine($"Booking Date: {bookingDate.ToString("yyyy-MM-dd")}");
-                        Debug.WriteLine($"Start Time: {startTime}");
-
-                        Console.WriteLine($"Does it have rows? {hasRows}");
-                        return hasRows;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching venues: {ex.Message}");
+                Console.WriteLine($"Error fetching user details: {ex.Message}");
             }
 
-            // Return false if no bookings found or an error occurs
-            return true;
-        }*/
-
-        public bool createBooking(string userId, string eventType, string venueId, string date, string startTime, string endTime)
-        {
-            try
-            {
-                string query = "INSERT INTO Booking (UserID, EventType, VenueID, Date, StartTime, EndTime) " +
-                    "VALUES (@UserID, @EventType, @VenueID, @Date, @StartTime, @EndTime);";
-
-                using (SQLiteCommand command = new SQLiteCommand(query,con))
-                {
-                    command.Parameters.AddWithValue("@UserID", userId);
-                    command.Parameters.AddWithValue("@EventType", eventType);
-                    command.Parameters.AddWithValue("@VenueID", venueId);
-                    command.Parameters.AddWithValue("@Date", date);
-                    command.Parameters.AddWithValue("@StartTime", startTime);
-                    command.Parameters.AddWithValue("@EndTime", endTime);
-
-                    return command.ExecuteNonQuery() > 0;
-                }
-            } catch (Exception ex)
-            {
-                Console.WriteLine($"Unable to create booking: {ex.Message}");
-            }
-
-            return false;
+            return userList.ToArray();  
         }
+      
+
+
 
 
         public void CloseConnection()

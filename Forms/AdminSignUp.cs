@@ -1,25 +1,28 @@
-﻿using BookITFinal.Colors;
-using BookITFinal.Components;
+﻿using BookITFinal.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace BookITFinal.Forms
 {
-    public partial class SignUp : Form
+    public partial class AdminSignUp : Form
     {
-        public SignUp()
+        
+        public AdminSignUp()
         {
             InitializeComponent();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         bool pass1 = true;
@@ -27,7 +30,8 @@ namespace BookITFinal.Forms
 
         bool isValid = true;
 
-        private void btnSignUp_Click(object sender, EventArgs e)
+
+        private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             String FName;
             String LName;
@@ -47,10 +51,10 @@ namespace BookITFinal.Forms
             RePassword = edtRePassword.Text;
 
 
-            // Reset the validity flag for each button click
+      
             isValid = true;
 
-            // Validate each field, stopping at the first error
+    
             ValidateFName(FName);
             if (!isValid) return;
 
@@ -69,9 +73,13 @@ namespace BookITFinal.Forms
             ValidatePassword(Password, RePassword);
             if (!isValid) return;
 
-            if (isValid) { MessageBox.Show("Registration successful!");
-            DatabaseHelper dbHelp = new DatabaseHelper();   
-            dbHelp.CreateUser(RoleNumber, FName, LName, EmailAddress, ContactNo, Password, cbxRole.Text); }
+            if (isValid)
+            {
+                MessageBox.Show("Registration successful!");
+                DatabaseHelper dbHelp = new DatabaseHelper();
+                dbHelp.CreateUser(RoleNumber, FName, LName, EmailAddress, ContactNo, Password, cbxRole.Text);
+                this.Close();
+            }
         }
 
         private void ValidateFName(String FName)
@@ -79,8 +87,8 @@ namespace BookITFinal.Forms
             if (string.IsNullOrEmpty(FName))
             {
                 MessageBox.Show("First name cannot be empty!");
-                isValid = false; 
-                return;  
+                isValid = false;
+                return;
             }
         }
 
@@ -96,7 +104,7 @@ namespace BookITFinal.Forms
 
         private void ValidateEmail(String EmailAddress)
         {
-           
+
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
             if (string.IsNullOrEmpty(EmailAddress))
@@ -106,7 +114,7 @@ namespace BookITFinal.Forms
                 return;
             }
 
-        
+
             bool isValidEmailFormat = Regex.IsMatch(EmailAddress, emailPattern);
 
             if (!isValidEmailFormat)
@@ -116,7 +124,7 @@ namespace BookITFinal.Forms
                 return;
             }
 
-            if (cbxRole.SelectedIndex == 0) 
+            if (cbxRole.SelectedIndex == 1)
             {
                 if (!EmailAddress.EndsWith("@students.wits.ac.za"))
                 {
@@ -125,7 +133,7 @@ namespace BookITFinal.Forms
                     return;
                 }
             }
-            else if (cbxRole.SelectedIndex == 1) // Employee role
+            else  // Employee role
             {
                 if (!EmailAddress.EndsWith("@wits.ac.za"))
                 {
@@ -218,24 +226,30 @@ namespace BookITFinal.Forms
 
         private void cbxRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxRole.SelectedIndex == 0)
+            if (cbxRole.SelectedIndex == 1)
             {
                 edtRoleNum.customText = "Student Number:";
                 iconRole.IconChar = FontAwesome.Sharp.IconChar.Glasses;
                 iconRoleNum.IconChar = FontAwesome.Sharp.IconChar.Glasses;
 
             }
-            else
+            else if(cbxRole.SelectedIndex==0)
             {
                 edtRoleNum.customText = "Employee Number:";
-                iconRole.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
-                iconRoleNum.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
+                iconRole.IconChar = FontAwesome.Sharp.IconChar.Bell;
+                iconRoleNum.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            }
+            else if (cbxRole.SelectedIndex == 2)
+            {
+                edtRoleNum.customText = "Employee Number:";
+                iconRole.IconChar = FontAwesome.Sharp.IconChar.Chalkboard;
+                iconRoleNum.IconChar = FontAwesome.Sharp.IconChar.Chalkboard;
             }
         }
 
         private void iconEyePass_Click(object sender, EventArgs e)
         {
-            pass1 = !pass1; // Toggle the value of pass1
+            pass1 = !pass1;
 
             if (pass1)
             {
@@ -251,7 +265,7 @@ namespace BookITFinal.Forms
 
         private void iconEyeRePas_Click(object sender, EventArgs e)
         {
-            pass2 = !pass2; // Toggle the value of pass1
+            pass2 = !pass2; 
 
             if (pass2)
             {
@@ -265,153 +279,9 @@ namespace BookITFinal.Forms
             }
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
+        private void btnBack_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void test_Click(object sender, EventArgs e)
-        {
-                      
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            Form WS = new WelcomeScreen();
             this.Close();
-            WS.Show();
-        }
-
-        private void btnBack_MouseEnter(object sender, EventArgs e)
-        {
-            btnBack.IconColor = AppColors.AppPurple;
-        }
-
-        private void btnBack_MouseLeave(object sender, EventArgs e)
-        {
-            btnBack.IconColor = Color.White;
-        }
-
-        private void btnSignUp_MouseEnter(object sender, EventArgs e)
-        {
-            btnSignUp.ForeColor = AppColors.AppPurple;
-            btnSignUp.IconColor = AppColors.AppPurple;
-        }
-
-        private void btnSignUp_MouseLeave(object sender, EventArgs e)
-        {
-            btnSignUp.ForeColor = Color.White;
-            btnSignUp.IconColor = Color.White;
-        }
-
-        private void pnlFields_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void edtFirstName_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtRePassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconRole_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconRoleNum_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconPictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtLastName_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtRoleNum_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtEmail_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edtPhoneNo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
