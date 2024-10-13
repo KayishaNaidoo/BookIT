@@ -121,9 +121,6 @@ namespace BookITFinal.Forms
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-
-            //@Liam and Colby: This is just to show the sample data from the form
-
             if (validate())
             {
                 string dateOfBooking = dtpBookingDate.Value.ToString("yyyy-MM-dd");
@@ -133,25 +130,16 @@ namespace BookITFinal.Forms
                 string venue = cbxAvailableVenues.SelectedItem.ToString().Split('-')[0].Trim();
                 DatabaseHelper db = new DatabaseHelper();
 
-                /*MessageBox.Show($"User ID: {UserIdF}\n" +
-                    $"Venue: {cbxAvailableVenues.SelectedIndex} \n" +
-                    $"Date: {dtpBookingDate.Value} \n" +
-                    $"Start Time: {cbxStartTimes.SelectedItem} \n" +
-                    $"End Time: {cbxEndTime.SelectedItem} \n");*/
                 if (db.createBooking(UserIdF, eventType, venue, dateOfBooking, startTime, endTime))
                 {
                     MessageBox.Show("Booking successfully created");
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Failed to create booking. Please try again");
                 }
             }
-        
-
-     
-
-
         }
 
         private bool validate()

@@ -552,7 +552,32 @@ namespace BookITFinal.Components
         }
       
 
+        public Booking GetBooking(string bookingID)
+        {
+            Booking booking = null;
 
+            try
+            {
+                string query = "SELECT * " +
+                    "FROM Booking " +
+                    "WHERE BookingID = @bookingID;";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@bookingID", bookingID);
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        booking = new Booking(reader);
+                        return booking;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Error while reading booking", ex);
+            }
+
+            return booking;
+        }
 
 
         public void CloseConnection()
