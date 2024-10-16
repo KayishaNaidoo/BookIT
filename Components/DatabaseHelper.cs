@@ -473,6 +473,12 @@ namespace BookITFinal.Components
             ExecuteQuery(query);
         }
 
+        public void EditPassword(string UserId, string Password)
+        {
+            string query = $"UPDATE Users SET Password = '{Password}' WHERE UserID = '{UserId}'";
+            ExecuteQuery(query);
+        }
+
 
 
         public string[] GetVenues(int minCapacity, int maxCapacity)

@@ -84,7 +84,7 @@ namespace BookITFinal.Forms
 
         private void btnEditEmail_Click(object sender, EventArgs e)
         {
-            string oldEmail = lblLName.Text;
+            string oldEmail = lblEmail.Text;
             string newEmail = Interaction.InputBox("Input New Email Address", "Edit Email Address");
 
 
@@ -112,6 +112,12 @@ namespace BookITFinal.Forms
 
             dbHelper.EditContactNo(UserIDF, newContact);
             LoadDetails();
+        }
+
+        private void btnEditPass_Click(object sender, EventArgs e)
+        {
+            Form EditPass = new EditPassword(UserIDF);
+            EditPass.ShowDialog();
         }
     }
 }
