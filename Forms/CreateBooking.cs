@@ -13,9 +13,14 @@ namespace BookITFinal.Forms
 {
     public partial class CreateBooking : Form
     {
-        DateTime BookingDateF = DateTime.Today;
-        string UserIdF;
-       
+        private DateTime BookingDateF = DateTime.Today;
+        private string UserIdF;
+        private DatabaseHelper db = new DatabaseHelper();
+        private List<Venue> venueList;
+        private List<string> equipmentList = new List<string>();
+        private List<Venue> filteredVenues = new List<Venue>();
+
+
         public CreateBooking(DateTime BookingDate, string UserID)
         {
             this.BookingDateF = BookingDate;
@@ -28,6 +33,7 @@ namespace BookITFinal.Forms
 
             dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
             dtpBookingDate.Value = BookingDateF;
+            dtpBookingDate.Enabled = false;
             //@Liam and Colby: This is just a table to play around with queries and it shows it
 
             string[] startTimes = GenerateStartTimes();
@@ -37,6 +43,8 @@ namespace BookITFinal.Forms
             {
                 cbxStartTimes.SelectedIndex = 0;
             }
+
+            venueList = db.GetVenueList();
         }
 
         // generate start times from 8:00 till 22:00
@@ -123,12 +131,11 @@ namespace BookITFinal.Forms
         {
             if (validate())
             {
-                string dateOfBooking = dtpBookingDate.Value.ToString("yyyy-MM-dd");
+                string dateOfBooking = dtpBookingDate.Value.ToString("yyyy/MM/dd");
                 string eventType = cbxEventType.SelectedItem.ToString();
                 string startTime = cbxStartTimes.SelectedItem.ToString();
                 string endTime = cbxEndTime.SelectedItem.ToString();
-                string venue = cbxAvailableVenues.SelectedItem.ToString().Split('-')[0].Trim();
-                DatabaseHelper db = new DatabaseHelper();
+                string venue = filteredVenues[cbxAvailableVenues.SelectedIndex].venueID;
 
                 if (db.createBooking(UserIdF, eventType, venue, dateOfBooking, startTime, endTime))
                 {
@@ -174,12 +181,13 @@ namespace BookITFinal.Forms
     
 
 
-private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             //@Liam-- Remove this button and change it to make it update on change
             //@Colby & Liam: THis is just to filter the venues to the combobox
             //This only works sometimes for some reason. Keeps saying "Database is closed" when it doesnt work
             //Please do the equipment filtering stuff
+            filteredVenues.Clear();
 
             int max = 0;
             int min = 0;
@@ -212,26 +220,100 @@ private void btnSearch_Click(object sender, EventArgs e)
                     break;
             }
 
-
-            DatabaseHelper dbHelper = new DatabaseHelper();
-            string[] venues = dbHelper.GetVenues( min, max);
-            cbxAvailableVenues.Items.Clear();
-
-            if (venues != null)
+            foreach (Venue venue in venueList)
             {
-                for (int i = 0; i < venues.GetLength(0); i++)
-                { 
-                    string displayText = $"{venues[i]}"; // "VenueID - BuildingName"
-                    cbxAvailableVenues.Items.Add(displayText);
+                if (venue.capacity >= min && venue.capacity <= max)
+                {
+                    if (venue.filter(equipmentList))
+                    {
+                        filteredVenues.Add(venue);
+                    }
                 }
             }
 
-            cbxAvailableVenues.Enabled=true;
+            cbxAvailableVenues.Items.Clear();
+
+            if (filteredVenues != null)
+            {
+                foreach (Venue filteredVenue in filteredVenues)
+                {
+                    cbxAvailableVenues.Items.Add(filteredVenue.venueID + " - " + filteredVenue.buildingName);
+                }
+            }
+
+            cbxAvailableVenues.Enabled = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cProjector_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cProjector.Checked) equipmentList.Add("Projector");
+            else equipmentList.Remove("Projector");
+        }
+
+        private void cMicrophone_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cMicrophone.Checked) equipmentList.Add("Microphone");
+            else equipmentList.Remove("Microphone");
+        }
+
+        private void cWhiteboard_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cWhiteboard.Checked) equipmentList.Add("Whiteboard");
+            else equipmentList.Remove("Whiteboard");
+        }
+
+        private void cSpeakers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cSpeakers.Checked) equipmentList.Add("Speakers");
+            else equipmentList.Remove("Speakers");
+        }
+
+        private void cCamera_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cCamera.Checked) equipmentList.Add("Camera");
+            else equipmentList.Remove("Camera");
+        }
+
+        private void cComputers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cComputers.Checked) equipmentList.Add("Computer");
+            else equipmentList.Remove("Computer");
+        }
+
+        private void cChairs_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cChairs.Checked)
+            {
+                equipmentList.Add("Chairs");
+                equipmentList.Add("Tables");
+            } else
+            {
+                equipmentList.Remove("Chairs");
+                equipmentList.Remove("Tables");
+            }
+        }
+
+        private void cTelevisions_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cTelevisions.Checked) equipmentList.Add("Televisions");
+            else equipmentList.Remove("Televisions");
+        }
+
+        private void cPlugpoints_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cPlugpoints.Checked) equipmentList.Add("Plugs");
+            else equipmentList.Remove("Plugs");
+        }
+
+        private void cAircons_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cAircons.Checked) equipmentList.Add("AirConditioners");
+            else equipmentList.Remove("AirConditioners");
         }
     }
 }

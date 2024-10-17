@@ -66,9 +66,10 @@
             this.cbxStartTimes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxStartTimes.ForeColor = System.Drawing.Color.White;
             this.cbxStartTimes.FormattingEnabled = true;
-            this.cbxStartTimes.Location = new System.Drawing.Point(33, 251);
+            this.cbxStartTimes.Location = new System.Drawing.Point(26, 201);
+            this.cbxStartTimes.Margin = new System.Windows.Forms.Padding(2);
             this.cbxStartTimes.Name = "cbxStartTimes";
-            this.cbxStartTimes.Size = new System.Drawing.Size(268, 31);
+            this.cbxStartTimes.Size = new System.Drawing.Size(215, 27);
             this.cbxStartTimes.TabIndex = 3;
             this.cbxStartTimes.SelectedIndexChanged += new System.EventHandler(this.cbxStartTimes_SelectedIndexChanged);
             // 
@@ -76,9 +77,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 229);
+            this.label1.Location = new System.Drawing.Point(23, 183);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 19);
+            this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Start Time:";
             // 
@@ -86,9 +88,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(328, 229);
+            this.label2.Location = new System.Drawing.Point(262, 183);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 19);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "End Time:";
             // 
@@ -102,18 +105,20 @@
             this.cbxEndTime.FormattingEnabled = true;
             this.cbxEndTime.Items.AddRange(new object[] {
             "8am"});
-            this.cbxEndTime.Location = new System.Drawing.Point(332, 251);
+            this.cbxEndTime.Location = new System.Drawing.Point(266, 201);
+            this.cbxEndTime.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEndTime.Name = "cbxEndTime";
-            this.cbxEndTime.Size = new System.Drawing.Size(268, 31);
+            this.cbxEndTime.Size = new System.Drawing.Size(215, 27);
             this.cbxEndTime.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 152);
+            this.label3.Location = new System.Drawing.Point(28, 122);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 19);
+            this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Event Type:";
             // 
@@ -128,18 +133,20 @@
             "51-100",
             "100-300",
             "300+"});
-            this.cbxCapacity.Location = new System.Drawing.Point(332, 174);
+            this.cbxCapacity.Location = new System.Drawing.Point(266, 139);
+            this.cbxCapacity.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCapacity.Name = "cbxCapacity";
-            this.cbxCapacity.Size = new System.Drawing.Size(268, 31);
+            this.cbxCapacity.Size = new System.Drawing.Size(215, 27);
             this.cbxCapacity.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(334, 152);
+            this.label5.Location = new System.Drawing.Point(267, 122);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 19);
+            this.label5.Size = new System.Drawing.Size(134, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Required Capacity";
             // 
@@ -151,9 +158,10 @@
             this.btnCreateBooking.IconColor = System.Drawing.Color.White;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCreateBooking.IconSize = 30;
-            this.btnCreateBooking.Location = new System.Drawing.Point(189, 708);
+            this.btnCreateBooking.Location = new System.Drawing.Point(151, 566);
+            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(268, 53);
+            this.btnCreateBooking.Size = new System.Drawing.Size(214, 42);
             this.btnCreateBooking.TabIndex = 12;
             this.btnCreateBooking.Text = "CREATE NEW BOOKING";
             this.btnCreateBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -174,9 +182,10 @@
             "Presentation",
             "Party",
             "Other"});
-            this.cbxEventType.Location = new System.Drawing.Point(33, 174);
+            this.cbxEventType.Location = new System.Drawing.Point(26, 139);
+            this.cbxEventType.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEventType.Name = "cbxEventType";
-            this.cbxEventType.Size = new System.Drawing.Size(268, 31);
+            this.cbxEventType.Size = new System.Drawing.Size(215, 29);
             this.cbxEventType.TabIndex = 13;
             // 
             // gbEquipment
@@ -192,9 +201,11 @@
             this.gbEquipment.Controls.Add(this.cMicrophone);
             this.gbEquipment.Controls.Add(this.cProjector);
             this.gbEquipment.ForeColor = System.Drawing.Color.White;
-            this.gbEquipment.Location = new System.Drawing.Point(138, 307);
+            this.gbEquipment.Location = new System.Drawing.Point(110, 246);
+            this.gbEquipment.Margin = new System.Windows.Forms.Padding(2);
             this.gbEquipment.Name = "gbEquipment";
-            this.gbEquipment.Size = new System.Drawing.Size(358, 188);
+            this.gbEquipment.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEquipment.Size = new System.Drawing.Size(286, 150);
             this.gbEquipment.TabIndex = 14;
             this.gbEquipment.TabStop = false;
             this.gbEquipment.Text = "Equipment Needed";
@@ -202,102 +213,122 @@
             // cAircons
             // 
             this.cAircons.AutoSize = true;
-            this.cAircons.Location = new System.Drawing.Point(170, 143);
+            this.cAircons.Location = new System.Drawing.Point(136, 114);
+            this.cAircons.Margin = new System.Windows.Forms.Padding(2);
             this.cAircons.Name = "cAircons";
-            this.cAircons.Size = new System.Drawing.Size(160, 23);
+            this.cAircons.Size = new System.Drawing.Size(134, 21);
             this.cAircons.TabIndex = 9;
             this.cAircons.Text = "Air Conditioners";
             this.cAircons.UseVisualStyleBackColor = true;
+            this.cAircons.CheckedChanged += new System.EventHandler(this.cAircons_CheckedChanged);
             // 
             // cPlugpoints
             // 
             this.cPlugpoints.AutoSize = true;
-            this.cPlugpoints.Location = new System.Drawing.Point(170, 114);
+            this.cPlugpoints.Location = new System.Drawing.Point(136, 91);
+            this.cPlugpoints.Margin = new System.Windows.Forms.Padding(2);
             this.cPlugpoints.Name = "cPlugpoints";
-            this.cPlugpoints.Size = new System.Drawing.Size(114, 23);
+            this.cPlugpoints.Size = new System.Drawing.Size(96, 21);
             this.cPlugpoints.TabIndex = 8;
             this.cPlugpoints.Text = "Plugpoints";
             this.cPlugpoints.UseVisualStyleBackColor = true;
+            this.cPlugpoints.CheckedChanged += new System.EventHandler(this.cPlugpoints_CheckedChanged);
             // 
             // cComputers
             // 
             this.cComputers.AutoSize = true;
-            this.cComputers.Location = new System.Drawing.Point(170, 27);
+            this.cComputers.Location = new System.Drawing.Point(136, 22);
+            this.cComputers.Margin = new System.Windows.Forms.Padding(2);
             this.cComputers.Name = "cComputers";
-            this.cComputers.Size = new System.Drawing.Size(120, 23);
+            this.cComputers.Size = new System.Drawing.Size(101, 21);
             this.cComputers.TabIndex = 7;
             this.cComputers.Text = "Computers";
             this.cComputers.UseVisualStyleBackColor = true;
+            this.cComputers.CheckedChanged += new System.EventHandler(this.cComputers_CheckedChanged);
             // 
             // cChairs
             // 
             this.cChairs.AutoSize = true;
-            this.cChairs.Location = new System.Drawing.Point(170, 56);
+            this.cChairs.Location = new System.Drawing.Point(136, 45);
+            this.cChairs.Margin = new System.Windows.Forms.Padding(2);
             this.cChairs.Name = "cChairs";
-            this.cChairs.Size = new System.Drawing.Size(176, 23);
+            this.cChairs.Size = new System.Drawing.Size(146, 21);
             this.cChairs.TabIndex = 6;
             this.cChairs.Text = "Chairs and Tables";
             this.cChairs.UseVisualStyleBackColor = true;
+            this.cChairs.CheckedChanged += new System.EventHandler(this.cChairs_CheckedChanged);
             // 
             // cTelevisions
             // 
             this.cTelevisions.AutoSize = true;
-            this.cTelevisions.Location = new System.Drawing.Point(170, 85);
+            this.cTelevisions.Location = new System.Drawing.Point(136, 68);
+            this.cTelevisions.Margin = new System.Windows.Forms.Padding(2);
             this.cTelevisions.Name = "cTelevisions";
-            this.cTelevisions.Size = new System.Drawing.Size(119, 23);
+            this.cTelevisions.Size = new System.Drawing.Size(99, 21);
             this.cTelevisions.TabIndex = 5;
             this.cTelevisions.Text = "Televisions";
             this.cTelevisions.UseVisualStyleBackColor = true;
+            this.cTelevisions.CheckedChanged += new System.EventHandler(this.cTelevisions_CheckedChanged);
             // 
             // cCamera
             // 
             this.cCamera.AutoSize = true;
-            this.cCamera.Location = new System.Drawing.Point(19, 143);
+            this.cCamera.Location = new System.Drawing.Point(15, 114);
+            this.cCamera.Margin = new System.Windows.Forms.Padding(2);
             this.cCamera.Name = "cCamera";
-            this.cCamera.Size = new System.Drawing.Size(98, 23);
+            this.cCamera.Size = new System.Drawing.Size(83, 21);
             this.cCamera.TabIndex = 4;
             this.cCamera.Text = "Camera";
             this.cCamera.UseVisualStyleBackColor = true;
+            this.cCamera.CheckedChanged += new System.EventHandler(this.cCamera_CheckedChanged);
             // 
             // cSpeakers
             // 
             this.cSpeakers.AutoSize = true;
-            this.cSpeakers.Location = new System.Drawing.Point(19, 114);
+            this.cSpeakers.Location = new System.Drawing.Point(15, 91);
+            this.cSpeakers.Margin = new System.Windows.Forms.Padding(2);
             this.cSpeakers.Name = "cSpeakers";
-            this.cSpeakers.Size = new System.Drawing.Size(107, 23);
+            this.cSpeakers.Size = new System.Drawing.Size(88, 21);
             this.cSpeakers.TabIndex = 3;
             this.cSpeakers.Text = "Speakers";
             this.cSpeakers.UseVisualStyleBackColor = true;
+            this.cSpeakers.CheckedChanged += new System.EventHandler(this.cSpeakers_CheckedChanged);
             // 
             // cWhiteboard
             // 
             this.cWhiteboard.AutoSize = true;
-            this.cWhiteboard.Location = new System.Drawing.Point(19, 85);
+            this.cWhiteboard.Location = new System.Drawing.Point(15, 68);
+            this.cWhiteboard.Margin = new System.Windows.Forms.Padding(2);
             this.cWhiteboard.Name = "cWhiteboard";
-            this.cWhiteboard.Size = new System.Drawing.Size(124, 23);
+            this.cWhiteboard.Size = new System.Drawing.Size(105, 21);
             this.cWhiteboard.TabIndex = 2;
             this.cWhiteboard.Text = "Whiteboard";
             this.cWhiteboard.UseVisualStyleBackColor = true;
+            this.cWhiteboard.CheckedChanged += new System.EventHandler(this.cWhiteboard_CheckedChanged);
             // 
             // cMicrophone
             // 
             this.cMicrophone.AutoSize = true;
-            this.cMicrophone.Location = new System.Drawing.Point(19, 56);
+            this.cMicrophone.Location = new System.Drawing.Point(15, 45);
+            this.cMicrophone.Margin = new System.Windows.Forms.Padding(2);
             this.cMicrophone.Name = "cMicrophone";
-            this.cMicrophone.Size = new System.Drawing.Size(130, 23);
+            this.cMicrophone.Size = new System.Drawing.Size(109, 21);
             this.cMicrophone.TabIndex = 1;
             this.cMicrophone.Text = "Microphone";
             this.cMicrophone.UseVisualStyleBackColor = true;
+            this.cMicrophone.CheckedChanged += new System.EventHandler(this.cMicrophone_CheckedChanged);
             // 
             // cProjector
             // 
             this.cProjector.AutoSize = true;
-            this.cProjector.Location = new System.Drawing.Point(19, 27);
+            this.cProjector.Location = new System.Drawing.Point(15, 22);
+            this.cProjector.Margin = new System.Windows.Forms.Padding(2);
             this.cProjector.Name = "cProjector";
-            this.cProjector.Size = new System.Drawing.Size(103, 23);
+            this.cProjector.Size = new System.Drawing.Size(87, 21);
             this.cProjector.TabIndex = 0;
             this.cProjector.Text = "Projector";
             this.cProjector.UseVisualStyleBackColor = true;
+            this.cProjector.CheckedChanged += new System.EventHandler(this.cProjector_CheckedChanged);
             // 
             // dtpBookingDate
             // 
@@ -307,18 +338,20 @@
             this.dtpBookingDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dtpBookingDate.CalendarTrailingForeColor = System.Drawing.Color.Blue;
             this.dtpBookingDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBookingDate.Location = new System.Drawing.Point(33, 97);
+            this.dtpBookingDate.Location = new System.Drawing.Point(26, 78);
+            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBookingDate.Name = "dtpBookingDate";
-            this.dtpBookingDate.Size = new System.Drawing.Size(567, 32);
+            this.dtpBookingDate.Size = new System.Drawing.Size(454, 27);
             this.dtpBookingDate.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(35, 75);
+            this.label4.Location = new System.Drawing.Point(28, 60);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 19);
+            this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 16;
             this.label4.Text = "Date:";
             // 
@@ -326,9 +359,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(224, 617);
+            this.label6.Location = new System.Drawing.Point(179, 494);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 19);
+            this.label6.Size = new System.Drawing.Size(131, 17);
             this.label6.TabIndex = 17;
             this.label6.Text = "Available Venues:";
             // 
@@ -340,9 +374,10 @@
             this.cbxAvailableVenues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAvailableVenues.ForeColor = System.Drawing.Color.White;
             this.cbxAvailableVenues.FormattingEnabled = true;
-            this.cbxAvailableVenues.Location = new System.Drawing.Point(33, 641);
+            this.cbxAvailableVenues.Location = new System.Drawing.Point(26, 513);
+            this.cbxAvailableVenues.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAvailableVenues.Name = "cbxAvailableVenues";
-            this.cbxAvailableVenues.Size = new System.Drawing.Size(544, 31);
+            this.cbxAvailableVenues.Size = new System.Drawing.Size(436, 27);
             this.cbxAvailableVenues.TabIndex = 18;
             // 
             // btnSearch
@@ -354,9 +389,10 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(216, 518);
+            this.btnSearch.Location = new System.Drawing.Point(173, 414);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(184, 53);
+            this.btnSearch.Size = new System.Drawing.Size(147, 42);
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "SEARCH VENUES";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -368,9 +404,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(173, 18);
+            this.label7.Location = new System.Drawing.Point(138, 14);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(311, 37);
+            this.label7.Size = new System.Drawing.Size(250, 28);
             this.label7.TabIndex = 20;
             this.label7.Text = "CREATE A BOOKING:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -383,19 +420,20 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 30;
-            this.btnClose.Location = new System.Drawing.Point(582, 12);
+            this.btnClose.Location = new System.Drawing.Point(466, 10);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(40, 43);
+            this.btnClose.Size = new System.Drawing.Size(32, 34);
             this.btnClose.TabIndex = 21;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // CreateBooking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(634, 791);
+            this.ClientSize = new System.Drawing.Size(507, 633);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);
@@ -417,7 +455,6 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateBooking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create A Booking";

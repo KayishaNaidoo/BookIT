@@ -20,7 +20,7 @@ namespace BookITFinal.Components
         {
             InitializeComponent();
             this.date = date;
-            this.lblDays.Text = date.Day.ToString() + "";
+            this.lblDays.Text = date.Day.ToString();
             UserID = userID;
         }
 
@@ -32,7 +32,7 @@ namespace BookITFinal.Components
         private void UserControlDay_Click(object sender, EventArgs e)
         {
             if(this.date>DateTime.Today.AddDays(2)){
-            Form bookingPage = new CreateBooking(this.date, UserID);
+                Form bookingPage = new CreateBooking(this.date, UserID);
                 bookingPage.ShowDialog();
             }
         }
