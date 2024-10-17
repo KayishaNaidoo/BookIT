@@ -550,6 +550,39 @@ namespace BookITFinal.Components
 
             return userList.ToArray();  
         }
+
+        public List<Venue> GetVenueList()
+        {
+            List<Venue> venues = new List<Venue>();
+
+            try
+            {
+                string query =
+                    "SELECT Venue.VenueID, Building.BuildingName, Capacity, " +
+                    "group_concat(Equipment.EquipmentName) as [Equipment] " +
+                    "FROM Venue JOIN Building ON Venue.BuildingID = Building.BuildingID " +
+                    "JOIN VenueEquipment on Venue.VenueID = VenueEquipment.VenueID " +
+                    "JOIN Equipment ON VenueEquipment.EquipmentID = Equipment.EquipmentID " +
+                    "GROUP BY Venue.VenueID;";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            venues.Add(new Venue(reader));
+                        }
+                    }
+                }
+
+                return venues;
+            } catch (Exception ex)
+            {
+                Console.WriteLine("ERROR:", ex);
+            }
+            return venues;
+        }
       
 
         public Booking GetBooking(string bookingID)
@@ -567,8 +600,10 @@ namespace BookITFinal.Components
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        booking = new Booking(reader);
-                        return booking;
+                        while (reader.Read())
+                        {
+                            booking = new Booking(reader);
+                        }
                     }
                 }
             } catch (Exception ex)

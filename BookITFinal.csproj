@@ -104,6 +104,7 @@
     <Compile Include="Components\UserControlDay.Designer.cs">
       <DependentUpon>UserControlDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Venue.cs" />
     <Compile Include="Forms\Account.cs">
       <SubType>Form</SubType>
     </Compile>

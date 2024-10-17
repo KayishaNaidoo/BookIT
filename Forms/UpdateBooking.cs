@@ -25,9 +25,13 @@ namespace BookITFinal.Forms
             DatabaseHelper db = new DatabaseHelper();
             Booking booking = db.GetBooking(BookingID);
             dtpBookingDate.Value = DateTime.Parse(booking.date);
-            cbxEventType.Text = booking.eventType;
-            cbxStartTimes.Text = booking.startTime;
-            cbxEndTime.Text = booking.endTime;
+            cbxEventType.Items.Add(booking.eventType);
+            cbxEventType.SelectedIndex = 0;
+            cbxStartTimes.Items.Add(booking.startTime);
+            cbxStartTimes.SelectedIndex = 0;
+            cbxEndTime.Items.Add(booking.endTime);
+            cbxEndTime.SelectedIndex = 0;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
