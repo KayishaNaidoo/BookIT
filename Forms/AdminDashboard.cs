@@ -42,6 +42,11 @@ namespace BookITFinal.Forms
                 DataTable bookingsData = dbHelper.GetBookings(cbxUserID.SelectedItem.ToString());
                 dgvBookings.DataSource = bookingsData;
             }
+
+            if (cbxUserID.SelectedIndex > -1)
+                btnCreateBooking.Text = $"CREATE BOOKING FOR {cbxUserID.SelectedItem as string}";
+            else
+                btnCreateBooking.Text = "CREATE BOOKING FOR USER";
         }
 
 
@@ -144,6 +149,9 @@ namespace BookITFinal.Forms
             DataTable bookingsData = dbHelper.GetAllBookings();
             dgvBookings.DataSource = bookingsData;
 
+            cbxUserID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbxUserID.AutoCompleteSource = AutoCompleteSource.ListItems;
+
             //populate all bookings
             PopulateFullChart();
         }
@@ -174,8 +182,14 @@ namespace BookITFinal.Forms
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            Form CreateB = new CreateBooking(DateTime.Today.AddDays(2), UserIDF);
-            CreateB.Show();
+            if (cbxUserID.SelectedIndex > -1)
+            {
+                Form CreateB = new CreateBooking(DateTime.Today.AddDays(2), cbxUserID.SelectedItem as string);
+                CreateB.Show();
+            } else
+            {
+                MessageBox.Show("Invalid user selection");
+            }
         }
 
         private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
