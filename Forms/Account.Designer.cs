@@ -39,8 +39,9 @@
             this.lblLName = new System.Windows.Forms.Label();
             this.lblFName = new System.Windows.Forms.Label();
             this.tblpAccount = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEditContactNo = new FontAwesome.Sharp.IconButton();
             this.lblRole = new System.Windows.Forms.Label();
+            this.btnEditContactNo = new FontAwesome.Sharp.IconButton();
+            this.btnEditPass = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.tblpAccount.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +89,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 249;
-            this.iconPictureBox1.Location = new System.Drawing.Point(519, 12);
+            this.iconPictureBox1.Location = new System.Drawing.Point(535, 12);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(249, 251);
             this.iconPictureBox1.TabIndex = 7;
@@ -204,6 +205,17 @@
             this.tblpAccount.TabIndex = 6;
             this.tblpAccount.Paint += new System.Windows.Forms.PaintEventHandler(this.tblpAccount_Paint);
             // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRole.Location = new System.Drawing.Point(13, 202);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(499, 52);
+            this.lblRole.TabIndex = 10;
+            this.lblRole.Text = "Student";
+            this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnEditContactNo
             // 
             this.btnEditContactNo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -223,16 +235,19 @@
             this.btnEditContactNo.Visible = false;
             this.btnEditContactNo.Click += new System.EventHandler(this.btnEditContactNo_Click);
             // 
-            // lblRole
+            // btnEditPass
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRole.Location = new System.Drawing.Point(13, 202);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(499, 52);
-            this.lblRole.TabIndex = 10;
-            this.lblRole.Text = "Student";
-            this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            this.btnEditPass.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnEditPass.IconColor = System.Drawing.Color.White;
+            this.btnEditPass.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditPass.Location = new System.Drawing.Point(580, 564);
+            this.btnEditPass.Name = "btnEditPass";
+            this.btnEditPass.Size = new System.Drawing.Size(153, 50);
+            this.btnEditPass.TabIndex = 9;
+            this.btnEditPass.Text = "Edit Password";
+            this.btnEditPass.UseVisualStyleBackColor = false;
+            this.btnEditPass.Click += new System.EventHandler(this.btnEditPass_Click);
             // 
             // Account
             // 
@@ -240,6 +255,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1236, 701);
+            this.Controls.Add(this.btnEditPass);
             this.Controls.Add(this.lblContactAdmin);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.tblpAccount);
@@ -271,5 +287,6 @@
         private System.Windows.Forms.TableLayoutPanel tblpAccount;
         private FontAwesome.Sharp.IconButton btnEditContactNo;
         private System.Windows.Forms.Label lblRole;
+        private FontAwesome.Sharp.IconButton btnEditPass;
     }
 }

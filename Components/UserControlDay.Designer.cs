@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.lblDays = new System.Windows.Forms.Label();
+            this.iBookings = new FontAwesome.Sharp.IconPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.iBookings)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDays
@@ -38,19 +40,37 @@
             this.lblDays.ForeColor = System.Drawing.Color.White;
             this.lblDays.Location = new System.Drawing.Point(3, 12);
             this.lblDays.Name = "lblDays";
-            this.lblDays.Size = new System.Drawing.Size(27, 19);
+            this.lblDays.Size = new System.Drawing.Size(32, 23);
             this.lblDays.TabIndex = 0;
             this.lblDays.Text = "00";
+            // 
+            // iBookings
+            // 
+            this.iBookings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.iBookings.ForeColor = System.Drawing.Color.Chartreuse;
+            this.iBookings.IconChar = FontAwesome.Sharp.IconChar.CircleCheck;
+            this.iBookings.IconColor = System.Drawing.Color.Chartreuse;
+            this.iBookings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBookings.Location = new System.Drawing.Point(80, 3);
+            this.iBookings.Name = "iBookings";
+            this.iBookings.Size = new System.Drawing.Size(32, 32);
+            this.iBookings.TabIndex = 1;
+            this.iBookings.TabStop = false;
             // 
             // UserControlDay
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.Controls.Add(this.iBookings);
             this.Controls.Add(this.lblDays);
             this.Name = "UserControlDay";
             this.Size = new System.Drawing.Size(115, 85);
             this.Load += new System.EventHandler(this.UserControlDay_Load);
             this.Click += new System.EventHandler(this.UserControlDay_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.iBookings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -59,5 +79,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblDays;
+        private FontAwesome.Sharp.IconPictureBox iBookings;
     }
 }

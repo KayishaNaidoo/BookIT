@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +30,8 @@ namespace BookITFinal.Forms
             string[] userList = dbHelper.GetUserList();
             cbxuserId.Items.Clear();
             cbxuserId.Items.AddRange(userList);
+            cbxuserId.AutoCompleteMode = AutoCompleteMode.SuggestAppend;  
+            cbxuserId.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxuserId.SelectedIndex = 0;
 
         }
@@ -80,39 +83,107 @@ namespace BookITFinal.Forms
 
         private void btnEditEmail_Click(object sender, EventArgs e)
         {
-            string oldEmail = lblLName.Text;
+            string oldEmail = lblEmail.Text;
             string newEmail = Interaction.InputBox("Input New Email Address", "Edit Email Address");
             string userID = cbxuserId.SelectedItem.ToString();
 
+            string EditUserType= dbHelper.GetUserType(userID);
 
-            if (newEmail == "")
-            {
-                newEmail = oldEmail;
+            bool isValidEmail= ValidateEmail(newEmail, EditUserType);
+
+            if (isValidEmail==true) {
+                dbHelper.EditEmail(userID, newEmail);
+                LoadDetails(userID);
             }
-
-            dbHelper.EditEmail(userID, newEmail);
-            LoadDetails(userID);
 
         }
 
         private void btnEditContactNo_Click(object sender, EventArgs e)
         {
 
-            string oldContact = lblLName.Text;
+            string oldContact = lblContactNo.Text;
             string newContact = Interaction.InputBox("Input New Email Address", "Edit Email Address");
             string userID = cbxuserId.SelectedItem.ToString();
 
+            bool isValidContact = ValidateContactNo(newContact);
 
-            if (newContact == "")
-            {
-                newContact = oldContact;
+            if(isValidContact==true){
+                dbHelper.EditContactNo(userID, newContact);
+                LoadDetails(userID);
             }
-
-            dbHelper.EditContactNo(userID, newContact);
-            LoadDetails(userID);
         }
 
-     
+        bool ValidateContactNo(String ContactNo)
+        {
+            bool isEmpty = string.IsNullOrEmpty(ContactNo);
+
+            if (isEmpty)
+            {
+                MessageBox.Show("Phone Number must not be empty.");
+                return false;
+
+            }
+
+            bool bLength = ContactNo.Length == 10 ? true : false;
+            bool isNumeric = ContactNo.All(char.IsDigit);
+
+
+            if (!isNumeric || !bLength)
+            {
+                MessageBox.Show("Phone Number must be 10 digits");
+                return false;
+
+            }
+
+            return true;
+        }
+
+        bool ValidateEmail(String EmailAddress,string userType)
+        {
+
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (string.IsNullOrEmpty(EmailAddress))
+            {
+                MessageBox.Show("Email address cannot be empty!");
+                return false;
+
+            }
+
+
+            bool isValidEmailFormat = Regex.IsMatch(EmailAddress, emailPattern);
+
+            if (!isValidEmailFormat)
+            {
+                MessageBox.Show("Invalid email address format!");
+                return false;
+
+            }
+
+            if (userType == "Student")
+            {
+                if (!EmailAddress.EndsWith("@students.wits.ac.za"))
+                {
+                    MessageBox.Show("Student email must end with @students.wits.ac.za");
+                    return false;
+
+                }
+            }
+            else
+            {
+                if (!EmailAddress.EndsWith("@wits.ac.za"))
+                {
+                    MessageBox.Show("Employee email must end with @wits.ac.za");
+                    return false;
+
+                }
+            }
+
+            return true;
+        }
+
+
+
 
         private void cbxuserId_SelectedIndexChanged(object sender, EventArgs e)
         {

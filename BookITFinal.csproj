@@ -135,6 +135,12 @@
     <Compile Include="Forms\CreateBooking.Designer.cs">
       <DependentUpon>CreateBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditPassword.Designer.cs">
+      <DependentUpon>EditPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LecturerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="Forms\ManageUsers.Designer.cs">
       <DependentUpon>ManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PopUpCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PopUpCalendar.Designer.cs">
+      <DependentUpon>PopUpCalendar.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentDashboard.cs">
       <SubType>Form</SubType>
@@ -224,11 +236,17 @@
     <EmbeddedResource Include="Forms\CreateBooking.resx">
       <DependentUpon>CreateBooking.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditPassword.resx">
+      <DependentUpon>EditPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PopUpCalendar.resx">
+      <DependentUpon>PopUpCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentDashboard.resx">
       <DependentUpon>StudentDashboard.cs</DependentUpon>
