@@ -583,6 +583,34 @@ namespace BookITFinal.Components
             }
             return venues;
         }
+
+        public List<Booking> getBookingOnDate(string date)
+        {
+            List<Booking> bookings = new List<Booking>();
+
+            try
+            {
+                string query = "SELECT * " +
+                    "FROM Booking " +
+                    "WHERE Date = @bookingDate;";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con)) {
+                    command.Parameters.AddWithValue("@bookingDate", date);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            bookings.Add(new Booking(reader));
+                        }
+                    }
+                }
+                return bookings;
+            } catch (Exception ex)
+            {
+                Console.WriteLine("ERROR:", ex);
+            }
+            return  bookings;
+        }
       
 
         public Booking GetBooking(string bookingID)

@@ -358,8 +358,6 @@
             this.cbxEndTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEndTime.ForeColor = System.Drawing.Color.White;
             this.cbxEndTime.FormattingEnabled = true;
-            this.cbxEndTime.Items.AddRange(new object[] {
-            "8am"});
             this.cbxEndTime.Location = new System.Drawing.Point(315, 237);
             this.cbxEndTime.Name = "cbxEndTime";
             this.cbxEndTime.Size = new System.Drawing.Size(268, 31);

@@ -17,8 +17,9 @@ namespace BookITFinal.Forms
         private string UserIdF;
         private DatabaseHelper db = new DatabaseHelper();
         private List<Venue> venueList;
-        private List<string> equipmentList = new List<string>();
         private List<Venue> filteredVenues = new List<Venue>();
+        private List<Booking> bookings = new List<Booking>();
+        private List<string> equipmentList = new List<string>();
 
 
         public CreateBooking(DateTime BookingDate, string UserID)
@@ -33,7 +34,7 @@ namespace BookITFinal.Forms
 
             dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
             dtpBookingDate.Value = BookingDateF;
-            dtpBookingDate.Enabled = false;
+            dtpBookingDate.Enabled = true;
             //@Liam and Colby: This is just a table to play around with queries and it shows it
 
             string[] startTimes = GenerateStartTimes();
@@ -45,6 +46,7 @@ namespace BookITFinal.Forms
             }
 
             venueList = db.GetVenueList();
+            bookings = db.getBookingOnDate(this.BookingDateF.ToString("yyyy/MM/dd")); ;
         }
 
         // generate start times from 8:00 till 22:00
