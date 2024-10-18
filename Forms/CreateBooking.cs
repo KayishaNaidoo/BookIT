@@ -48,6 +48,9 @@ namespace BookITFinal.Forms
                 cbxStartTimes.SelectedIndex = 0;
             }
 
+            cbxAvailableVenues.Items.Add("No available venues");
+            cbxAvailableVenues.SelectedIndex = 0;
+
             venueList = db.GetVenueList();
             bookings = db.getBookingOnDate(this.BookingDateF.ToString("yyyy/MM/dd"));
         }
@@ -258,12 +261,16 @@ namespace BookITFinal.Forms
 
             cbxAvailableVenues.Items.Clear();
 
-            if (filteredVenues != null)
+            if (filteredVenues.Count != 0)
             {
                 foreach (Venue filteredVenue in filteredVenues)
                 {
                     cbxAvailableVenues.Items.Add(filteredVenue.venueID + " - " + filteredVenue.buildingName);
                 }
+            } else
+            {
+                cbxAvailableVenues.Items.Add("No available venues");
+                cbxAvailableVenues.SelectedIndex = 0;
             }
 
             cbxAvailableVenues.Enabled = true;
