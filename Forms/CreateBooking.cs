@@ -15,10 +15,12 @@ namespace BookITFinal.Forms
     {
         private DateTime BookingDateF = DateTime.Today;
         private string UserIdF;
+        private string bookingDate;
+
         private DatabaseHelper db = new DatabaseHelper();
         private List<Venue> venueList;
         private List<Venue> filteredVenues = new List<Venue>();
-        private List<Booking> bookings = new List<Booking>();
+        private List<Booking> bookings;
         private List<string> equipmentList = new List<string>();
 
 
@@ -35,6 +37,7 @@ namespace BookITFinal.Forms
             dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
             dtpBookingDate.Value = BookingDateF;
             dtpBookingDate.Enabled = true;
+            this.bookingDate = dtpBookingDate.Value.ToString("HH:mm");
             //@Liam and Colby: This is just a table to play around with queries and it shows it
 
             string[] startTimes = GenerateStartTimes();
@@ -46,7 +49,7 @@ namespace BookITFinal.Forms
             }
 
             venueList = db.GetVenueList();
-            bookings = db.getBookingOnDate(this.BookingDateF.ToString("yyyy/MM/dd")); ;
+            bookings = db.getBookingOnDate(this.BookingDateF.ToString("yyyy/MM/dd"));
         }
 
         // generate start times from 8:00 till 22:00
@@ -222,16 +225,42 @@ namespace BookITFinal.Forms
                     break;
             }
 
-            foreach (Venue venue in venueList)
+
+            if (cbxStartTimes.SelectedIndex == -1)
             {
-                if (venue.capacity >= min && venue.capacity <= max)
+                MessageBox.Show("Invalid start time");
+                return;
+            }
+            if (cbxEndTime.SelectedIndex == -1)
+            {
+                MessageBox.Show("Invalid end time");
+                return;
+            }
+
+            foreach (Venue venue in venueList)
                 {
-                    if (venue.filter(equipmentList))
+                    if (venue.capacity >= min && venue.capacity <= max)
                     {
-                        filteredVenues.Add(venue);
+                        if (venue.filter(equipmentList))
+                        {
+                            bool hasConflict = false;
+
+                            foreach (Booking booking in bookings.Where(b => b.venueId == venue.venueID))
+                            {
+                                if (booking.isTimeConflict(cbxStartTimes.SelectedItem as string, cbxEndTime.SelectedItem as string))
+                                {
+                                    hasConflict = true;
+                                    break;
+                                }
+                            }
+
+                            if (!hasConflict)
+                            {
+                                filteredVenues.Add(venue);
+                            }
+                        }
                     }
                 }
-            }
 
             cbxAvailableVenues.Items.Clear();
 
@@ -316,6 +345,12 @@ namespace BookITFinal.Forms
         {
             if (cAircons.Checked) equipmentList.Add("AirConditioners");
             else equipmentList.Remove("AirConditioners");
+        }
+
+        private void dtpBookingDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.bookingDate = dtpBookingDate.Value.ToString("HH:mm");
+            bookings = db.getBookingOnDate(this.bookingDate);
         }
     }
 }

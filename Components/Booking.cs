@@ -34,5 +34,15 @@ namespace BookITFinal.Components
             this.startTime = reader["StartTime"].ToString();
             this.endTime = reader["EndTime"].ToString();
         }
+
+        public bool isTimeConflict(string inputStartTime, string inputEndTime)
+        {
+            TimeSpan start = TimeSpan.Parse(startTime);
+            TimeSpan end = TimeSpan.Parse(endTime);
+            TimeSpan plannedStartTime = TimeSpan.Parse(inputStartTime);
+            TimeSpan plannedEndTime = TimeSpan.Parse(inputEndTime);
+
+            return (start <= plannedStartTime && end >= plannedStartTime) || (start <= plannedEndTime && end >= plannedEndTime);
+        }
     }
 }
