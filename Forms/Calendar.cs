@@ -56,7 +56,7 @@ namespace BookITFinal.Forms
         private void btnPrev_Click(object sender, EventArgs e)
         {
             currentDate = currentDate.AddMonths(-1);
-            displayDays(); 
+            displayDays();
         }
 
       

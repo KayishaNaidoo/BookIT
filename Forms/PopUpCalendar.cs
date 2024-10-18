@@ -30,6 +30,12 @@ namespace BookITFinal.Forms
             DataTable bookingsData = dbHelper.GetDayBookingforUser(UserIDF,Date.ToString("yyyy/MM/dd"));
             dgvBookings.DataSource = bookingsData;
 
+            if (this.Date <= DateTime.Today.AddDays(2))
+            {
+                btnCreateBooking.Enabled = false;
+                btnCreateBooking.Visible = false;
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -39,16 +45,8 @@ namespace BookITFinal.Forms
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            if (this.Date > DateTime.Today.AddDays(2))
-            {
-                Form bookingPage = new CreateBooking(this.Date, UserIDF);
-                bookingPage.ShowDialog();
-            }
-            else
-            {
-                Form bookingPage = new CreateBooking(DateTime.Today.AddDays(2), UserIDF);
-                bookingPage.ShowDialog();
-            }
+            Form bookingPage = new CreateBooking(this.Date, UserIDF);
+            bookingPage.ShowDialog();
         }
     }
 }

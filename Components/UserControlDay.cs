@@ -28,22 +28,22 @@ namespace BookITFinal.Components
 
         private void UserControlDay_Load(object sender, EventArgs e)
         {
+
             DataTable bookingsData = dbHelper.GetDayBookingforUser(UserID, date.ToString("yyyy/MM/dd"));
-             if (bookingsData.Rows.Count == 0)
-                 {
-                    iBookings.Visible = false;
-                 }
+            if (bookingsData.Rows.Count == 0)
+            {
+                iBookings.Visible = false;
+            }
             else
             {
                 iBookings.Visible = true;
             }
 
-
         }
 
         private void UserControlDay_Click(object sender, EventArgs e)
         {
-            Form ViewDayBookings = new PopUpCalendar(date,UserID);
+            Form ViewDayBookings = new PopUpCalendar(date, UserID);
             ViewDayBookings.ShowDialog();
         }
     }
