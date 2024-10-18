@@ -45,6 +45,7 @@
             this.lblNumBookings = new System.Windows.Forms.Label();
             this.lblNumUsers = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefresh = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPastBookings)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -244,12 +245,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 230);
             this.tableLayoutPanel1.TabIndex = 18;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnRefresh.IconColor = System.Drawing.Color.Black;
+            this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRefresh.Location = new System.Drawing.Point(1146, 68);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(32, 31);
+            this.btnRefresh.TabIndex = 19;
+            this.btnRefresh.Text = "iconButton1";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1236, 701);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnCreateUser);
             this.Controls.Add(this.lblUser);
@@ -285,5 +299,6 @@
         private System.Windows.Forms.Label lblNumBookings;
         private System.Windows.Forms.Label lblNumUsers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnRefresh;
     }
 }

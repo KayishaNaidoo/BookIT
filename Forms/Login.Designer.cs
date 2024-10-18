@@ -39,6 +39,8 @@
             this.edtRoleNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new FontAwesome.Sharp.IconButton();
+            this.kayishalogin = new System.Windows.Forms.Button();
+            this.AdminLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconEyePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
@@ -171,6 +173,26 @@
             this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
             this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
             // 
+            // kayishalogin
+            // 
+            this.kayishalogin.Location = new System.Drawing.Point(381, 488);
+            this.kayishalogin.Name = "kayishalogin";
+            this.kayishalogin.Size = new System.Drawing.Size(75, 31);
+            this.kayishalogin.TabIndex = 32;
+            this.kayishalogin.Text = "kayisha";
+            this.kayishalogin.UseVisualStyleBackColor = true;
+            this.kayishalogin.Click += new System.EventHandler(this.kayishalogin_Click);
+            // 
+            // AdminLog
+            // 
+            this.AdminLog.Location = new System.Drawing.Point(381, 545);
+            this.AdminLog.Name = "AdminLog";
+            this.AdminLog.Size = new System.Drawing.Size(75, 31);
+            this.AdminLog.TabIndex = 33;
+            this.AdminLog.Text = "admin";
+            this.AdminLog.UseVisualStyleBackColor = true;
+            this.AdminLog.Click += new System.EventHandler(this.AdminLog_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -178,6 +200,8 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(490, 616);
+            this.Controls.Add(this.AdminLog);
+            this.Controls.Add(this.kayishalogin);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.edtRoleNumber);
@@ -216,5 +240,7 @@
         private System.Windows.Forms.TextBox edtRoleNumber;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnBack;
+        private System.Windows.Forms.Button kayishalogin;
+        private System.Windows.Forms.Button AdminLog;
     }
 }

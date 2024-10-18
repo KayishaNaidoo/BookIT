@@ -90,5 +90,49 @@ namespace BookITFinal.Forms
             btnLogin.IconColor = Color.White;
  
         }
+
+        private void kayishalogin_Click(object sender, EventArgs e)
+        {
+            String userID = "2562592";
+            String password = "Password123#";
+            bool bLogin = false;
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            bLogin = dbHelper.Login(userID, password);
+
+            if (bLogin == true)
+            {
+                Form mm = new MainPage(userID);
+                mm.Show();
+                this.Hide();
+              
+            }
+            else
+            {
+                MessageBox.Show("Invalid User Credentials");
+            }
+
+
+        }
+
+        private void AdminLog_Click(object sender, EventArgs e)
+        {
+            String userID = "2604668";
+            String password = "PassAdmin12$";
+            bool bLogin = false;
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            bLogin = dbHelper.Login(userID, password);
+
+            if (bLogin == true)
+            {
+                Form mm = new MainPage(userID);
+                mm.Show();
+                this.Hide();
+              
+            }
+            else
+            {
+                MessageBox.Show("Invalid User Credentials");
+            }
+        }
     }
 }

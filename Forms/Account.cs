@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Text.RegularExpressions;
 
 namespace BookITFinal.Forms
 {
@@ -18,6 +19,7 @@ namespace BookITFinal.Forms
         String UserIDF;
         string UserType;
         DatabaseHelper dbHelper= new DatabaseHelper();
+      
         public Account(string UserID)
         {
             InitializeComponent();
@@ -88,13 +90,14 @@ namespace BookITFinal.Forms
             string newEmail = Interaction.InputBox("Input New Email Address", "Edit Email Address");
 
 
-            if (newEmail == "")
-            {
-                newEmail = oldEmail;
-            }
 
-            dbHelper.EditEmail(UserIDF, newEmail);
-            LoadDetails();
+            bool isValidEmail = ValidateEmail(newEmail);
+            if (isValidEmail == true)
+            {
+
+                dbHelper.EditEmail(UserIDF, newEmail);
+                LoadDetails();
+            }
 
         }
 
@@ -102,17 +105,86 @@ namespace BookITFinal.Forms
         {
 
             string oldContact = lblLName.Text;
-            string newContact = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+            string newContact = Interaction.InputBox("Input New Contact Number", "Edit Contact Number");
 
 
-            if (newContact == "")
+                bool isValidContact = ValidateContactNo(newContact);
+                if (isValidContact == true)
+                {
+                    dbHelper.EditContactNo(UserIDF, newContact);
+                    LoadDetails();
+                }
+        }
+
+        bool ValidateContactNo(String ContactNo)
+        {
+            bool isEmpty = string.IsNullOrEmpty(ContactNo);
+
+            if (isEmpty)
             {
-                newContact = oldContact;
+                MessageBox.Show("Phone Number must not be empty.");
+                return false;
+               
             }
 
-            dbHelper.EditContactNo(UserIDF, newContact);
-            LoadDetails();
+            bool bLength = ContactNo.Length == 10 ? true : false;
+            bool isNumeric = ContactNo.All(char.IsDigit);
+
+
+            if (!isNumeric || !bLength)
+            {
+                MessageBox.Show("Phone Number must be 10 digits");
+                return false;
+             
+            }
+
+            return true;
         }
+
+        bool ValidateEmail(String EmailAddress)
+        {
+
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (string.IsNullOrEmpty(EmailAddress))
+            {
+                MessageBox.Show("Email address cannot be empty!");
+                return false;
+               
+            }
+
+
+            bool isValidEmailFormat = Regex.IsMatch(EmailAddress, emailPattern);
+
+            if (!isValidEmailFormat)
+            {
+                MessageBox.Show("Invalid email address format!");
+                return false;
+                
+            }
+
+            if (UserType=="Student")
+            {
+                if (!EmailAddress.EndsWith("@students.wits.ac.za"))
+                {
+                    MessageBox.Show("Student email must end with @students.wits.ac.za");
+                    return false;
+                   
+                }
+            }
+            else 
+            {
+                if (!EmailAddress.EndsWith("@wits.ac.za"))
+                {
+                    MessageBox.Show("Employee email must end with @wits.ac.za");
+                    return false;
+                   
+                }
+            }
+
+           return true;
+        }
+
 
         private void btnEditPass_Click(object sender, EventArgs e)
         {

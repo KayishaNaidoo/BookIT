@@ -33,7 +33,8 @@ namespace BookITFinal.Forms
 
             dtpBookingDate.MinDate = DateTime.Today.AddDays(2);
             dtpBookingDate.Value = BookingDateF;
-            dtpBookingDate.Enabled = false;
+            dtpBookingDate.Enabled = true;
+           
             //@Liam and Colby: This is just a table to play around with queries and it shows it
 
             string[] startTimes = GenerateStartTimes();

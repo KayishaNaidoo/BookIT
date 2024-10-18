@@ -71,7 +71,10 @@ namespace BookITFinal.Forms
 
             if (isValid) { MessageBox.Show("Registration successful!");
             DatabaseHelper dbHelp = new DatabaseHelper();   
-            dbHelp.CreateUser(RoleNumber, FName, LName, EmailAddress, ContactNo, Password, cbxRole.Text); }
+            dbHelp.CreateUser(RoleNumber, FName, LName, EmailAddress, ContactNo, Password, cbxRole.Text);
+                Form Login = new Login();
+                Login.ShowDialog();
+            }
         }
 
         private void ValidateFName(String FName)

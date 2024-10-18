@@ -66,7 +66,7 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 30;
-            this.btnClose.Location = new System.Drawing.Point(565, 9);
+            this.btnClose.Location = new System.Drawing.Point(555, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 43);
             this.btnClose.TabIndex = 38;
@@ -110,7 +110,7 @@
             this.cbxAvailableVenues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAvailableVenues.ForeColor = System.Drawing.Color.White;
             this.cbxAvailableVenues.FormattingEnabled = true;
-            this.cbxAvailableVenues.Location = new System.Drawing.Point(16, 627);
+            this.cbxAvailableVenues.Location = new System.Drawing.Point(24, 637);
             this.cbxAvailableVenues.Name = "cbxAvailableVenues";
             this.cbxAvailableVenues.Size = new System.Drawing.Size(544, 31);
             this.cbxAvailableVenues.TabIndex = 35;
@@ -358,8 +358,6 @@
             this.cbxEndTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEndTime.ForeColor = System.Drawing.Color.White;
             this.cbxEndTime.FormattingEnabled = true;
-            this.cbxEndTime.Items.AddRange(new object[] {
-            "8am"});
             this.cbxEndTime.Location = new System.Drawing.Point(315, 237);
             this.cbxEndTime.Name = "cbxEndTime";
             this.cbxEndTime.Size = new System.Drawing.Size(268, 31);
@@ -393,7 +391,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(616, 760);
+            this.ClientSize = new System.Drawing.Size(597, 760);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);

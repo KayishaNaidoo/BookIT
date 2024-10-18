@@ -16,6 +16,8 @@ namespace BookITFinal.Components
 
         private DateTime date;
         private string UserID;
+
+        DatabaseHelper dbHelper= new DatabaseHelper();
         public UserControlDay(DateTime date, string userID)
         {
             InitializeComponent();
@@ -26,15 +28,23 @@ namespace BookITFinal.Components
 
         private void UserControlDay_Load(object sender, EventArgs e)
         {
+            DataTable bookingsData = dbHelper.GetDayBookingforUser(UserID, date.ToString("yyyy/MM/dd"));
+             if (bookingsData.Rows.Count == 0)
+                 {
+                    iBookings.Visible = false;
+                 }
+            else
+            {
+                iBookings.Visible = true;
+            }
+
 
         }
 
         private void UserControlDay_Click(object sender, EventArgs e)
         {
-            if(this.date>DateTime.Today.AddDays(2)){
-                Form bookingPage = new CreateBooking(this.date, UserID);
-                bookingPage.ShowDialog();
-            }
+            Form ViewDayBookings = new PopUpCalendar(date,UserID);
+            ViewDayBookings.ShowDialog();
         }
     }
 }

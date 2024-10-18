@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Linq;
 using System.IO.Packaging;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Collections.Specialized;
 
 namespace BookITFinal.Components
 {
@@ -389,6 +390,33 @@ namespace BookITFinal.Components
             return bookingsTable;
         }
 
+        public DataTable GetDayBookingforUser(String userID, String Date)
+        {
+            DataTable bookingsTable= new DataTable();
+           
+            try
+            {
+                string query = "SELECT * FROM Booking " +
+                                $"WHERE UserId= '{userID}' AND Date = '{Date}' "; 
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+              
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
 
         public DataTable GetAllChart()
         {
@@ -522,8 +550,17 @@ namespace BookITFinal.Components
             MessageBox.Show($"Booking {BookingID} has been deleted.");
         }
 
+        public void DeleteBookingsUser(string UserID)
+        {
+            string query = "DELETE FROM Booking " +
+                $"WHERE UserID = {UserID};";
+            ExecuteQuery(query);
+      
+        }
+
         public void DeletUser(string userID)
         {
+            DeleteBookingsUser(userID);
             string query = "DELETE FROM Users " +
                 $"WHERE UserID = {userID};";
             ExecuteQuery(query);
@@ -536,7 +573,7 @@ namespace BookITFinal.Components
 
             try
             {
-                string query = "SELECT UserID FROM Users;";
+                string query = "SELECT UserID FROM Users WHERE Usertype = 'Student' OR UserType = 'Lecturer';";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
