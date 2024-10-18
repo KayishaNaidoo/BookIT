@@ -101,6 +101,7 @@
             this.btnSearch.Text = "SEARCH VENUES";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbxAvailableVenues
             // 
@@ -158,6 +159,7 @@
             this.cAircons.TabIndex = 9;
             this.cAircons.Text = "Air Conditioners";
             this.cAircons.UseVisualStyleBackColor = true;
+            this.cAircons.CheckedChanged += new System.EventHandler(this.cAircons_CheckedChanged);
             // 
             // cPlugpoints
             // 
@@ -168,6 +170,7 @@
             this.cPlugpoints.TabIndex = 8;
             this.cPlugpoints.Text = "Plugs";
             this.cPlugpoints.UseVisualStyleBackColor = true;
+            this.cPlugpoints.CheckedChanged += new System.EventHandler(this.cPlugpoints_CheckedChanged);
             // 
             // cComputers
             // 
@@ -178,6 +181,7 @@
             this.cComputers.TabIndex = 7;
             this.cComputers.Text = "Computers";
             this.cComputers.UseVisualStyleBackColor = true;
+            this.cComputers.CheckedChanged += new System.EventHandler(this.cComputers_CheckedChanged);
             // 
             // cChairs
             // 
@@ -188,6 +192,7 @@
             this.cChairs.TabIndex = 6;
             this.cChairs.Text = "Chairs and Tables";
             this.cChairs.UseVisualStyleBackColor = true;
+            this.cChairs.CheckedChanged += new System.EventHandler(this.cChairs_CheckedChanged);
             // 
             // cbxEventType
             // 
@@ -223,6 +228,7 @@
             this.btnCreateBooking.Text = "UPDATE BOOKING";
             this.btnCreateBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateBooking.UseVisualStyleBackColor = true;
+            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click);
             // 
             // label5
             // 
@@ -243,6 +249,7 @@
             this.cTelevisions.TabIndex = 5;
             this.cTelevisions.Text = "Televisions";
             this.cTelevisions.UseVisualStyleBackColor = true;
+            this.cTelevisions.CheckedChanged += new System.EventHandler(this.cTelevisions_CheckedChanged);
             // 
             // cCamera
             // 
@@ -253,6 +260,7 @@
             this.cCamera.TabIndex = 4;
             this.cCamera.Text = "Camera";
             this.cCamera.UseVisualStyleBackColor = true;
+            this.cCamera.CheckedChanged += new System.EventHandler(this.cCamera_CheckedChanged);
             // 
             // cSpeakers
             // 
@@ -263,6 +271,7 @@
             this.cSpeakers.TabIndex = 3;
             this.cSpeakers.Text = "Speakers";
             this.cSpeakers.UseVisualStyleBackColor = true;
+            this.cSpeakers.CheckedChanged += new System.EventHandler(this.cSpeakers_CheckedChanged);
             // 
             // cWhiteboard
             // 
@@ -273,6 +282,7 @@
             this.cWhiteboard.TabIndex = 2;
             this.cWhiteboard.Text = "Whiteboard";
             this.cWhiteboard.UseVisualStyleBackColor = true;
+            this.cWhiteboard.CheckedChanged += new System.EventHandler(this.cWhiteboard_CheckedChanged);
             // 
             // cMicrophone
             // 
@@ -283,6 +293,7 @@
             this.cMicrophone.TabIndex = 1;
             this.cMicrophone.Text = "Microphone";
             this.cMicrophone.UseVisualStyleBackColor = true;
+            this.cMicrophone.CheckedChanged += new System.EventHandler(this.cMicrophone_CheckedChanged);
             // 
             // cProjector
             // 
@@ -293,6 +304,7 @@
             this.cProjector.TabIndex = 0;
             this.cProjector.Text = "Projector";
             this.cProjector.UseVisualStyleBackColor = true;
+            this.cProjector.CheckedChanged += new System.EventHandler(this.cProjector_CheckedChanged);
             // 
             // gbEquipment
             // 

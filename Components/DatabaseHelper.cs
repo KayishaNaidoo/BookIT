@@ -685,6 +685,28 @@ namespace BookITFinal.Components
             return booking;
         }
 
+        public bool updateBooking(string bookingID, string venueID)
+        {
+            try
+            {
+                string query = "UPDATE Booking " +
+                    "SET VenueID = @venueID " +
+                    "WHERE BookingID = @bookingID;";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@venueID", venueID);
+                    command.Parameters.AddWithValue("@bookingID", bookingID);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine("ERROR:", ex);
+            }
+
+            return false;
+        }
 
         public void CloseConnection()
         {
