@@ -50,7 +50,7 @@ namespace BookITFinal.Forms
 
         private void btnSearch_MouseEnter(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btnSearch_MouseLeave(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace BookITFinal.Forms
 
         private void VenueDirectory_MouseEnter(object sender, EventArgs e)
         {
-            btnRefresh.IconColor = AppColors.AppPurple;
+            
         }
 
         private void btnRefresh_MouseLeave(object sender, EventArgs e)
@@ -153,6 +153,11 @@ namespace BookITFinal.Forms
         private void cbxEquipment_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterandSearch();
+        }
+
+        private void btnRefresh_MouseEnter(object sender, EventArgs e)
+        {
+            btnRefresh.IconColor = AppColors.AppPurple;
         }
     }
 }

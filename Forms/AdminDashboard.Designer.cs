@@ -73,7 +73,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBookings.GridColor = System.Drawing.Color.Silver;
-            this.dgvBookings.Location = new System.Drawing.Point(59, 160);
+            this.dgvBookings.Location = new System.Drawing.Point(215, 104);
             this.dgvBookings.Margin = new System.Windows.Forms.Padding(5);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.ReadOnly = true;
@@ -82,7 +82,7 @@
             this.dgvBookings.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBookings.RowTemplate.Height = 24;
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
+            this.dgvBookings.Size = new System.Drawing.Size(806, 269);
             this.dgvBookings.TabIndex = 6;
             this.dgvBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellContentClick);
             this.dgvBookings.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookings_CellDoubleClick);
@@ -96,10 +96,10 @@
             this.btnCreateBooking.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateBooking.IconColor = System.Drawing.Color.Black;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateBooking.Location = new System.Drawing.Point(59, 477);
+            this.btnCreateBooking.Location = new System.Drawing.Point(59, 444);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(268, 73);
+            this.btnCreateBooking.Size = new System.Drawing.Size(268, 99);
             this.btnCreateBooking.TabIndex = 4;
             this.btnCreateBooking.Text = "CREATE BOOKING FOR USER";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@
             // cbxUserID
             // 
             this.cbxUserID.FormattingEnabled = true;
-            this.cbxUserID.Location = new System.Drawing.Point(156, 109);
+            this.cbxUserID.Location = new System.Drawing.Point(156, 53);
             this.cbxUserID.Name = "cbxUserID";
             this.cbxUserID.Size = new System.Drawing.Size(171, 31);
             this.cbxUserID.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(73, 112);
+            this.lblUser.Location = new System.Drawing.Point(73, 56);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(77, 23);
             this.lblUser.TabIndex = 8;
@@ -136,7 +136,7 @@
             this.btnCreateUser.Location = new System.Drawing.Point(59, 581);
             this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(268, 73);
+            this.btnCreateUser.Size = new System.Drawing.Size(268, 99);
             this.btnCreateUser.TabIndex = 9;
             this.btnCreateUser.Text = "CREATE NEW USER";
             this.btnCreateUser.UseVisualStyleBackColor = false;
@@ -238,7 +238,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblTotalBookings, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblNumBookings, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblTotalUsers, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(361, 512);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(361, 483);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -254,18 +254,21 @@
             this.btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Redo;
             this.btnRefresh.IconColor = System.Drawing.Color.White;
             this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRefresh.Location = new System.Drawing.Point(1161, 48);
+            this.btnRefresh.IconSize = 30;
+            this.btnRefresh.Location = new System.Drawing.Point(1161, 36);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(47, 46);
+            this.btnRefresh.Size = new System.Drawing.Size(46, 48);
             this.btnRefresh.TabIndex = 19;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseEnter += new System.EventHandler(this.btnRefresh_MouseEnter);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(518, 98);
+            this.label1.Location = new System.Drawing.Point(487, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(262, 37);
             this.label1.TabIndex = 20;
@@ -275,11 +278,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(443, 463);
+            this.label2.Location = new System.Drawing.Point(443, 419);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 37);
             this.label2.TabIndex = 21;
             this.label2.Text = "System Info";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // AdminDashboard
             // 

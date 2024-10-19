@@ -78,7 +78,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(160, 12);
+            this.label7.Location = new System.Drawing.Point(157, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(282, 37);
             this.label7.TabIndex = 37;
@@ -94,7 +94,7 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(199, 504);
+            this.btnSearch.Location = new System.Drawing.Point(206, 504);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(184, 53);
             this.btnSearch.TabIndex = 36;
@@ -111,7 +111,7 @@
             this.cbxAvailableVenues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAvailableVenues.ForeColor = System.Drawing.Color.White;
             this.cbxAvailableVenues.FormattingEnabled = true;
-            this.cbxAvailableVenues.Location = new System.Drawing.Point(24, 637);
+            this.cbxAvailableVenues.Location = new System.Drawing.Point(26, 637);
             this.cbxAvailableVenues.Name = "cbxAvailableVenues";
             this.cbxAvailableVenues.Size = new System.Drawing.Size(544, 31);
             this.cbxAvailableVenues.TabIndex = 35;
@@ -221,7 +221,7 @@
             this.btnCreateBooking.IconColor = System.Drawing.Color.White;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCreateBooking.IconSize = 30;
-            this.btnCreateBooking.Location = new System.Drawing.Point(187, 692);
+            this.btnCreateBooking.Location = new System.Drawing.Point(193, 692);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(211, 53);
             this.btnCreateBooking.TabIndex = 29;
@@ -319,7 +319,7 @@
             this.gbEquipment.Controls.Add(this.cMicrophone);
             this.gbEquipment.Controls.Add(this.cProjector);
             this.gbEquipment.ForeColor = System.Drawing.Color.White;
-            this.gbEquipment.Location = new System.Drawing.Point(121, 293);
+            this.gbEquipment.Location = new System.Drawing.Point(119, 293);
             this.gbEquipment.Name = "gbEquipment";
             this.gbEquipment.Size = new System.Drawing.Size(358, 188);
             this.gbEquipment.TabIndex = 31;

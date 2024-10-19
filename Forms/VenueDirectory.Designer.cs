@@ -54,7 +54,7 @@
             "MEETING",
             "EXAM HALL",
             "DISCUSSION ROOM"});
-            this.cbxCategory.Location = new System.Drawing.Point(649, 124);
+            this.cbxCategory.Location = new System.Drawing.Point(647, 80);
             this.cbxCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCategory.Name = "cbxCategory";
             this.cbxCategory.Size = new System.Drawing.Size(151, 29);
@@ -64,7 +64,7 @@
             // VenueSearchBox1
             // 
             this.VenueSearchBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VenueSearchBox1.Location = new System.Drawing.Point(100, 126);
+            this.VenueSearchBox1.Location = new System.Drawing.Point(98, 82);
             this.VenueSearchBox1.Margin = new System.Windows.Forms.Padding(4);
             this.VenueSearchBox1.Name = "VenueSearchBox1";
             this.VenueSearchBox1.Size = new System.Drawing.Size(375, 28);
@@ -83,11 +83,11 @@
             this.dgvVenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVenue.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvVenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVenue.Location = new System.Drawing.Point(100, 166);
+            this.dgvVenue.Location = new System.Drawing.Point(98, 138);
             this.dgvVenue.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVenue.Name = "dgvVenue";
             this.dgvVenue.RowHeadersWidth = 51;
-            this.dgvVenue.Size = new System.Drawing.Size(1052, 458);
+            this.dgvVenue.Size = new System.Drawing.Size(1052, 494);
             this.dgvVenue.TabIndex = 5;
             // 
             // label2
@@ -95,7 +95,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(96, 97);
+            this.label2.Location = new System.Drawing.Point(94, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 23);
@@ -115,7 +115,7 @@
             "51-100",
             "100-300",
             "300+"});
-            this.cbxCapacity.Location = new System.Drawing.Point(824, 124);
+            this.cbxCapacity.Location = new System.Drawing.Point(822, 80);
             this.cbxCapacity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCapacity.Name = "cbxCapacity";
             this.cbxCapacity.Size = new System.Drawing.Size(151, 29);
@@ -140,7 +140,7 @@
             "Television",
             "Plugs",
             "Airconditioners"});
-            this.cbxEquipment.Location = new System.Drawing.Point(999, 124);
+            this.cbxEquipment.Location = new System.Drawing.Point(997, 80);
             this.cbxEquipment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxEquipment.Name = "cbxEquipment";
             this.cbxEquipment.Size = new System.Drawing.Size(151, 29);
@@ -164,6 +164,7 @@
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseEnter += new System.EventHandler(this.btnRefresh_MouseEnter);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             // 
             // label1
@@ -171,7 +172,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(644, 95);
+            this.label1.Location = new System.Drawing.Point(642, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 23);
@@ -183,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(819, 95);
+            this.label3.Location = new System.Drawing.Point(817, 51);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 23);
@@ -195,7 +196,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(993, 95);
+            this.label4.Location = new System.Drawing.Point(991, 51);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 23);
@@ -212,7 +213,7 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(483, 121);
+            this.btnSearch.Location = new System.Drawing.Point(481, 77);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(48, 37);

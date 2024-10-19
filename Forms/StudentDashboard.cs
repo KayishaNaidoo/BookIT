@@ -1,4 +1,5 @@
-﻿using BookITFinal.Components;
+﻿using BookITFinal.Colors;
+using BookITFinal.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace BookITFinal.Forms
 
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
-            
+            lblBookings.Text = dbHelper.GetTotalBookingUser(UserIDF);
             DataTable bookingsData = dbHelper.GetBookings(UserIDF);
             dgvBookings.DataSource = bookingsData;
             PopulateChart(UserIDF);
@@ -66,6 +67,7 @@ namespace BookITFinal.Forms
                 Title messageTitle = new Title
                 {
                     Text = "NO BOOKINGS MADE",
+                    ForeColor = Color.White,
                     Font = new Font("Century Gothic", 16, FontStyle.Bold),
                     Alignment = ContentAlignment.MiddleCenter 
                 };
@@ -144,12 +146,8 @@ namespace BookITFinal.Forms
         {
             if (e.RowIndex >= 0)
             {
-                // Get the clicked row
                 DataGridViewRow selectedRow = dgvBookings.Rows[e.RowIndex];
-
-                // Extract the data from the specific cell, for example, from the first cell
                 var bookingId = selectedRow.Cells[0].Value;
-
                 Form pop = new popUpBook(bookingId.ToString());
                 pop.ShowDialog();
                 pop.Focus();
@@ -158,10 +156,32 @@ namespace BookITFinal.Forms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            DataTable bookingsData = dbHelper.GetBookings(UserIDF);
+            dgvBookings.DataSource = bookingsData;
+            PopulateChart(UserIDF);
         }
 
         private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_MouseEnter(object sender, EventArgs e)
+        {
+            btnRefresh.IconColor = AppColors.AppPurple;
+        }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.IconColor = Color.White;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

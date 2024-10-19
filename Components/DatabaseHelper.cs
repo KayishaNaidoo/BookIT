@@ -223,6 +223,36 @@ namespace BookITFinal.Components
       
         }
 
+        public string GetTotalBookingUser(string UserID)
+        {
+            string Count = string.Empty;
+
+            try
+            {
+                string query = "SELECT Count(BookingID) AS [Num] FROM Booking WHERE UserId= @UserID";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    // Use parameters to prevent SQL injection
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Count = reader["Num"].ToString();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user type: {ex.Message}");
+            }
+
+            return Count;
+
+        }
+
         //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
         public DataTable GetBookings(String UserID)
         {
@@ -250,6 +280,20 @@ namespace BookITFinal.Components
             {
                 Console.WriteLine($"Error fetching bookings: {ex.Message}");
             }
+
+            if (bookingsTable.Rows.Count == 0)
+            {
+                bookingsTable.Columns.Clear(); // Clear existing columns, as we only want one message row
+                bookingsTable.Columns.Add("Message"); // Add a single column for the message
+
+               
+                DataRow noBookingsRow = bookingsTable.NewRow();
+                noBookingsRow["Message"] = "No bookings";
+
+                
+                bookingsTable.Rows.Add(noBookingsRow);
+            }
+        
 
             return bookingsTable;
         }

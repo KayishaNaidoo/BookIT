@@ -34,12 +34,22 @@
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentDashboard));
             this.btnCreateBooking = new FontAwesome.Sharp.IconButton();
             this.cPastBookings = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.icBook = new FontAwesome.Sharp.IconPictureBox();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblBookings = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cPastBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icBook)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateBooking
@@ -50,12 +60,12 @@
             this.btnCreateBooking.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateBooking.IconColor = System.Drawing.Color.Black;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateBooking.Location = new System.Drawing.Point(42, 382);
+            this.btnCreateBooking.Location = new System.Drawing.Point(52, 551);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(543, 72);
+            this.btnCreateBooking.Size = new System.Drawing.Size(257, 75);
             this.btnCreateBooking.TabIndex = 1;
-            this.btnCreateBooking.Text = "CREATE BOOKING";
+            this.btnCreateBooking.Text = "CREATE NEW BOOKING";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
             this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click);
             // 
@@ -70,7 +80,7 @@
             this.cPastBookings.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.cPastBookings.Legends.Add(legend1);
-            this.cPastBookings.Location = new System.Drawing.Point(659, 342);
+            this.cPastBookings.Location = new System.Drawing.Point(12, 35);
             this.cPastBookings.Name = "cPastBookings";
             this.cPastBookings.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.cPastBookings.PaletteCustomColors = new System.Drawing.Color[] {
@@ -118,7 +128,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBookings.GridColor = System.Drawing.Color.Silver;
-            this.dgvBookings.Location = new System.Drawing.Point(214, 65);
+            this.dgvBookings.Location = new System.Drawing.Point(387, 343);
             this.dgvBookings.Margin = new System.Windows.Forms.Padding(5);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.ReadOnly = true;
@@ -141,12 +151,95 @@
             this.btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Redo;
             this.btnRefresh.IconColor = System.Drawing.Color.White;
             this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRefresh.IconSize = 30;
             this.btnRefresh.Location = new System.Drawing.Point(1138, 12);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(47, 46);
             this.btnRefresh.TabIndex = 20;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseEnter += new System.EventHandler(this.btnRefresh_MouseEnter);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(2, 310);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(367, 234);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(405, 296);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(299, 39);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Current Bookings:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Controls.Add(this.lblBookings, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.icBook, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(740, 100);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 91);
+            this.tableLayoutPanel1.TabIndex = 23;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // icBook
+            // 
+            this.icBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.icBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.icBook.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.icBook.IconColor = System.Drawing.Color.White;
+            this.icBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icBook.IconSize = 65;
+            this.icBook.Location = new System.Drawing.Point(3, 3);
+            this.icBook.Name = "icBook";
+            this.icBook.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.icBook.Size = new System.Drawing.Size(65, 85);
+            this.icBook.TabIndex = 0;
+            this.icBook.TabStop = false;
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl.Location = new System.Drawing.Point(74, 0);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(137, 91);
+            this.lbl.TabIndex = 1;
+            this.lbl.Text = "Total Bookings:";
+            this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBookings
+            // 
+            this.lblBookings.AutoSize = true;
+            this.lblBookings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBookings.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookings.Location = new System.Drawing.Point(217, 0);
+            this.lblBookings.Name = "lblBookings";
+            this.lblBookings.Size = new System.Drawing.Size(139, 91);
+            this.lblBookings.TabIndex = 2;
+            this.lblBookings.Text = "0";
+            this.lblBookings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StudentDashboard
             // 
@@ -154,10 +247,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1218, 654);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dgvBookings);
             this.Controls.Add(this.cPastBookings);
             this.Controls.Add(this.btnCreateBooking);
+            this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "StudentDashboard";
@@ -165,7 +261,12 @@
             this.Load += new System.EventHandler(this.StudentDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cPastBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icBook)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,5 +276,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart cPastBookings;
         private System.Windows.Forms.DataGridView dgvBookings;
         private FontAwesome.Sharp.IconButton btnRefresh;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private FontAwesome.Sharp.IconPictureBox icBook;
+        private System.Windows.Forms.Label lblBookings;
+        private System.Windows.Forms.Label lbl;
     }
 }

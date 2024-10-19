@@ -1,4 +1,5 @@
-﻿using BookITFinal.Components;
+﻿using BookITFinal.Colors;
+using BookITFinal.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,10 +111,11 @@ namespace BookITFinal.Forms
                
                 cPastBookings.Series.Add(messageSeries);
 
-             
+
                 Title messageTitle = new Title
                 {
                     Text = "NO BOOKINGS MADE",
+                    ForeColor = Color.White,
                     Font = new Font("Century Gothic", 16, FontStyle.Bold),
                     Alignment = ContentAlignment.MiddleCenter 
                 };
@@ -234,7 +236,7 @@ namespace BookITFinal.Forms
                 PopulateFullChart();
                 DataTable bookingsData = dbHelper.GetAllBookings();
                 dgvBookings.DataSource = bookingsData;
-                //btnCreateBooking.Enabled = false;
+               
             }
             else
             {
@@ -243,6 +245,21 @@ namespace BookITFinal.Forms
                 dgvBookings.DataSource = bookingsData;
                 
             }
+        }
+
+        private void btnRefresh_MouseEnter(object sender, EventArgs e)
+        {
+            btnRefresh.IconColor = AppColors.AppPurple;
+        }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.IconColor = Color.White;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -180,7 +180,7 @@
             this.tblpAccount.Controls.Add(this.label1, 0, 0);
             this.tblpAccount.Controls.Add(this.lblEmail, 1, 2);
             this.tblpAccount.Controls.Add(this.lblContactNo, 1, 3);
-            this.tblpAccount.Location = new System.Drawing.Point(313, 194);
+            this.tblpAccount.Location = new System.Drawing.Point(277, 194);
             this.tblpAccount.Margin = new System.Windows.Forms.Padding(10);
             this.tblpAccount.Name = "tblpAccount";
             this.tblpAccount.Padding = new System.Windows.Forms.Padding(10);
@@ -265,7 +265,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(405, 112);
+            this.label5.Location = new System.Drawing.Point(368, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 23);
             this.label5.TabIndex = 14;
@@ -274,7 +274,7 @@
             // cbxuserId
             // 
             this.cbxuserId.FormattingEnabled = true;
-            this.cbxuserId.Location = new System.Drawing.Point(503, 109);
+            this.cbxuserId.Location = new System.Drawing.Point(466, 109);
             this.cbxuserId.Name = "cbxuserId";
             this.cbxuserId.Size = new System.Drawing.Size(384, 31);
             this.cbxuserId.TabIndex = 15;
@@ -291,7 +291,7 @@
             this.btnDeleteUser.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.btnDeleteUser.IconColor = System.Drawing.Color.White;
             this.btnDeleteUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeleteUser.Location = new System.Drawing.Point(555, 553);
+            this.btnDeleteUser.Location = new System.Drawing.Point(492, 553);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(234, 53);
             this.btnDeleteUser.TabIndex = 16;

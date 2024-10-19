@@ -263,6 +263,7 @@ namespace BookITFinal.Forms
 
             if (filteredVenues.Count != 0)
             {
+                btnCreateBooking.Enabled = true;
                 foreach (Venue filteredVenue in filteredVenues)
                 {
                     cbxAvailableVenues.Items.Add(filteredVenue.venueID + " - " + filteredVenue.buildingName);
@@ -271,6 +272,7 @@ namespace BookITFinal.Forms
             {
                 cbxAvailableVenues.Items.Add("No available venues");
                 cbxAvailableVenues.SelectedIndex = 0;
+                btnCreateBooking.Enabled = false;
             }
 
             cbxAvailableVenues.Enabled = true;
