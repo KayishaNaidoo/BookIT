@@ -19,14 +19,11 @@ namespace BookITFinal.Forms
 
         String VenueGrid;
         DatabaseHelper dbHelper = new DatabaseHelper();
-       /* private SQLiteConnection con;
-        string databasePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Components", "Bookit.db");*/
-        
+       
         public VenueDirectory()
         {
             InitializeComponent();
-            //con = new SQLiteConnection($"Data Source={databasePath}");
-            //this.Load += new EventHandler(VenueDirectory_Load);  // Ensure Load event is attached
+            
         }
 
         private void VenueDirectory_Load(object sender, EventArgs e)
@@ -34,20 +31,16 @@ namespace BookITFinal.Forms
             cbxCategory.SelectedIndex = 0;
             cbxEquipment.SelectedIndex = 0;
             cbxCapacity.SelectedIndex = 0;
-
-        }
-        public void LoadData(String query)
-        {
         }
 
         private void VenueSearchBox1_TextChanged(object sender, EventArgs e)
         {
-
+            FilterandSearch();
         }
 
         private void VenueFilterMenu1_SelectedIndexChanged(object sender, EventArgs e)
         {
-        
+            FilterandSearch();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -57,12 +50,12 @@ namespace BookITFinal.Forms
 
         private void btnSearch_MouseEnter(object sender, EventArgs e)
         {
-            btnFilter.IconColor = AppColors.AppPurple;
+           
         }
 
         private void btnSearch_MouseLeave(object sender, EventArgs e)
         {
-            btnFilter.IconColor = Color.White;
+           
         }
 
         private void VenueDirectory_MouseEnter(object sender, EventArgs e)
@@ -77,26 +70,29 @@ namespace BookITFinal.Forms
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            String Text = VenueSearchBox1.Text;
-            DataTable filterData = dbHelper.SearchVenues(Text);
-            dgvVenue.DataSource = filterData;
+            FilterandSearch();
 
         }
 
         private void cbxCapacity_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            FilterandSearch();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            DataTable filterData = dbHelper.FilterVenues("All Venues", int.MinValue, int.MaxValue, "Any Equipment");
-            dgvVenue.DataSource = filterData;
+            VenueSearchBox1.Clear();
+            cbxCategory.SelectedIndex = 0;
+            cbxEquipment.SelectedIndex = 0;
+            cbxCapacity.SelectedIndex = 0;
+            VenueSearchBox1.Focus();
 
         }
 
-        private void BtnFilter_Click(object sender, EventArgs e)
+        void FilterandSearch()
         {
+            String Text = VenueSearchBox1.Text;
+           
             int max = 0;
             int min = 0;
 
@@ -126,7 +122,7 @@ namespace BookITFinal.Forms
                     max = int.MaxValue;
                     min = 301;
                     break;
-                
+
                 default:
                     max = 0;
                     min = 10000;
@@ -134,17 +130,29 @@ namespace BookITFinal.Forms
             }
 
             string Equipment;
-            if(cbxEquipment.SelectedItem.ToString()== "No Specific Equipment")
+           
+            if (cbxEquipment.SelectedItem == null || cbxEquipment.SelectedItem.ToString() == "No Specific Equipment")
             {
                 Equipment = "";
             }
             else
             {
-                Equipment= cbxEquipment.SelectedItem.ToString();
+                Equipment = cbxEquipment.SelectedItem.ToString();
             }
 
-            DataTable filterData = dbHelper.FilterVenues(cbxCategory.SelectedItem.ToString(), min, max, Equipment); 
+
+            DataTable filterData = dbHelper.SearchAndFilterVenues(Text,cbxCategory.SelectedItem.ToString(), min, max, Equipment);
             dgvVenue.DataSource = filterData;
+        }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cbxEquipment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterandSearch();
         }
     }
 }

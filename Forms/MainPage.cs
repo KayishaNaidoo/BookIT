@@ -84,7 +84,7 @@ namespace BookITFinal.Forms
         {
 
             ActivatedButton(btnDashboard);
-            if (UserType == "Student")
+            if (UserType == "Student" || UserType=="Lecturer")
             {
                 openPage(new StudentDashboard(UserIDF));
             }

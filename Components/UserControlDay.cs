@@ -26,6 +26,8 @@ namespace BookITFinal.Components
             UserID = userID;
         }
 
+
+
         private void UserControlDay_Load(object sender, EventArgs e)
         {
 
@@ -39,11 +41,14 @@ namespace BookITFinal.Components
                 iBookings.Visible = true;
             }
 
+            
+
         }
 
         private void UserControlDay_Click(object sender, EventArgs e)
         {
-            Form ViewDayBookings = new PopUpCalendar(date, UserID);
+            string UserType = dbHelper.GetUserType(UserID);
+            Form ViewDayBookings = new PopUpCalendar(date, UserID, UserType);
             ViewDayBookings.ShowDialog();
         }
     }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.btnCreateBooking = new FontAwesome.Sharp.IconButton();
             this.cbxUserID = new System.Windows.Forms.ComboBox();
@@ -46,6 +46,8 @@
             this.lblNumUsers = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPastBookings)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,22 +64,22 @@
             this.dgvBookings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvBookings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBookings.GridColor = System.Drawing.Color.Silver;
-            this.dgvBookings.Location = new System.Drawing.Point(59, 119);
+            this.dgvBookings.Location = new System.Drawing.Point(59, 160);
             this.dgvBookings.Margin = new System.Windows.Forms.Padding(5);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.ReadOnly = true;
             this.dgvBookings.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
-            this.dgvBookings.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            this.dgvBookings.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBookings.RowTemplate.Height = 24;
             this.dgvBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvBookings.Size = new System.Drawing.Size(1119, 269);
@@ -94,10 +96,10 @@
             this.btnCreateBooking.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateBooking.IconColor = System.Drawing.Color.Black;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateBooking.Location = new System.Drawing.Point(57, 471);
+            this.btnCreateBooking.Location = new System.Drawing.Point(59, 477);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(268, 62);
+            this.btnCreateBooking.Size = new System.Drawing.Size(268, 73);
             this.btnCreateBooking.TabIndex = 4;
             this.btnCreateBooking.Text = "CREATE BOOKING FOR USER";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
@@ -106,7 +108,7 @@
             // cbxUserID
             // 
             this.cbxUserID.FormattingEnabled = true;
-            this.cbxUserID.Location = new System.Drawing.Point(156, 68);
+            this.cbxUserID.Location = new System.Drawing.Point(156, 109);
             this.cbxUserID.Name = "cbxUserID";
             this.cbxUserID.Size = new System.Drawing.Size(171, 31);
             this.cbxUserID.TabIndex = 7;
@@ -116,7 +118,7 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(73, 71);
+            this.lblUser.Location = new System.Drawing.Point(73, 112);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(77, 23);
             this.lblUser.TabIndex = 8;
@@ -131,10 +133,10 @@
             this.btnCreateUser.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCreateUser.IconColor = System.Drawing.Color.Black;
             this.btnCreateUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateUser.Location = new System.Drawing.Point(57, 581);
+            this.btnCreateUser.Location = new System.Drawing.Point(59, 581);
             this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(268, 62);
+            this.btnCreateUser.Size = new System.Drawing.Size(268, 73);
             this.btnCreateUser.TabIndex = 9;
             this.btnCreateUser.Text = "CREATE NEW USER";
             this.btnCreateUser.UseVisualStyleBackColor = false;
@@ -146,12 +148,12 @@
             this.cPastBookings.BackImageTransparentColor = System.Drawing.Color.White;
             this.cPastBookings.BackSecondaryColor = System.Drawing.Color.WhiteSmoke;
             this.cPastBookings.BorderSkin.BorderColor = System.Drawing.Color.White;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
-            chartArea2.Name = "ChartArea1";
-            this.cPastBookings.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.cPastBookings.Legends.Add(legend2);
-            this.cPastBookings.Location = new System.Drawing.Point(644, 396);
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            chartArea1.Name = "ChartArea1";
+            this.cPastBookings.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.cPastBookings.Legends.Add(legend1);
+            this.cPastBookings.Location = new System.Drawing.Point(713, 403);
             this.cPastBookings.Name = "cPastBookings";
             this.cPastBookings.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.cPastBookings.PaletteCustomColors = new System.Drawing.Color[] {
@@ -162,30 +164,30 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(102)))), ((int)(((byte)(205))))),
         System.Drawing.Color.DarkOrchid,
         System.Drawing.Color.MediumSlateBlue};
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelBackColor = System.Drawing.Color.Black;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.cPastBookings.Series.Add(series2);
-            this.cPastBookings.Size = new System.Drawing.Size(510, 286);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.LabelBackColor = System.Drawing.Color.Black;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.cPastBookings.Series.Add(series1);
+            this.cPastBookings.Size = new System.Drawing.Size(465, 286);
             this.cPastBookings.TabIndex = 5;
-            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
-            title2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.ForeColor = System.Drawing.Color.White;
-            title2.Name = "Title1";
-            this.cPastBookings.Titles.Add(title2);
+            title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
+            title1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.Color.White;
+            title1.Name = "Title1";
+            this.cPastBookings.Titles.Add(title1);
             // 
             // lblTotalBookings
             // 
             this.lblTotalBookings.AutoSize = true;
             this.lblTotalBookings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalBookings.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBookings.Location = new System.Drawing.Point(176, 115);
+            this.lblTotalBookings.Location = new System.Drawing.Point(176, 71);
             this.lblTotalBookings.Name = "lblTotalBookings";
-            this.lblTotalBookings.Size = new System.Drawing.Size(167, 115);
+            this.lblTotalBookings.Size = new System.Drawing.Size(167, 71);
             this.lblTotalBookings.TabIndex = 17;
             this.lblTotalBookings.Text = "label1";
             this.lblTotalBookings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,7 +199,7 @@
             this.lblTotalUsers.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalUsers.Location = new System.Drawing.Point(176, 0);
             this.lblTotalUsers.Name = "lblTotalUsers";
-            this.lblTotalUsers.Size = new System.Drawing.Size(167, 115);
+            this.lblTotalUsers.Size = new System.Drawing.Size(167, 71);
             this.lblTotalUsers.TabIndex = 16;
             this.lblTotalUsers.Text = "label1";
             this.lblTotalUsers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -207,9 +209,9 @@
             this.lblNumBookings.AutoSize = true;
             this.lblNumBookings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNumBookings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumBookings.Location = new System.Drawing.Point(3, 115);
+            this.lblNumBookings.Location = new System.Drawing.Point(3, 71);
             this.lblNumBookings.Name = "lblNumBookings";
-            this.lblNumBookings.Size = new System.Drawing.Size(167, 115);
+            this.lblNumBookings.Size = new System.Drawing.Size(167, 71);
             this.lblNumBookings.TabIndex = 15;
             this.lblNumBookings.Text = "Total Bookings:";
             this.lblNumBookings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,7 +223,7 @@
             this.lblNumUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumUsers.Location = new System.Drawing.Point(3, 0);
             this.lblNumUsers.Name = "lblNumUsers";
-            this.lblNumUsers.Size = new System.Drawing.Size(167, 115);
+            this.lblNumUsers.Size = new System.Drawing.Size(167, 71);
             this.lblNumUsers.TabIndex = 14;
             this.lblNumUsers.Text = "Total Users:";
             this.lblNumUsers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,25 +238,48 @@
             this.tableLayoutPanel1.Controls.Add(this.lblTotalBookings, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblNumBookings, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblTotalUsers, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(361, 452);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(361, 512);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 230);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 142);
             this.tableLayoutPanel1.TabIndex = 18;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnRefresh.IconColor = System.Drawing.Color.Black;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.btnRefresh.IconColor = System.Drawing.Color.White;
             this.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRefresh.Location = new System.Drawing.Point(1146, 68);
+            this.btnRefresh.Location = new System.Drawing.Point(1161, 48);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(32, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(47, 46);
             this.btnRefresh.TabIndex = 19;
-            this.btnRefresh.Text = "iconButton1";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(518, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 37);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Current Bookings";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(443, 463);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 37);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "System Info";
             // 
             // AdminDashboard
             // 
@@ -262,6 +287,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1236, 701);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnCreateUser);
@@ -299,5 +326,7 @@
         private System.Windows.Forms.Label lblNumUsers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnRefresh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

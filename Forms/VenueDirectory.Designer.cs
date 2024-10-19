@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCapacity = new System.Windows.Forms.ComboBox();
             this.cbxEquipment = new System.Windows.Forms.ComboBox();
-            this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnRefresh = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,7 +52,8 @@
             "THEATRE",
             "TUTORIAL",
             "MEETING",
-            "EXAM"});
+            "EXAM HALL",
+            "DISCUSSION ROOM"});
             this.cbxCategory.Location = new System.Drawing.Point(649, 124);
             this.cbxCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCategory.Name = "cbxCategory";
@@ -145,26 +145,7 @@
             this.cbxEquipment.Name = "cbxEquipment";
             this.cbxEquipment.Size = new System.Drawing.Size(151, 29);
             this.cbxEquipment.TabIndex = 10;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.FlatAppearance.BorderSize = 0;
-            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnFilter.IconColor = System.Drawing.Color.White;
-            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFilter.IconSize = 30;
-            this.btnFilter.Location = new System.Drawing.Point(1156, 119);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(43, 41);
-            this.btnFilter.TabIndex = 11;
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
-            this.btnFilter.MouseEnter += new System.EventHandler(this.btnSearch_MouseEnter);
-            this.btnFilter.MouseLeave += new System.EventHandler(this.btnSearch_MouseLeave);
+            this.cbxEquipment.SelectedIndexChanged += new System.EventHandler(this.cbxEquipment_SelectedIndexChanged);
             // 
             // btnRefresh
             // 
@@ -250,7 +231,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.cbxEquipment);
             this.Controls.Add(this.cbxCapacity);
             this.Controls.Add(this.label2);
@@ -277,7 +257,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxCapacity;
         private System.Windows.Forms.ComboBox cbxEquipment;
-        private FontAwesome.Sharp.IconButton btnFilter;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;

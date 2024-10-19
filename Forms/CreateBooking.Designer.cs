@@ -158,7 +158,7 @@
             this.btnCreateBooking.IconColor = System.Drawing.Color.White;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCreateBooking.IconSize = 30;
-            this.btnCreateBooking.Location = new System.Drawing.Point(189, 708);
+            this.btnCreateBooking.Location = new System.Drawing.Point(179, 708);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(268, 52);
@@ -375,7 +375,7 @@
             this.cbxAvailableVenues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAvailableVenues.ForeColor = System.Drawing.Color.White;
             this.cbxAvailableVenues.FormattingEnabled = true;
-            this.cbxAvailableVenues.Location = new System.Drawing.Point(32, 641);
+            this.cbxAvailableVenues.Location = new System.Drawing.Point(39, 648);
             this.cbxAvailableVenues.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAvailableVenues.Name = "cbxAvailableVenues";
             this.cbxAvailableVenues.Size = new System.Drawing.Size(544, 31);

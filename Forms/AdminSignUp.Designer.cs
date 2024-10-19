@@ -48,14 +48,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconRoleNum = new FontAwesome.Sharp.IconPictureBox();
             this.pnlFields = new System.Windows.Forms.Panel();
-            this.iconRole = new FontAwesome.Sharp.IconPictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxRole = new System.Windows.Forms.ComboBox();
             this.edtFirstName = new TestingIS.Components.BookITTextBox();
             this.edtLastName = new TestingIS.Components.BookITTextBox();
             this.edtRoleNum = new TestingIS.Components.BookITTextBox();
             this.edtEmail = new TestingIS.Components.BookITTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.edtPhoneNo = new TestingIS.Components.BookITTextBox();
+            this.cbxRole = new System.Windows.Forms.ComboBox();
+            this.iconRole = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconEyeRePas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconEyePass)).BeginInit();
@@ -230,11 +230,11 @@
             this.btnSignUp.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.btnSignUp.IconColor = System.Drawing.Color.White;
             this.btnSignUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSignUp.Location = new System.Drawing.Point(94, 10);
+            this.btnSignUp.Location = new System.Drawing.Point(132, 10);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(317, 60);
+            this.btnSignUp.Size = new System.Drawing.Size(228, 60);
             this.btnSignUp.TabIndex = 8;
-            this.btnSignUp.Text = "Create Admin Account";
+            this.btnSignUp.Text = "Create Account";
             this.btnSignUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click_1);
@@ -314,45 +314,6 @@
             this.pnlFields.Size = new System.Drawing.Size(478, 617);
             this.pnlFields.TabIndex = 29;
             // 
-            // iconRole
-            // 
-            this.iconRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
-            this.iconRole.IconChar = FontAwesome.Sharp.IconChar.Glasses;
-            this.iconRole.IconColor = System.Drawing.Color.White;
-            this.iconRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconRole.Location = new System.Drawing.Point(52, 200);
-            this.iconRole.Name = "iconRole";
-            this.iconRole.Size = new System.Drawing.Size(32, 32);
-            this.iconRole.TabIndex = 13;
-            this.iconRole.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(108, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 19);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "I am a:";
-            // 
-            // cbxRole
-            // 
-            this.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxRole.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Items.AddRange(new object[] {
-            "Admin",
-            "Student",
-            "Lecturer"});
-            this.cbxRole.Location = new System.Drawing.Point(102, 200);
-            this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(335, 29);
-            this.cbxRole.TabIndex = 2;
-            this.cbxRole.SelectedIndexChanged += new System.EventHandler(this.cbxRole_SelectedIndexChanged);
-            // 
             // edtFirstName
             // 
             this.edtFirstName.BackColor = System.Drawing.Color.White;
@@ -397,6 +358,17 @@
             this.edtEmail.Size = new System.Drawing.Size(335, 53);
             this.edtEmail.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(108, 172);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 19);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Account type:";
+            // 
             // edtPhoneNo
             // 
             this.edtPhoneNo.BackColor = System.Drawing.Color.White;
@@ -407,6 +379,34 @@
             this.edtPhoneNo.password = false;
             this.edtPhoneNo.Size = new System.Drawing.Size(335, 53);
             this.edtPhoneNo.TabIndex = 4;
+            // 
+            // cbxRole
+            // 
+            this.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxRole.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRole.FormattingEnabled = true;
+            this.cbxRole.Items.AddRange(new object[] {
+            "Admin",
+            "Student",
+            "Lecturer"});
+            this.cbxRole.Location = new System.Drawing.Point(102, 200);
+            this.cbxRole.Name = "cbxRole";
+            this.cbxRole.Size = new System.Drawing.Size(335, 29);
+            this.cbxRole.TabIndex = 2;
+            this.cbxRole.SelectedIndexChanged += new System.EventHandler(this.cbxRole_SelectedIndexChanged);
+            // 
+            // iconRole
+            // 
+            this.iconRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.iconRole.IconChar = FontAwesome.Sharp.IconChar.Glasses;
+            this.iconRole.IconColor = System.Drawing.Color.White;
+            this.iconRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconRole.Location = new System.Drawing.Point(52, 200);
+            this.iconRole.Name = "iconRole";
+            this.iconRole.Size = new System.Drawing.Size(32, 32);
+            this.iconRole.TabIndex = 13;
+            this.iconRole.TabStop = false;
             // 
             // AdminSignUp
             // 

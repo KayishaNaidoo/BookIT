@@ -227,13 +227,15 @@ namespace BookITFinal.Components
         public DataTable GetBookings(String UserID)
         {
             DataTable bookingsTable = new DataTable();
-
+            string Date = DateTime.Today.ToString();
             try
             {
                 string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
                     "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID "+
                     "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
-                    $"WHERE Booking.UserID='{UserID}';";
+                    $"WHERE Booking.UserID='{UserID}' " +
+                     $"AND Date >= '{Date}'" +
+                    "ORDER BY Date;"; ;
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
@@ -256,12 +258,14 @@ namespace BookITFinal.Components
         public DataTable GetAllBookings()
         {
             DataTable bookingsTable = new DataTable();
-
+            string Date= DateTime.Today.ToString();
             try
             {
                 string query = "SELECT BookingID as [Booking ID],EventType AS [Event Type],Date, Booking.VenueID AS [Venue], StartTime AS [Start Time], EndTime AS [End time] " +
                     "FROM Booking JOIN Venue ON Booking.VenueID=Venue.VenueID " +
-                    "JOIN Building ON Venue.BuildingID= Building.BuildingID;";
+                    "JOIN Building ON Venue.BuildingID= Building.BuildingID " +
+                    $"WHERE Date >= '{Date}'" +
+                    "ORDER BY Date;";
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
@@ -280,38 +284,57 @@ namespace BookITFinal.Components
             return bookingsTable;
         }
 
-
-        public DataTable FilterVenues(string category, int minCapacity, int maxCapacity, string equipment)
+        public DataTable SearchAndFilterVenues(string searchText, string category, int minCapacity, int maxCapacity, string equipment)
         {
             DataTable bookingsTable = new DataTable();
 
             try
             {
+                // Split the search text into terms
+                string[] searchTerms = searchText.Split(' '); // Split the string into parts
+
+                // Start building the query
                 string query = "SELECT v.VenueID AS [Venue], v.Capacity, v.Category, b.BuildingName AS [Building Name], " +
                                "GROUP_CONCAT(e.EquipmentName) AS [Equipment List] " +
                                "FROM Venue v " +
                                "JOIN Building b ON v.BuildingID = b.BuildingID " +
                                "JOIN VenueEquipment ve ON v.VenueID = ve.VenueID " +
-                               "JOIN Equipment e ON ve.EquipmentID = e.EquipmentID ";
+                               "JOIN Equipment e ON ve.EquipmentID = e.EquipmentID " +
+                               "WHERE 1=1 "; // Start with a condition that is always true for easier appending
 
-                if (category != "All Venues")
+                // Build the WHERE clause based on search terms
+                if (!string.IsNullOrWhiteSpace(searchText))
                 {
-                    query += "WHERE v.Category = @category ";
+                    string whereClause = string.Join(" OR ", searchTerms.Select(term =>
+                        $"(v.VenueID LIKE '%' || @searchTerm || '%' OR v.Category LIKE '%' || @searchTerm || '%' OR " +
+                        $"b.BuildingName LIKE '%' || @searchTerm || '%' OR e.EquipmentName LIKE '%' || @searchTerm || '%')"));
+
+                    query += " AND (" + whereClause + ") ";
                 }
 
-                query += "AND v.Capacity BETWEEN @minCapacity AND @maxCapacity " +
-                         "GROUP BY v.VenueID " +
-                         "HAVING [Equipment List] LIKE '%' || @equipment || '%';";
+                // Add filters for category, capacity, and equipment
+                if (category != "All Venues")
+                {
+                    query += " AND v.Category = @category ";
+                }
+
+                query += " AND v.Capacity BETWEEN @minCapacity AND @maxCapacity " +
+                          "GROUP BY v.VenueID " +
+                          "HAVING GROUP_CONCAT(e.EquipmentName) LIKE '%' || @equipment || '%' " +
+                          "ORDER BY CASE WHEN v.VenueID LIKE '%' || @searchTerm || '%' THEN 0 ELSE 1 END, v.VenueID;";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, con))
                 {
-   
+                    // Add parameters for the search text
+                    command.Parameters.AddWithValue("@searchTerm", searchText);
+
+                    // Add category filter if it's not "All Venues"
                     if (category != "All Venues")
                     {
                         command.Parameters.AddWithValue("@category", category);
                     }
 
-       
+                    // Add capacity and equipment filters
                     command.Parameters.AddWithValue("@minCapacity", minCapacity);
                     command.Parameters.AddWithValue("@maxCapacity", maxCapacity);
                     command.Parameters.AddWithValue("@equipment", equipment);
@@ -329,38 +352,6 @@ namespace BookITFinal.Components
 
             return bookingsTable;
         }
-
-        public DataTable SearchVenues(string searchText)
-        {
-            DataTable bookingsTable = new DataTable();
-
-            //string searchText = " ";
-            string[] searchTerms = searchText.Split(' '); // Split the string into parts
-
-            string query = "SELECT v.VenueID AS [Venue], v.Capacity, v.Category, b.BuildingName AS [Building Name], " +
-                           "GROUP_CONCAT(e.EquipmentName) AS [Equipment List] " +
-                           "FROM Venue v " +
-                           "JOIN Building b ON v.BuildingID = b.BuildingID " +
-                           "JOIN VenueEquipment ve ON v.VenueID = ve.VenueID " +
-                           "JOIN Equipment e ON ve.EquipmentID = e.EquipmentID " +
-                           "WHERE ";
-
-            // Build the WHERE clause based on search terms
-            string whereClause = string.Join(" OR ", searchTerms.Select(term =>
-                $"v.VenueID LIKE '%{term}%' OR v.Category LIKE '%{term}%' OR b.BuildingName LIKE '%{term}%' OR e.EquipmentName LIKE '%{term}%'"));
-
-            query += whereClause + " GROUP BY v.VenueID";
-
-            SQLiteCommand command = new SQLiteCommand(query, con); 
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            adapter.Fill(bookingsTable);
-
-            return bookingsTable;
-        }
-
-
-
-
 
         public DataTable GetChart(string UserId)
         {
@@ -407,6 +398,33 @@ namespace BookITFinal.Components
                 }
 
               
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            return bookingsTable;
+        }
+
+        public DataTable GetDayBookingforAll( String Date)
+        {
+            DataTable bookingsTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM Booking " +
+                                $"WHERE Date = '{Date}' ";
+                using (SQLiteCommand command = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                    {
+                        adapter.Fill(bookingsTable);
+                    }
+                }
+
+
 
             }
             catch (Exception ex)

@@ -39,11 +39,49 @@ namespace BookITFinal.Forms
         }
         public void PopulateChart(string userId)
         {
+           
             cPastBookings.Series.Clear();
             cPastBookings.Titles.Clear();
 
+           
             DataTable chartData = dbHelper.GetChart(userId);
 
+         
+            if (chartData == null || chartData.Rows.Count == 0)
+            {
+               
+                Series messageSeries = new Series
+                {
+                    Name = "NoBookings",
+                    IsValueShownAsLabel = false,
+                    ChartType = SeriesChartType.Pie 
+                };
+
+               
+                messageSeries.Points.AddXY("No Bookings", 1); 
+
+                cPastBookings.Series.Add(messageSeries);
+
+             
+                Title messageTitle = new Title
+                {
+                    Text = "NO BOOKINGS MADE",
+                    Font = new Font("Century Gothic", 16, FontStyle.Bold),
+                    Alignment = ContentAlignment.MiddleCenter 
+                };
+
+
+                cPastBookings.Titles.Add(messageTitle);
+
+                cPastBookings.ChartAreas[0].AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+                cPastBookings.ChartAreas[0].AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+
+
+                cPastBookings.Invalidate();
+                return;
+            }
+
+          
             Series series = new Series
             {
                 Name = "Bookings",
@@ -53,30 +91,30 @@ namespace BookITFinal.Forms
 
             cPastBookings.Series.Add(series);
 
-            series.Font = new Font("Century Gothic", 10, FontStyle.Bold); 
-            series.LabelForeColor = Color.White; 
+         
+            series.Font = new Font("Century Gothic", 10, FontStyle.Bold);
+            series.LabelForeColor = Color.White;
+
+           
             foreach (DataRow row in chartData.Rows)
             {
                 string venueId = row["VenueID"].ToString();
                 int count = Convert.ToInt32(row["COUNT(DISTINCT BookingID)"]);
-
-                // Add points to the series
                 series.Points.AddXY(venueId, count);
             }
 
-            cPastBookings.Titles.Clear();
-
-            // Create a new title
+           
             Title chartTitle = new Title
             {
-                Text = "Bookings Per Venue",
+                Text = $"{userId}'s Top 5 Venues ",
                 Font = new Font("Century Gothic", 16, FontStyle.Bold),
-                ForeColor = Color.White              
+                ForeColor = Color.White
             };
 
-            // Add the title to the chart
             cPastBookings.Titles.Add(chartTitle);
 
+          
+            cPastBookings.Invalidate();
         }
 
 
@@ -116,6 +154,16 @@ namespace BookITFinal.Forms
                 pop.ShowDialog();
                 pop.Focus();
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
