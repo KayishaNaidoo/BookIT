@@ -70,7 +70,7 @@ namespace BookITFinal.Forms
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            FilterandSearch();
+          
 
         }
 

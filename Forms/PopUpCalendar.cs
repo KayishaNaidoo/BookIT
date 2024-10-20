@@ -33,10 +33,24 @@ namespace BookITFinal.Forms
             if (userType == "Admin") 
             {
                 bookingsData = dbHelper.GetDayBookingforAll(Date.ToString("yyyy/MM/dd"));
+                
             }
             else
             {
                 bookingsData = dbHelper.GetDayBookingforUser(UserIDF, Date.ToString("yyyy/MM/dd"));
+                if (bookingsData.Rows.Count == 0)
+                {
+                    bookingsData.Columns.Clear();
+                    bookingsData.Columns.Add("Message");
+
+
+                    DataRow noBookingsRow = bookingsData.NewRow();
+                    noBookingsRow["Message"] = "No bookings";
+
+
+                    bookingsData.Rows.Add(noBookingsRow);
+                }
+
             }
            
             dgvBookings.DataSource = bookingsData;
@@ -73,16 +87,20 @@ namespace BookITFinal.Forms
         {
             if (e.RowIndex >= 0)
             {
-                
                 DataGridViewRow selectedRow = dgvBookings.Rows[e.RowIndex];
 
-                
-                var bookingId = selectedRow.Cells[0].Value;
 
-                Form pop = new popUpBook(bookingId.ToString());
-                pop.ShowDialog();
-                pop.Focus();
+                if ((selectedRow.Cells[0].Value != null && selectedRow.Cells[0].Value.ToString().ToUpper() != "No Bookings".ToUpper())&&Date>=DateTime.Today.AddDays(2))
+                {
+                    var bookingId = selectedRow.Cells[0].Value;
+
+                    Form pop = new popUpBook(bookingId.ToString());
+                    pop.ShowDialog();
+                    pop.Focus();
+                }
+               
             }
+
         }
 
         private void lblDateInfo_Click(object sender, EventArgs e)

@@ -253,7 +253,6 @@ namespace BookITFinal.Components
 
         }
 
-        //@Colby and liam please try to make cases or something in case a user tries to create an account with a userID that is alredy in the table
         public DataTable GetBookings(String UserID)
         {
             DataTable bookingsTable = new DataTable();
@@ -281,19 +280,19 @@ namespace BookITFinal.Components
                 Console.WriteLine($"Error fetching bookings: {ex.Message}");
             }
 
-            if (bookingsTable.Rows.Count == 0)
-            {
-                bookingsTable.Columns.Clear(); // Clear existing columns, as we only want one message row
-                bookingsTable.Columns.Add("Message"); // Add a single column for the message
+             if (bookingsTable.Rows.Count == 0)
+        {
+            bookingsTable.Columns.Clear(); // Clear existing columns, as we only want one message row
+            bookingsTable.Columns.Add("Message"); // Add a single column for the message
 
-               
-                DataRow noBookingsRow = bookingsTable.NewRow();
-                noBookingsRow["Message"] = "No bookings";
+            // Create a new row with the "No bookings" message
+            DataRow noBookingsRow = bookingsTable.NewRow();
+            noBookingsRow["Message"] = "No bookings";
 
-                
-                bookingsTable.Rows.Add(noBookingsRow);
-            }
-        
+            // Add the row to the DataTable
+            bookingsTable.Rows.Add(noBookingsRow);
+        }
+    
 
             return bookingsTable;
         }
@@ -449,6 +448,9 @@ namespace BookITFinal.Components
                 Console.WriteLine($"Error fetching bookings: {ex.Message}");
             }
 
+            
+
+
             return bookingsTable;
         }
 
@@ -474,6 +476,19 @@ namespace BookITFinal.Components
             catch (Exception ex)
             {
                 Console.WriteLine($"Error fetching bookings: {ex.Message}");
+            }
+
+            if (bookingsTable.Rows.Count == 0)
+            {
+                bookingsTable.Columns.Clear();
+                bookingsTable.Columns.Add("Message");
+
+
+                DataRow noBookingsRow = bookingsTable.NewRow();
+                noBookingsRow["Message"] = "No bookings";
+
+
+                bookingsTable.Rows.Add(noBookingsRow);
             }
 
             return bookingsTable;

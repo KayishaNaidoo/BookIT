@@ -158,7 +158,7 @@
             this.btnCreateBooking.IconColor = System.Drawing.Color.White;
             this.btnCreateBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCreateBooking.IconSize = 30;
-            this.btnCreateBooking.Location = new System.Drawing.Point(179, 708);
+            this.btnCreateBooking.Location = new System.Drawing.Point(183, 708);
             this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(268, 52);
@@ -360,7 +360,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(224, 618);
+            this.label6.Location = new System.Drawing.Point(237, 618);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 19);
@@ -390,7 +390,7 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(216, 518);
+            this.btnSearch.Location = new System.Drawing.Point(225, 518);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(184, 52);

@@ -53,6 +53,7 @@ namespace BookITFinal.Forms
 
         private void LoadDetails(string userID)
         {
+            lblRole.Text= dbHelper.GetUserType(userID);
             string[] UserDeets = dbHelper.GetUserDetails(userID);
             lblFName.Text = UserDeets[0];
             lblLName.Text = UserDeets[1];
@@ -102,7 +103,7 @@ namespace BookITFinal.Forms
         {
 
             string oldContact = lblContactNo.Text;
-            string newContact = Interaction.InputBox("Input New Email Address", "Edit Email Address");
+            string newContact = Interaction.InputBox("Input New Contact Number", "Edit Contact Number");
             string userID = cbxuserId.SelectedItem.ToString();
 
             bool isValidContact = ValidateContactNo(newContact);
@@ -203,6 +204,11 @@ namespace BookITFinal.Forms
             //go to first item
             cbxuserId.SelectedIndex = 0;
             LoadDetails(cbxuserId.Items[0].ToString());
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

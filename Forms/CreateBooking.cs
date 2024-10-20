@@ -179,7 +179,7 @@ namespace BookITFinal.Forms
                 MessageBox.Show("Invalid end time");
                 return false;
             }
-            if (cbxAvailableVenues.SelectedIndex == -1)
+            if ((cbxAvailableVenues.SelectedIndex == -1) || (cbxAvailableVenues.SelectedItem.ToString() == "No available venues"))
             {
                 MessageBox.Show("Invalid venue selection");
                 return false;

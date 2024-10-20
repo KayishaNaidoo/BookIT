@@ -53,6 +53,7 @@ namespace BookITFinal.Components
         {
             Form bUpdate = new UpdateBooking(BID);
             bUpdate.ShowDialog();
+            this.Close();
         }
     }
 }

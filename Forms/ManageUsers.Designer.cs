@@ -44,6 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbxuserId = new System.Windows.Forms.ComboBox();
             this.btnDeleteUser = new FontAwesome.Sharp.IconButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblRole = new System.Windows.Forms.Label();
             this.tblpAccount.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +60,9 @@
             this.btnEditLName.IconColor = System.Drawing.Color.White;
             this.btnEditLName.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditLName.IconSize = 25;
-            this.btnEditLName.Location = new System.Drawing.Point(624, 81);
+            this.btnEditLName.Location = new System.Drawing.Point(624, 121);
             this.btnEditLName.Name = "btnEditLName";
-            this.btnEditLName.Size = new System.Drawing.Size(27, 62);
+            this.btnEditLName.Size = new System.Drawing.Size(27, 48);
             this.btnEditLName.TabIndex = 7;
             this.btnEditLName.UseVisualStyleBackColor = true;
             this.btnEditLName.Click += new System.EventHandler(this.btnEditLName_Click);
@@ -76,9 +78,9 @@
             this.btnEditFName.IconColor = System.Drawing.Color.White;
             this.btnEditFName.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditFName.IconSize = 25;
-            this.btnEditFName.Location = new System.Drawing.Point(624, 13);
+            this.btnEditFName.Location = new System.Drawing.Point(624, 67);
             this.btnEditFName.Name = "btnEditFName";
-            this.btnEditFName.Size = new System.Drawing.Size(27, 62);
+            this.btnEditFName.Size = new System.Drawing.Size(27, 48);
             this.btnEditFName.TabIndex = 6;
             this.btnEditFName.UseVisualStyleBackColor = true;
             this.btnEditFName.Click += new System.EventHandler(this.btnEditFName_Click);
@@ -94,9 +96,9 @@
             this.btnEditEmail.IconColor = System.Drawing.Color.White;
             this.btnEditEmail.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditEmail.IconSize = 25;
-            this.btnEditEmail.Location = new System.Drawing.Point(624, 149);
+            this.btnEditEmail.Location = new System.Drawing.Point(624, 175);
             this.btnEditEmail.Name = "btnEditEmail";
-            this.btnEditEmail.Size = new System.Drawing.Size(27, 62);
+            this.btnEditEmail.Size = new System.Drawing.Size(27, 48);
             this.btnEditEmail.TabIndex = 8;
             this.btnEditEmail.UseVisualStyleBackColor = true;
             this.btnEditEmail.Click += new System.EventHandler(this.btnEditEmail_Click);
@@ -109,9 +111,9 @@
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
-            this.lblFName.Location = new System.Drawing.Point(141, 10);
+            this.lblFName.Location = new System.Drawing.Point(141, 64);
             this.lblFName.Name = "lblFName";
-            this.lblFName.Size = new System.Drawing.Size(477, 68);
+            this.lblFName.Size = new System.Drawing.Size(477, 54);
             this.lblFName.TabIndex = 1;
             this.lblFName.Text = "Supercalifragilistic";
             this.lblFName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,9 +126,9 @@
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(173)))));
-            this.lblLName.Location = new System.Drawing.Point(141, 78);
+            this.lblLName.Location = new System.Drawing.Point(141, 118);
             this.lblLName.Name = "lblLName";
-            this.lblLName.Size = new System.Drawing.Size(477, 68);
+            this.lblLName.Size = new System.Drawing.Size(477, 54);
             this.lblLName.TabIndex = 2;
             this.lblLName.Text = "Espialadocious";
             this.lblLName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,9 +139,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(141, 146);
+            this.lblEmail.Location = new System.Drawing.Point(141, 172);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(477, 68);
+            this.lblEmail.Size = new System.Drawing.Size(477, 54);
             this.lblEmail.TabIndex = 4;
             this.lblEmail.Text = "2562592@students.wits.ac.za";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,9 +152,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContactNo.AutoSize = true;
-            this.lblContactNo.Location = new System.Drawing.Point(141, 214);
+            this.lblContactNo.Location = new System.Drawing.Point(141, 226);
             this.lblContactNo.Name = "lblContactNo";
-            this.lblContactNo.Size = new System.Drawing.Size(477, 69);
+            this.lblContactNo.Size = new System.Drawing.Size(477, 57);
             this.lblContactNo.TabIndex = 5;
             this.lblContactNo.Text = "084 724 0098";
             this.lblContactNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,27 +170,31 @@
             this.tblpAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblpAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tblpAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblpAccount.Controls.Add(this.btnEditFName, 2, 0);
-            this.tblpAccount.Controls.Add(this.btnEditLName, 2, 1);
-            this.tblpAccount.Controls.Add(this.btnEditEmail, 2, 2);
-            this.tblpAccount.Controls.Add(this.label4, 0, 3);
-            this.tblpAccount.Controls.Add(this.btnEditContactNo, 2, 3);
-            this.tblpAccount.Controls.Add(this.label3, 0, 2);
-            this.tblpAccount.Controls.Add(this.lblFName, 1, 0);
-            this.tblpAccount.Controls.Add(this.label2, 0, 1);
-            this.tblpAccount.Controls.Add(this.lblLName, 1, 1);
-            this.tblpAccount.Controls.Add(this.label1, 0, 0);
-            this.tblpAccount.Controls.Add(this.lblEmail, 1, 2);
-            this.tblpAccount.Controls.Add(this.lblContactNo, 1, 3);
-            this.tblpAccount.Location = new System.Drawing.Point(277, 194);
+            this.tblpAccount.Controls.Add(this.btnEditFName, 2, 1);
+            this.tblpAccount.Controls.Add(this.btnEditLName, 2, 2);
+            this.tblpAccount.Controls.Add(this.btnEditEmail, 2, 3);
+            this.tblpAccount.Controls.Add(this.label4, 0, 4);
+            this.tblpAccount.Controls.Add(this.btnEditContactNo, 2, 4);
+            this.tblpAccount.Controls.Add(this.label3, 0, 3);
+            this.tblpAccount.Controls.Add(this.lblFName, 1, 1);
+            this.tblpAccount.Controls.Add(this.label2, 0, 2);
+            this.tblpAccount.Controls.Add(this.lblLName, 1, 2);
+            this.tblpAccount.Controls.Add(this.label1, 0, 1);
+            this.tblpAccount.Controls.Add(this.lblEmail, 1, 3);
+            this.tblpAccount.Controls.Add(this.lblContactNo, 1, 4);
+            this.tblpAccount.Controls.Add(this.label6, 0, 0);
+            this.tblpAccount.Controls.Add(this.lblRole, 1, 0);
+            this.tblpAccount.Location = new System.Drawing.Point(281, 128);
             this.tblpAccount.Margin = new System.Windows.Forms.Padding(10);
             this.tblpAccount.Name = "tblpAccount";
             this.tblpAccount.Padding = new System.Windows.Forms.Padding(10);
-            this.tblpAccount.RowCount = 4;
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblpAccount.RowCount = 5;
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblpAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblpAccount.Size = new System.Drawing.Size(664, 293);
             this.tblpAccount.TabIndex = 9;
             // 
@@ -198,9 +204,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 214);
+            this.label4.Location = new System.Drawing.Point(13, 226);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 69);
+            this.label4.Size = new System.Drawing.Size(122, 57);
             this.label4.TabIndex = 13;
             this.label4.Text = "Contact No:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,9 +222,9 @@
             this.btnEditContactNo.IconColor = System.Drawing.Color.White;
             this.btnEditContactNo.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnEditContactNo.IconSize = 25;
-            this.btnEditContactNo.Location = new System.Drawing.Point(624, 217);
+            this.btnEditContactNo.Location = new System.Drawing.Point(624, 229);
             this.btnEditContactNo.Name = "btnEditContactNo";
-            this.btnEditContactNo.Size = new System.Drawing.Size(27, 63);
+            this.btnEditContactNo.Size = new System.Drawing.Size(27, 51);
             this.btnEditContactNo.TabIndex = 9;
             this.btnEditContactNo.UseVisualStyleBackColor = true;
             this.btnEditContactNo.Click += new System.EventHandler(this.btnEditContactNo_Click);
@@ -229,9 +235,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 146);
+            this.label3.Location = new System.Drawing.Point(13, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 68);
+            this.label3.Size = new System.Drawing.Size(122, 54);
             this.label3.TabIndex = 12;
             this.label3.Text = "Email:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -242,9 +248,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 78);
+            this.label2.Location = new System.Drawing.Point(13, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 68);
+            this.label2.Size = new System.Drawing.Size(122, 54);
             this.label2.TabIndex = 11;
             this.label2.Text = "Last Name:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -255,9 +261,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 10);
+            this.label1.Location = new System.Drawing.Point(13, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 68);
+            this.label1.Size = new System.Drawing.Size(122, 54);
             this.label1.TabIndex = 10;
             this.label1.Text = "First Name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -265,16 +271,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(368, 112);
+            this.label5.Location = new System.Drawing.Point(377, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 23);
             this.label5.TabIndex = 14;
             this.label5.Text = "User ID:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // cbxuserId
             // 
             this.cbxuserId.FormattingEnabled = true;
-            this.cbxuserId.Location = new System.Drawing.Point(466, 109);
+            this.cbxuserId.Location = new System.Drawing.Point(475, 43);
             this.cbxuserId.Name = "cbxuserId";
             this.cbxuserId.Size = new System.Drawing.Size(384, 31);
             this.cbxuserId.TabIndex = 15;
@@ -299,6 +306,30 @@
             this.btnDeleteUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(13, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 54);
+            this.label6.TabIndex = 14;
+            this.label6.Tag = "";
+            this.label6.Text = "Role:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRole.ForeColor = System.Drawing.Color.White;
+            this.lblRole.Location = new System.Drawing.Point(141, 10);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(477, 54);
+            this.lblRole.TabIndex = 15;
+            this.lblRole.Text = "Admin";
+            this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ManageUsers
             // 
@@ -340,5 +371,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxuserId;
         private FontAwesome.Sharp.IconButton btnDeleteUser;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblRole;
     }
 }

@@ -39,7 +39,7 @@ namespace BookITFinal.Forms
                 MessageBox.Show("Invalid capacity selection");
                 return false;
             }
-            if (cbxAvailableVenues.SelectedIndex == -1)
+            if ((cbxAvailableVenues.SelectedIndex == -1) || (cbxAvailableVenues.SelectedItem.ToString() == "No available venues"))
             {
                 MessageBox.Show("Invalid venue selection");
                 return false;
@@ -146,6 +146,7 @@ namespace BookITFinal.Forms
 
             if (filteredVenues.Count != 0)
             {
+                btnCreateBooking.Enabled = true;
                 foreach (Venue filteredVenue in filteredVenues)
                 {
                     cbxAvailableVenues.Items.Add(filteredVenue.venueID + " - " + filteredVenue.buildingName);
@@ -154,6 +155,7 @@ namespace BookITFinal.Forms
             {
                 cbxAvailableVenues.Items.Add("No available venues");
                 cbxAvailableVenues.SelectedIndex = 0;
+                btnCreateBooking.Enabled = false;
             }
 
             cbxAvailableVenues.Enabled = true;
