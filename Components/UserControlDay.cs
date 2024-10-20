@@ -39,6 +39,14 @@ namespace BookITFinal.Components
             else
             {
                 iBookings.Visible = true;
+                if (this.date < DateTime.Today)
+                {
+                    iBookings.IconColor = Color.Crimson;
+                }
+                else
+                {
+                    iBookings.IconColor = Color.Chartreuse;
+                }
             }
 
             

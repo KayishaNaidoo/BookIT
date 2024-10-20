@@ -28,7 +28,7 @@ namespace BookITFinal.Forms
 
         private void PopUpCalendar_Load(object sender, EventArgs e)
         {
-            lblDateInfo.Text = lblDateInfo.Text+ Date.ToString("ddd, dd MMMMM yyyy");
+            lblDateInfo.Text = lblDateInfo.Text+ Date.ToString(" ddd, dd MMMMM yyyy");
             DataTable bookingsData;
             if (userType == "Admin") 
             {
